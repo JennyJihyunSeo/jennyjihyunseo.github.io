@@ -9,7 +9,7 @@ output: html_document
 <br>
 
 <p align="center">
-<img src="images/Jihyun Image Sample.jpg" style="width:50%; border:0.5px solid; margin-right: 20px" align="center">
+<img src="images/Jihyun Image Sample.jpg" style="width:30%; border:0.5px solid; margin-right: 20px" align="center">
 </p>
 <br>
 
