@@ -15,7 +15,7 @@ output: html_document
 
 🚨*THIS IS A FICTIONAL PROFILE MEANT AS AN EXAMPLE FOR THE DATA KORLAB COMMUNITY.* 
 <br><br><br>
-👋🏽 Hello, my name is John Appleseed. 
+👋🏽 Hello, my name is Jihyun Seo. 
 
 🎓 Soon to be grad with a M.S. in Data Science at ABC University. (May 2022)
 

@@ -5,7 +5,7 @@ base_url: https://jennyjihyunseo.github.io/
 google_analytics: "" # e.g. "UA-XXXXXXXXX-1", GA tracking code
 output_dir: "."
 navbar:
-  title: "John Appleseed"
+  title: "Jihyun Seo"
   left:
     - text: "Tutorials"
       href: tutorials.html
