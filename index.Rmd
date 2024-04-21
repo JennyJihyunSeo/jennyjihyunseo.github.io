@@ -9,33 +9,28 @@ output: html_document
 <br>
 
 <p align="center">
-<img src="images/profile_pic.jpg" style="width:50%; border:0.5px solid; margin-right: 20px" align="center">
+<img src="images/Jihyun Image Sample.jpg" style="width:50%; border:0.5px solid; margin-right: 20px" align="center">
 </p>
 <br>
 
-🚨*THIS IS A FICTIONAL PROFILE MEANT AS AN EXAMPLE FOR THE DATA KORLAB COMMUNITY.* 
-<br><br><br>
 👋🏽 Hello, my name is Jihyun Seo. 
 
-🎓 Soon to be grad with a M.S. in Data Science at ABC University. (May 2022)
+🎓 Soon to be grad with a M.S. in Business Analytics at UC Davis. (Dec 2025)
 
-🌇 New York City Native, with a passion for developing and applying mathematical and statistical models to hands-on strategies that will grow business.
+🌇 San Francisco, with a passion for blending data analysis while extracting  mathematical and statistical models with my previous work experiences as business managerial savvy that will promote sustainable business practices.
 
-📚 **Talk about your past experience, your present experience, and what you did (about 4-5 sentences)**
+📚 My Past Experiences in Food Manufacturing industry in South Korea (Jan,2017-Mar,2024)
 
-...
++  Worked as an Overseas Sales Manager for 6+ years in charge of untapped areas especially for Middle East, Europe, Africa and created interdisciplinary data-driven go-to-market strategies to cultivate new sales resources.
++  Successfully penetrated into 8+ untapped countries and discovered 12+ new distributors, resulting in YoY sales revenue growth by 42% and boosted local hypermarkets distribution channels coverage YoY growth by 101%.
++  Proactively signed a business contract with LuLu Hypermarkets, the 2nd biggest mainstream channel in the Middle East and launched 37+ SKUs with $71K in sales revenue increase for the first order.
++  Coordinated internal logistics and operational procedures as an Overseas Sales Support Manager with 1+ year to reduce extensive production lead times by 71% and improved logistics operational flows by 42% by successfully collaborating with internal and external stakeholders.
 
-💻 **Talk about what you want to do in the future (2 sentences)**
+💻 As for my future, I aspire to become a data analyst creating an interdisciplinary data-driven solutions for business sustainability and societal challenges, optimizing costs and profits within limited resources. 
 
-e.g. 💻 As for my future, I hope to one day work as a data analyst/scientist/engineer role and work with a marketing team.
+🏔 In my free time, you can find me running and SNPE(Self Natural Posture Exercise). I acquired a Certificate of Qualification for SNPE hosted by SNPE Good Posture Academy in 2021 and became qualified for relieving chronic musculoskeletal pain professionally as a personal stress management. 
 
-🏔 **Talk about hobbies(1 sentence)**
-
-e.g. 🏔In my free time, you can find me rock climbing.
-
-💪 **Highlight your strengths, use keywords (5-6)**
-
-e.g. 💪 Specialties in analyzing customer-driven data from e-commerce and applying insights to actionable strategies
+💪 Specialized in analyzing relevant datasets and generating interdisciplinary data-driven go-to-market strategies especially for previously untapped fields by applying business insights for sustainable business practices
 
 + Programming: Python, R
 + Data visualization: Tableau Software, Power BI
