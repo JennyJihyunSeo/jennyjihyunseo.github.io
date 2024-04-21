@@ -1,0 +1,51 @@
+---
+pagetitle: "DB/SQL1"
+output:
+  html_document:
+    toc: true
+    toc_depth: 5
+    toc_float:
+     collapsed: false
+     smooth_scroll: false
+---
+
+<link rel="stylesheet" href="styles.css" type="text/css">
+<link rel="stylesheet" href="site_libs/academicons-1.9.1/css/academicons.min.css"/>
+
+<br><br><br>
+
+## **Movie Explorer**
+
+![](https://img.shields.io/badge/Using-R-blue)
+![](https://img.shields.io/badge/-SQL-red)
+![](https://img.shields.io/badge/-Shiny%20App-success)
+
+<br>
+
+🚨**THIS IS A FICTIONAL PROJECT MEANT AS AN EXAMPLE FOR THE STEPBYSTAT COMMUNITY.**
+
+<br><br><br>
+
+### 1. Screenshot of Dashboard
+
+<p align="center">
+<img src="images/movie_explorer.png" style="width:80%; border:0px solid; margin-right: 20px" align="center">
+</p>
+<p align="center">
+</p>
+
+<br><br><br>
+
+### 2. Summary
+
++ blah blah blah
+
+<br><br><br>
+
+### 3. Live Demo
+
+For more insights, please check my Shiny App Live Demo by clicking [HERE](https://shiny.rstudio.com/gallery/movie-explorer.html).
+
+
+
+

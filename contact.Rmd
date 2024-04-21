@@ -1,0 +1,20 @@
+
+---
+title: ""
+author: "John Appleseed"
+date: 
+output: html_document
+---
+
+<link rel="stylesheet" href="styles.css" type="text/css">
+<link rel="stylesheet" href="site_libs/academicons-1.9.1/css/academicons.min.css"/>
+
+
+<br><br><br><br><br><br>
+
+#### **John Appleseed**
+##### M.S. Candidate in Data Science | ABC University <img src="images/college_logo.png" style="width:35%;" align="right">
+
+📍 Seoul <br>
+📱 (123) 456 - 7890 <br>
+✉️ [jappleseed@abc.edu](mailto:jappleseed@abc.edu) <br>

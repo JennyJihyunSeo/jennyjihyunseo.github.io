@@ -1,0 +1,103 @@
+---
+pagetitle: "Tutorials"
+output:
+  html_document:
+    toc: true
+    toc_depth: 5
+    toc_float:
+     collapsed: false
+     smooth_scroll: false
+---
+
+<link rel="stylesheet" href="styles.css" type="text/css">
+<link rel="stylesheet" href="site_libs/academicons-1.9.1/css/academicons.min.css"/>
+
+<br><br><br>
+
+---
+title: "Tutorials"
+---
+
+<br><br><br>
+
+### 1. Hyperlink 추가하기
+
+<br>
+
+#### 웹사이트 링크
+
+**[Markdown Input]**
+```
+e.g. For the most up to date list of publications, check out my [Google Scholar](https://scholar.google.com) page.
+```
+
+<br>
+
+**[Output]**
+
+e.g. For the most up to date list of publications, check out my [Google Scholar](https://scholar.google.com) page.
+
+<br>
+
+#### 디렉토리 내 파일 링크
+
+**[Markdown Input]**
+```
+e.g. Please find my resume [HERE](files/sample_resume.pdf).
+```
+<br>
+
+**[Output]**
+
+e.g. Please find my resume [HERE](files/sample_resume.pdf).
+
+<br>
+
+
+<br><br><br>
+
+### 2. Youtube 동영상 임베드 추가하기 
+
+<br>
+
+**[Markdown Input]**
+
+Youtube 에서 홈페이지에 첨부하고 싶은 영상에서 [Share] > [Embed] 클릭. 해당 코드 복사하기
+
+**예시:  자기소개 하는 법에 대한 영상을 임베드해보자**
+
+  + Youtube 주소: [ttps://www.youtube.com/watch?v=HK1PxHdWHvk](https://www.youtube.com/watch?v=HK1PxHdWHvk)
+
+```
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HK1PxHdWHvk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```
+
+<br>
+
+**[Output]**
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HK1PxHdWHvk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+<br><br><br>
+
+### 3. 이미지 파일 추가하기
+
+**[Markdown Input]**
+```
+<br>
+<p align="center">
+<img src="images/profile_pic.jpeg" style="width:50%; border:0.5px solid; margin-right: 20px" align="center">
+</p>
+<br>
+```
+
+<br>
+
+**[Output]**
+
+<br>
+<p align="center">
+<img src="images/profile_pic.jpg" style="width:50%; border:0.5px solid; margin-right: 20px" align="center">
+</p>
+<br>

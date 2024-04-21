@@ -1,0 +1,43 @@
+---
+pagetitle: "Index"
+output: html_document
+---
+
+<link rel="stylesheet" href="styles.css" type="text/css">
+<link rel="stylesheet" href="site_libs/academicons-1.9.1/css/academicons.min.css"/>
+
+<br>
+
+<p align="center">
+<img src="images/profile_pic.jpg" style="width:50%; border:0.5px solid; margin-right: 20px" align="center">
+</p>
+<br>
+
+🚨*THIS IS A FICTIONAL PROFILE MEANT AS AN EXAMPLE FOR THE DATA KORLAB COMMUNITY.* 
+<br><br><br>
+👋🏽 Hello, my name is John Appleseed. 
+
+🎓 Soon to be grad with a M.S. in Data Science at ABC University. (May 2022)
+
+🌇 New York City Native, with a passion for developing and applying mathematical and statistical models to hands-on strategies that will grow business.
+
+📚 **Talk about your past experience, your present experience, and what you did (about 4-5 sentences)**
+
+...
+
+💻 **Talk about what you want to do in the future (2 sentences)**
+
+e.g. 💻 As for my future, I hope to one day work as a data analyst/scientist/engineer role and work with a marketing team.
+
+🏔 **Talk about hobbies(1 sentence)**
+
+e.g. 🏔In my free time, you can find me rock climbing.
+
+💪 **Highlight your strengths, use keywords (5-6)**
+
+e.g. 💪 Specialties in analyzing customer-driven data from e-commerce and applying insights to actionable strategies
+
++ Programming: Python, R
++ Data visualization: Tableau Software, Power BI
++ Database: SQL, Postgre SQL, MongoDB, Neo4j
++ Cloud Computing: AWS, GCP (BigQuery), Azure
