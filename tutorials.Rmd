@@ -5,7 +5,7 @@ output:
     toc: true
     toc_depth: 5
     toc_float:
-     collapsed: true
+     collapsed: false
      smooth_scroll: false
 ---
 
@@ -49,7 +49,7 @@ e.g. Please find my resume [HERE](files/sample_resume.pdf).
 
 **[Output]**
 
-e.g. Please find my resume [HERE](files/sample_resume.pdf).
+e.g. Please find my resume [HERE](files/RESUME_SEO JIHYUN.pdf).
 
 <br>
 

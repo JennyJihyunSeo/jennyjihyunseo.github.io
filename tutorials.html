@@ -284,6 +284,12 @@ div.tocify {
   border-radius: 0px;
 }
 
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
 
 </style>
 
@@ -349,6 +355,9 @@ div.tocify {
     <li>
       <a href="dbsql1.html">Movie Explorer</a>
     </li>
+    <li>
+      <a href="dbsql2.html">Movie Explorer2</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -361,13 +370,16 @@ div.tocify {
     <li>
       <a href="visualization1.html">Squid Game Elimination Analysis</a>
     </li>
+    <li>
+      <a href="visualization2.html">Squid Game Elimination Analysis2</a>
+    </li>
   </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="contact.html">
-    <span class="fas fa-envelope"></span>
+    <span class="fa fa-sharp fa-solid fa-envelope"></span>
      
   </a>
 </li>
@@ -385,7 +397,7 @@ div.tocify {
 </li>
 <li>
   <a href="https://www.linkedin.com/in/ssue513">
-    <span class="fab fa-linkedin-in"></span>
+    <span class="ai ai-inspire ai-lg"></span>
      
   </a>
 </li>
@@ -427,7 +439,7 @@ href="https://scholar.google.com">Google Scholar</a> page.</p>
 <p><br></p>
 <p><strong>[Output]</strong></p>
 <p>e.g. Please find my resume <a
-href="files/sample_resume.pdf">HERE</a>.</p>
+href="files/RESUME_SEO%20JIHYUN.pdf">HERE</a>.</p>
 <p><br></p>
 <p><br><br><br></p>
 </div>
@@ -531,7 +543,7 @@ $(document).ready(function ()  {
       ignoreSelector: ".toc-ignore",
       scrollTo: 0
     };
-    options.showAndHide = true;
+    options.showAndHide = false;
     options.smoothScroll = false;
 
     // tocify

@@ -13,8 +13,8 @@ output: html_document
 <br><br><br><br><br><br>
 
 #### **Jihyun Seo**
-##### M.S. Candidate in Business Analytics | UC Davis <img src="images/UC-Davis-logo.png" style="width:35%;" align="right">
+##### M.S. Candidate in Business Analytics | UC Davis <img src="images/Admitted Students Digital Welcome Pack Assets_MSBA LinkedIn.png.jpg" style="width:35%;" align="right">
 
-📍 Seoul <br>
+📍 San Francisco <br>
 📱 (123) 456 - 7890 <br>
-✉️ [jiseo@ucdavis.edu](mailto:jiseo@ucdavis.edu) <br>
+✉️ [jiseo@ucdavis.edu](mailto:jiseo@ucdavis.edu) <br>  

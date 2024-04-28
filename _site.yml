@@ -3,7 +3,7 @@ title: "Jihyun Seo"
 pagetitle: "Jihyun Seo"
 base_url: https://jennyjihyunseo.github.io/
 google_analytics: "" # e.g. "UA-XXXXXXXXX-1", GA tracking code
-output_dir: "."
+output_dir: "." 
 navbar:
   title: "Jihyun Seo"
   left:
@@ -13,24 +13,28 @@ navbar:
       menu: 
       - text: "Predicting House Prices in Iowa"
         href: stat1.html
-      - text: "Predicting Airbnb prices in NYC"
+      - text: "Predicting Airbnb prices in NYC" #연습용으로 추가한 것.
         href: stat2.html
     - text: "DB/SQL"
       menu: 
       - text: "Movie Explorer"
         href: dbsql1.html
+      - text: "Movie Explorer2" 
+        href: dbsql2.html  # C드라이브에서 dbsql1파일을 복붙해서 dbsql2파일로 만들고 build website하면 html 파일이 생성
     - text: "Visualization"
       menu: 
       - text: "Squid Game Elimination Analysis"
         href: visualization1.html
+      - text: "Squid Game Elimination Analysis2"
+        href: visualization2.html
   right:
-    - icon: fas fa-envelope
+    - icon: fa-sharp fa-solid fa-envelope                       # fas fa-envelope
       href: contact.html
     - icon: ai-cv ai-lg
       href: files/RESUME_SEO JIHYUN.pdf
     - icon: fab fa-github
       href: http://github.com/JennyJihyunSeo
-    - icon: fab fa-linkedin-in
+    - icon: ai-inspire ai-lg                   # fab fa-linkedin-in
       href: https://www.linkedin.com/in/ssue513
     #- icon: ai-google-scholar ai-lg
     #  href: https://scholar.google.com/
