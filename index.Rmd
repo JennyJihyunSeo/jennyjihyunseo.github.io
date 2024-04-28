@@ -19,7 +19,7 @@ output: html_document
 
 🌇 San Francisco, with a passion for blending data analysis while extracting  mathematical and statistical models with my previous work experiences as business managerial savvy that will promote sustainable business practices.
 
-📚 My Past Experiences in Food Manufacturing industry in South Korea (Jan,2017-Mar,2024)
+📚 My Past Experiences in Food Manufacturing industry in South Korea (Jan, 2017 - Mar, 2024)
 
 +  Worked as an Overseas Sales Manager for 6+ years in charge of untapped areas especially for Middle East, Europe, Africa and created interdisciplinary data-driven go-to-market strategies to cultivate new sales resources.
 +  Successfully penetrated into 8+ untapped countries and discovered 12+ new distributors, resulting in YoY sales revenue growth by 42% and boosted local hypermarkets distribution channels coverage YoY growth by 101%.
@@ -28,7 +28,7 @@ output: html_document
 
 💻 As for my future, I aspire to become a data analyst creating an interdisciplinary data-driven solutions for business sustainability and societal challenges, optimizing costs and profits within limited resources. 
 
-🏔 In my free time, you can find me running and SNPE(Self Natural Posture Exercise). I acquired a Certificate of Qualification for SNPE hosted by SNPE Good Posture Academy in 2021 and became qualified for relieving chronic musculoskeletal pain professionally as a personal stress management. 
+🏔 In my free time, you can find me running and SNPE (Self Natural Posture Exercise). I acquired a Certificate of Qualification for SNPE hosted by SNPE Good Posture Academy in 2021 and became qualified for relieving chronic musculoskeletal pain professionally as a personal stress management. 
 
 💪 Specialized in analyzing relevant datasets and generating interdisciplinary data-driven go-to-market strategies especially for previously untapped fields by applying business insights for sustainable business practices
 

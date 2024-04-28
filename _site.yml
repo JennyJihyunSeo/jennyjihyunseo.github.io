@@ -26,16 +26,16 @@ navbar:
   right:
     - icon: fas fa-envelope
       href: contact.html
-    #- icon: ai-cv ai-lg
-    #  href: files/sample_resume.pdf
+    - icon: ai-cv ai-lg
+      href: files/RESUME_SEO JIHYUN.pdf
     - icon: fab fa-github
-      href: http://github.com/
+      href: http://github.com/JennyJihyunSeo
     - icon: fab fa-linkedin-in
-      href: https://www.linkedin.com/
-    - icon: ai-google-scholar ai-lg
-      href: https://scholar.google.com/
-    - icon: ai-researchgate ai-lg
-      href: https://www.researchgate.net/
+      href: https://www.linkedin.com/in/ssue513
+    #- icon: ai-google-scholar ai-lg
+    #  href: https://scholar.google.com/
+    #- icon: ai-researchgate ai-lg
+    #  href: https://www.researchgate.net/
 output:
   html_document:
     theme: cosmo

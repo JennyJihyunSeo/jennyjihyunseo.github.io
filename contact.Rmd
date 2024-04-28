@@ -1,7 +1,7 @@
 
 ---
 title: ""
-author: "John Appleseed"
+author: "Jihyun Seo"
 date: 
 output: html_document
 ---
@@ -12,9 +12,9 @@ output: html_document
 
 <br><br><br><br><br><br>
 
-#### **John Appleseed**
-##### M.S. Candidate in Data Science | ABC University <img src="images/college_logo.png" style="width:35%;" align="right">
+#### **Jihyun Seo**
+##### M.S. Candidate in Business Analytics | UC Davis <img src="images/UC-Davis-logo.png" style="width:35%;" align="right">
 
 📍 Seoul <br>
 📱 (123) 456 - 7890 <br>
-✉️ [jappleseed@abc.edu](mailto:jappleseed@abc.edu) <br>
+✉️ [jiseo@ucdavis.edu](mailto:jiseo@ucdavis.edu) <br>
