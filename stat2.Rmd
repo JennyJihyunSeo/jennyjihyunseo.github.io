@@ -1,0 +1,62 @@
+---
+pagetitle: "Stat2"
+output:
+  html_document:
+    toc: true
+    toc_depth: 5
+    toc_float:
+     collapsed: false
+     smooth_scroll: false
+---
+
+<link rel="stylesheet" href="styles.css" type="text/css">
+<link rel="stylesheet" href="site_libs/academicons-1.9.1/css/academicons.min.css"/>
+
+<br><br><br>
+
+## **Predicting Airbnb Prices in NYC**
+
+![](https://img.shields.io/badge/Using-Python-blue)
+![](https://img.shields.io/badge/-LASSO-red)
+![](https://img.shields.io/badge/-XGBoost-success)
+
+<br>
+
+🚨**THIS IS A FICTIONAL PROJECT MEANT AS AN EXAMPLE FOR THE STEPBYSTAT COMMUNITY.**
+
+<br><br><br>
+
+### 1. Figure
+
+<p align="center">
+<img src="images/predict_houseprice.png" style="width:80%; border:0px solid; margin-right: 20px" align="center">
+</p>
+<p align="center">
+[Fig. LASSO regression features by importance]
+</p>
+
+
+<br>
+
+<br><br>
+
+### 2. Goal
+To predict the final price of each home using 79 explanatory variables describing (almost) every aspect of residential homes in Ames, Iowa.
+
+<br>
+
+### 3. Methodology & Summary
+
+  + LASSO regressions showed the best performance with a cross validation RMSE-score of 0.1121. Although there is a lot of multicollinearity among the variables, LASSO regression include feature selection; it does not select a substantial number of the available variables in its model, as it is supposed to do.
+  + The XGBoost model also performs very well with a cross validation RMSE of 0.1162.
+  + As those two algorithms are very different, averaging predictions is likely to improve the predictions. As the Lasso cross validated RMSE is better than XGBoost's CV score, I decided to weight the Lasso results double.
+
+<br>
+
+### 4. Code
+
+Please click [HERE](https://www.kaggle.com/erikbruin/house-prices-lasso-xgboost-and-a-detailed-eda/report) for the analysis report and code.
+
+<br>
+
+

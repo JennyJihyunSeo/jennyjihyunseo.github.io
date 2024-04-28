@@ -13,6 +13,8 @@ navbar:
       menu: 
       - text: "Predicting House Prices in Iowa"
         href: stat1.html
+      - text: "Predicting Airbnb prices in NYC"
+        href: stat2.html
     - text: "DB/SQL"
       menu: 
       - text: "Movie Explorer"
