@@ -34,7 +34,7 @@ navbar:
       href: files/RESUME_SEO JIHYUN.pdf
     - icon: fab fa-github
       href: http://github.com/JennyJihyunSeo
-    - icon: ai-inspire ai-lg                   # fab fa-linkedin-in
+    - icon: fab fa-linkedin-in
       href: https://www.linkedin.com/in/ssue513
     #- icon: ai-google-scholar ai-lg
     #  href: https://scholar.google.com/
