@@ -38,6 +38,16 @@ output:
 
 <br>
 
+| Model                | Accuracy | F1 Score | AUC  |
+|----------------------|----------|----------|------|
+| Logistic Regression  | 0.88     | 0.47     | 0.87 |
+| Decision Tree        | 0.83     | 0.43     | 0.67 |
+| Random Forest        | 0.89     | 0.51     | 0.88 |
+| KNN                  | 0.87     | 0.40     | 0.82 |
+
+<p align="center">
+[Table. Model Performance Comparison]
+</p>
 <br><br>
 
 ### 2. Goal
