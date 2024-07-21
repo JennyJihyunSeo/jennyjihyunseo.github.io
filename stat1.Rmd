@@ -14,15 +14,15 @@ output:
 
 <br><br><br>
 
-## **Predicting House Prices in Iowa**
+## **Predicting Campaign Offer Acceptance**
 
 ![](https://img.shields.io/badge/Using-Python-blue)
-![](https://img.shields.io/badge/-LASSO-red)
-![](https://img.shields.io/badge/-XGBoost-success)
+![](https://img.shields.io/badge/RandomForest-red)
+![](https://img.shields.io/badge/-MachineLearning-success)
 
 <br>
 
-🚨**THIS IS A FICTIONAL PROJECT MEANT AS AN EXAMPLE FOR THE STEPBYSTAT COMMUNITY.**
+
 
 <br><br><br>
 
@@ -32,7 +32,7 @@ output:
 <img src="images/predict_houseprice.png" style="width:80%; border:0px solid; margin-right: 20px" align="center">
 </p>
 <p align="center">
-[Fig. LASSO regression features by importance]
+[Fig. Random Forest features by importance]
 </p>
 
 
@@ -55,7 +55,7 @@ To predict the final price of each home using 79 explanatory variables describin
 
 ### 4. Code
 
-Please click [HERE](https://www.kaggle.com/erikbruin/house-prices-lasso-xgboost-and-a-detailed-eda/report) for the analysis report and code.
+Please click [HERE](https://nbviewer.org/github/JennyJihyunSeo/jennyjihyunseo.github.io/blob/main/files/Customer_Personality_Analysis.ipynb) for the analysis report and code.
 
 <br>
 

@@ -11,7 +11,7 @@ navbar:
       href: tutorials.html
     - text: "Stat/ML"
       menu: 
-      - text: "Predicting House Prices in Iowa"
+      - text: "Predicting Campaign Offer Acceptance"
         href: stat1.html
       - text: "Predicting Airbnb prices in NYC" #연습용으로 추가한 것.
         href: stat2.html
