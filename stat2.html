@@ -417,55 +417,101 @@ div.tocify {
 <p><link rel="stylesheet" href="styles.css" type="text/css">
 <link rel="stylesheet" href="site_libs/academicons-1.9.1/css/academicons.min.css"/></p>
 <p><br><br><br></p>
-<div id="predicting-airbnb-prices-in-nyc" class="section level2">
-<h2><strong>Predicting Airbnb Prices in NYC</strong></h2>
-<p><img src="https://img.shields.io/badge/Using-Python-blue" /> <img
-src="https://img.shields.io/badge/-LASSO-red" /> <img
-src="https://img.shields.io/badge/-XGBoost-success" /></p>
+<div id="hypothesis-testing-with-two-sample-proportion-test"
+class="section level2">
+<h2><strong>Hypothesis Testing with Two-Sample Proportion
+Test</strong></h2>
+<p><img src="https://img.shields.io/badge/Using-R-blue" /></p>
 <p><br></p>
-<p>🚨<strong>THIS IS A FICTIONAL PROJECT MEANT AS AN EXAMPLE FOR THE
-STEPBYSTAT COMMUNITY.</strong></p>
 <p><br><br><br></p>
 <div id="figure" class="section level3">
 <h3>1. Figure</h3>
 <p align="center">
-<img src="images/predict_houseprice.png" style="width:80%; border:0px solid; margin-right: 20px" align="center">
+<img src="images/Lecture_1_treatment_effect.png" style="width:80%; border:0px solid; margin-right: 20px" align="center">
 </p>
 <p align="center">
-[Fig. LASSO regression features by importance]
+[Fig. Treatment Effects between New banner Ad and Old Banner Ad]
 </p>
 <p><br></p>
 <p><br><br></p>
 </div>
 <div id="goal" class="section level3">
 <h3>2. Goal</h3>
-<p>To predict the final price of each home using 79 explanatory
-variables describing (almost) every aspect of residential homes in Ames,
-Iowa.</p>
+<p>To test if the Click-Through-Rate (CTR) difference between Ad B
+(treatment group) and Ad A (Control group).</p>
+<p><br></p>
+</div>
+<div id="hypotheses" class="section level3">
+<h3>3. Hypotheses</h3>
+<p><strong>Null Hypothesis (H₀):</strong> - The null hypothesis
+indicates Ad B is not effective than Ad A - The null hypothesis
+indicates the CTR (Click through Rate) of Ad B is less than or equal to
+the CTR (Click through Rate) of Ad A <span class="math display">\[
+H_0: p_B \leq p_A
+\]</span></p>
+<p><strong>Alternative Hypothesis (H₁):</strong> - The null hypothesis
+indicates Ad B is more effective than Ad A - The null hypothesis
+indicates the CTR (Click through Rate) of Ad B is more than the CTR of
+Ad A <span class="math display">\[
+H_1: p_B &gt; p_A
+\]</span></p>
 <p><br></p>
 </div>
 <div id="methodology-summary" class="section level3">
-<h3>3. Methodology &amp; Summary</h3>
+<h3>4. Methodology &amp; Summary</h3>
 <ul>
-<li>LASSO regressions showed the best performance with a cross
-validation RMSE-score of 0.1121. Although there is a lot of
-multicollinearity among the variables, LASSO regression include feature
-selection; it does not select a substantial number of the available
-variables in its model, as it is supposed to do.</li>
-<li>The XGBoost model also performs very well with a cross validation
-RMSE of 0.1162.</li>
-<li>As those two algorithms are very different, averaging predictions is
-likely to improve the predictions. As the Lasso cross validated RMSE is
-better than XGBoost’s CV score, I decided to weight the Lasso results
-double.</li>
+<li>Two Sample proportion z-test was used:
+<ul>
+<li>Ad A and Ad B each had 500 samples.</li>
+<li>Success = clicking the ad (CTR).</li>
+<li>CTR of Ad A = 3% CTR and Ad B = 5.6% CTR</li>
+<li>Result: p-value = 0.0307 rejecting the null hypothesis</li>
+</ul></li>
+<li>Conclusion: At a 0.05 significance level, the p-value of 0.0307
+indicates that the null hypothesis (Ad B is not more effective than Ad
+A) can be rejected. The p-value represents the probability of observing
+a result as extreme as, or more extreme than, the current outcome under
+the assumption that the null hypothesis is true. Since the p-value is
+less than the significance level, we have sufficient evidence to reject
+the null hypothesis, suggesting that Ad B is statistically significantly
+more effective than Ad A.</li>
 </ul>
 <p><br></p>
 </div>
 <div id="code" class="section level3">
 <h3>4. Code</h3>
-<p>Please click <a
-href="https://www.kaggle.com/erikbruin/house-prices-lasso-xgboost-and-a-detailed-eda/report">HERE</a>
-for the analysis report and code.</p>
+<pre class="r"><code>#Q1
+### Set seed to ensure we consistently generate the same results
+set.seed(1)
+
+### Create two random samples of A and B with sample size 500 respectively 
+### A and B are distributed binomial with sample means 0.03 and 0.05
+### A and B follow binomial distributions while indicating 1 is success (clicking the Ad) and 0 is failure (not clicking the Ad)
+nbin &lt;- 500
+A &lt;- data.frame(CTR = rbinom(n = nbin, prob = 0.03, size = 1))
+B &lt;- data.frame(CTR = rbinom(n = nbin, prob = 0.05, size = 1))
+
+### Sample counts, counting the success of clicking the Ad.
+countA &lt;- sum(A$CTR)
+countB &lt;- sum(B$CTR)
+
+### Two-sample proportions z-test with one-sided test 
+prop.test(x = c(countB, countA), 
+          n = c(nbin, nbin), 
+          alternative = &quot;greater&quot;)</code></pre>
+<pre><code>## 
+##  2-sample test for equality of proportions with continuity correction
+## 
+## data:  c(countB, countA) out of c(nbin, nbin)
+## X-squared = 3.4993, df = 1, p-value = 0.0307
+## alternative hypothesis: greater
+## 95 percent confidence interval:
+##  0.00294022 1.00000000
+## sample estimates:
+## prop 1 prop 2 
+##  0.056  0.030</code></pre>
+<pre class="r"><code># Ad B is clicked 5% otherwise Ad A is clicked 3% on the time but this is very unlikely (only 3% based on the p-value) that 
+# this outcome can be gained under the assumption that the null hypothesis is true. Therefore, we suspect that the null hypothesis is not true.</code></pre>
 <p><br></p>
 </div>
 </div>

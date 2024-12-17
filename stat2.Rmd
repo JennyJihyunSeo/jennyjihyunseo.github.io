@@ -14,25 +14,24 @@ output:
 
 <br><br><br>
 
-## **Predicting Airbnb Prices in NYC**
+## **Hypothesis Testing with Two-Sample Proportion Test**
 
-![](https://img.shields.io/badge/Using-Python-blue)
-![](https://img.shields.io/badge/-LASSO-red)
-![](https://img.shields.io/badge/-XGBoost-success)
+![](https://img.shields.io/badge/Using-R-blue)
+
 
 <br>
 
-🚨**THIS IS A FICTIONAL PROJECT MEANT AS AN EXAMPLE FOR THE STEPBYSTAT COMMUNITY.**
+
 
 <br><br><br>
 
 ### 1. Figure
 
 <p align="center">
-<img src="images/predict_houseprice.png" style="width:80%; border:0px solid; margin-right: 20px" align="center">
+<img src="images/Lecture_1_treatment_effect.png" style="width:80%; border:0px solid; margin-right: 20px" align="center">
 </p>
 <p align="center">
-[Fig. LASSO regression features by importance]
+[Fig. Treatment Effects between New banner Ad and Old Banner Ad]
 </p>
 
 
@@ -41,21 +40,67 @@ output:
 <br><br>
 
 ### 2. Goal
-To predict the final price of each home using 79 explanatory variables describing (almost) every aspect of residential homes in Ames, Iowa.
+To test if the Click-Through-Rate (CTR) difference between Ad B (treatment group) and Ad A (Control group). 
 
 <br>
 
-### 3. Methodology & Summary
+### 3. Hypotheses
 
-  + LASSO regressions showed the best performance with a cross validation RMSE-score of 0.1121. Although there is a lot of multicollinearity among the variables, LASSO regression include feature selection; it does not select a substantial number of the available variables in its model, as it is supposed to do.
-  + The XGBoost model also performs very well with a cross validation RMSE of 0.1162.
-  + As those two algorithms are very different, averaging predictions is likely to improve the predictions. As the Lasso cross validated RMSE is better than XGBoost's CV score, I decided to weight the Lasso results double.
+**Null Hypothesis (H₀):**
+- The null hypothesis indicates Ad B is not effective than Ad A
+- The null hypothesis indicates the CTR (Click through Rate) of Ad B is less than or equal to the CTR (Click through Rate) of Ad A
+$$
+H_0: p_B \leq p_A
+$$
+
+**Alternative Hypothesis (H₁):**
+- The null hypothesis indicates Ad B is more effective than Ad A
+- The null hypothesis indicates the CTR (Click through Rate) of Ad B is more than the CTR of Ad A 
+$$
+H_1: p_B > p_A
+$$
+
+<br>
+
+### 4. Methodology & Summary
+
+  + Two Sample proportion z-test was used: 
+     + Ad A and Ad B each had 500 samples.
+     + Success = clicking the ad (CTR).
+     + CTR of Ad A = 3% CTR and Ad B = 5.6% CTR 
+     + Result: p-value = 0.0307 rejecting the null hypothesis
+     
+  + Conclusion: At a 0.05 significance level, the p-value of 0.0307 indicates that the null hypothesis (Ad B is not more effective than Ad A) can be rejected. The p-value represents the probability of observing a result as extreme as, or more extreme than, the current outcome under the assumption that the null hypothesis is true. Since the p-value is less than the significance level, we have sufficient evidence to reject the null hypothesis, suggesting that Ad B is statistically significantly more effective than Ad A.
+
 
 <br>
 
 ### 4. Code
 
-Please click [HERE](https://www.kaggle.com/erikbruin/house-prices-lasso-xgboost-and-a-detailed-eda/report) for the analysis report and code.
+```{r}
+#Q1
+### Set seed to ensure we consistently generate the same results
+set.seed(1)
+
+### Create two random samples of A and B with sample size 500 respectively 
+### A and B are distributed binomial with sample means 0.03 and 0.05
+### A and B follow binomial distributions while indicating 1 is success (clicking the Ad) and 0 is failure (not clicking the Ad)
+nbin <- 500
+A <- data.frame(CTR = rbinom(n = nbin, prob = 0.03, size = 1))
+B <- data.frame(CTR = rbinom(n = nbin, prob = 0.05, size = 1))
+
+### Sample counts, counting the success of clicking the Ad.
+countA <- sum(A$CTR)
+countB <- sum(B$CTR)
+
+### Two-sample proportions z-test with one-sided test 
+prop.test(x = c(countB, countA), 
+          n = c(nbin, nbin), 
+          alternative = "greater")
+
+# Ad B is clicked 5% otherwise Ad A is clicked 3% on the time but this is very unlikely (only 3% based on the p-value) that 
+# this outcome can be gained under the assumption that the null hypothesis is true. Therefore, we suspect that the null hypothesis is not true.
+```
 
 <br>
 
