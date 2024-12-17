@@ -1,11 +1,11 @@
-name: "Jihyun Seo"
-title: "Jihyun Seo"
-pagetitle: "Jihyun Seo"
+name: "Jihyun (Jenny) Seo"
+title: "Jihyun (Jenny) Seo"
+pagetitle: "Jihyun (Jenny) Seo"
 base_url: https://jennyjihyunseo.github.io/
 google_analytics: "" # e.g. "UA-XXXXXXXXX-1", GA tracking code
 output_dir: "." 
 navbar:
-  title: "Jihyun Seo"
+  title: "Jihyun (Jenny) Seo"
   left:
     - text: "Tutorials"
       href: tutorials.html
