@@ -284,12 +284,6 @@ div.tocify {
   border-radius: 0px;
 }
 
-.tocify-subheader {
-  display: inline;
-}
-.tocify-subheader .tocify-item {
-  font-size: 0.95em;
-}
 
 </style>
 
@@ -341,7 +335,7 @@ div.tocify {
       <a href="stat1.html">Predicting Campaign Offer Acceptance</a>
     </li>
     <li>
-      <a href="stat2.html">Predicting Airbnb prices in NYC</a>
+      <a href="stat2.html">Statistics using R</a>
     </li>
   </ul>
 </li>
@@ -410,6 +404,7 @@ div.tocify {
 
 
 
+<h1 class="title toc-ignore">Statistics using R</h1>
 
 </div>
 
@@ -417,17 +412,16 @@ div.tocify {
 <p><link rel="stylesheet" href="styles.css" type="text/css">
 <link rel="stylesheet" href="site_libs/academicons-1.9.1/css/academicons.min.css"/></p>
 <p><br><br><br></p>
+<p><br><br><br></p>
 <div id="hypothesis-testing-with-two-sample-proportion-test"
 class="section level2">
-<h2><strong>Hypothesis Testing with Two-Sample Proportion
-Test</strong></h2>
+<h2>1. Hypothesis Testing with Two-Sample Proportion Test</h2>
 <p><img src="https://img.shields.io/badge/Using-R-blue" /></p>
 <p><br></p>
-<p><br><br><br></p>
 <div id="figure" class="section level3">
 <h3>1. Figure</h3>
 <p align="center">
-<img src="images/Lecture_1_treatment_effect.png" style="width:60%; height:auto;" align="center">
+<img src="images/Lecture1.png" style="width:80%; height:auto;" align="center">
 </p>
 <p align="center">
 [Fig. Treatment Effects between New banner Ad and Old Banner Ad]
@@ -464,8 +458,8 @@ H_1: p_B &gt; p_A
 <ul>
 <li>Ad A and Ad B each had 500 samples.</li>
 <li>Success = clicking the ad (CTR).</li>
-<li>CTR of Ad A = 3% CTR and Ad B = 5.6% CTR</li>
-<li>Result: p-value = 0.0307 rejecting the null hypothesis</li>
+<li>CTR of Ad A = 3% CTR and Ad B = 5.6% CTR.</li>
+<li>Result: p-value = 0.0307 rejecting the null hypothesis.</li>
 </ul></li>
 <li>Conclusion: At a 0.05 significance level, the p-value of 0.0307
 indicates that the null hypothesis (Ad B is not more effective than Ad
@@ -479,7 +473,7 @@ more effective than Ad A.</li>
 <p><br></p>
 </div>
 <div id="code" class="section level3">
-<h3>4. Code</h3>
+<h3>5. Code</h3>
 <pre class="r"><code>#Q1
 ### Set seed to ensure we consistently generate the same results
 set.seed(1)
@@ -513,6 +507,770 @@ prop.test(x = c(countB, countA),
 <pre class="r"><code># Ad B is clicked 5% otherwise Ad A is clicked 3% on the time but this is very unlikely (only 3% based on the p-value) that 
 # this outcome can be gained under the assumption that the null hypothesis is true. Therefore, we suspect that the null hypothesis is not true.</code></pre>
 <p><br></p>
+<p><br><br><br></p>
+</div>
+</div>
+<div id="hypothesis-testing-with-10000-random-samples"
+class="section level2">
+<h2>2. Hypothesis Testing with 10,000 Random Samples</h2>
+<p><img src="https://img.shields.io/badge/Using-R-blue" /></p>
+<p><br></p>
+<p><br><br><br></p>
+<div id="figure-1" class="section level3">
+<h3>1. Figure</h3>
+<p align="center">
+<img src="images/Lecture1.png" style="width:80%; height:auto;" align="center">
+</p>
+<p align="center">
+[Fig. Treatment Effects between New banner Ad and Old Banner Ad]
+</p>
+<p><br></p>
+<p><br><br></p>
+</div>
+<div id="goal-1" class="section level3">
+<h3>2. Goal</h3>
+<p>To test if the mean Click-Through-Rate (CTR) between Ad A and Ad B is
+greater than 2.6%.</p>
+<p><br></p>
+</div>
+<div id="hypotheses-1" class="section level3">
+<h3>3. Hypotheses</h3>
+<p><strong>Null Hypothesis (H₀):</strong></p>
+<p>The mean difference in CTR between Ad B and Ad A is <strong>less than
+or equal to 2.6%</strong>:</p>
+<p><span class="math display">\[
+H_0: \mu_B - \mu_A \leq 0.026
+\]</span></p>
+<p><strong>Alternative Hypothesis (H₁):</strong></p>
+<p>The mean difference in CTR between Ad B and Ad A is <strong>greater
+than 2.6%</strong>:</p>
+<p><span class="math display">\[
+H_1: \mu_B - \mu_A &gt; 0.026
+\]</span></p>
+<p><br></p>
+</div>
+<div id="methodology-summary-1" class="section level3">
+<h3>4. Methodology &amp; Summary</h3>
+<ul>
+<li>Two Sample proportion z-test was used:
+<ul>
+<li>10,000 random samples of size 500 were drawn for both Ad A and Ad B,
+assuming both had a mean CTR of 4.3%, which indicates that those samples
+are simulated under the assumption that the null hypothesis is true as
+the mean of each distribution is the same as each other.</li>
+<li>The mean CTR difference was calculated.</li>
+<li>If the mean difference exceeded 2.6%, the null hypothesis was
+rejected.</li>
+<li>Result: p-value = 0.0242 rejecting the null hypothesis.</li>
+</ul></li>
+<li>Conclusion: At a 0.05 significance level, the p-value of 0.0242
+indicates that the null hypothesis (The mean difference between the two
+Ads is less than or equal to 2.6%.) can be rejected. The p-value
+represents the probability of observing a difference as extreme as, or
+more extreme than, 2.6% under the assumption that the null hypothesis is
+true. The probability of observing this extreme value (the mean
+difference between the two Ads greater than 2.6%) is 2.4%. Since the
+p-value is less than the significance level, we have sufficient evidence
+to reject the null hypothesis, suggesting that Ad B is statistically
+significantly 2.6% more effective than Ad A.</li>
+</ul>
+<p><br></p>
+</div>
+<div id="code-1" class="section level3">
+<h3>5. Code</h3>
+<pre class="r"><code>### 10,000 random samples from binomial with mean 0.043, for both Ad A and AD B which fits the null hypothesis with Ad B not being more effective than Ad A
+### 4.3% indicates the average CTR of A and B 
+### The purpose for this sampling is to identify whether CTR for Ad B is 2.6% larger than Ad A even if we got random samples for binomial distribution with the same average mean for both Ad A and Ad B. 
+
+set.seed(1)
+### Create data frame for mean of samples 
+hypothesis &lt;- data.frame(matrix(0, nrow = 10000, ncol = 4))
+
+### Name columns 
+colnames(hypothesis) &lt;- c(&#39;A&#39;, &#39;B&#39;, &#39;Dif&#39;, &#39;RejectH0&#39;)
+
+for (x in 1:10000) {
+  # The sample mean is the same as 4.3% (CTR = 4.3%)
+  hypothesis$A[x] &lt;- mean(rbinom(n = nbin, prob = 0.043, size = 1))
+  hypothesis$B[x] &lt;- mean(rbinom(n = nbin, prob = 0.043, size = 1))
+  
+  # The difference in CTR between A and B
+  hypothesis$Dif[x] &lt;- hypothesis$B[x] - hypothesis$A[x]
+  
+  # If the CTR of B is greater than 2.6% than A, we reject the null hypothesis.
+  hypothesis$RejectH0[x] &lt;- ifelse(hypothesis$B[x] - hypothesis$A[x] &gt; 0.026, 1, 0)
+}
+
+# The summary table of the result for this hypothesis testing.
+summary(hypothesis$RejectH0)</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.0000  0.0000  0.0242  0.0000  1.0000</code></pre>
+<p><br></p>
+<p><br><br><br></p>
+</div>
+</div>
+<div id="random-sampling" class="section level2">
+<h2>3. Random Sampling</h2>
+<p><img src="https://img.shields.io/badge/Using-R-blue" /></p>
+<p><br></p>
+<p><br><br><br></p>
+<div id="figure-2" class="section level3">
+<h3>1. Figure</h3>
+<p align="center">
+<img src="images/RandomSampling.png" style="width:80%; height:auto;" align="center">
+</p>
+<p align="center">
+[Fig. How Sample Mean Evolves as Sample Size Increases]
+</p>
+<p><br></p>
+<p><br><br></p>
+</div>
+<div id="goal-2" class="section level3">
+<h3>2. Goal</h3>
+<ul>
+<li>To demonstrate how the sample mean evolves as the sample size
+increases, and how the population variance affects the variability of
+sample means.
+<ul>
+<li>The sample mean becomes closer to the true population mean as the
+sample size increases.</li>
+<li>The stability of sample means improves when sampling from
+populations with lower variance.</li>
+</ul></li>
+</ul>
+<p><br></p>
+</div>
+<div id="methodology" class="section level3">
+<h3>3. Methodology</h3>
+<ol style="list-style-type: decimal">
+<li>Setup:
+<ul>
+<li>Two populations are sampled, both with a mean of 70 but with
+different variances.
+<ul>
+<li>Population 1: Variance = 36 (Standard Deviation = 6)</li>
+<li>Population 2: Variance = 9 (Standard Deviation = 3)</li>
+</ul></li>
+<li>Sample sizes range from 1 to 100.</li>
+</ul></li>
+<li>Process:
+<ul>
+<li>Random samples are drawn from each population for each sample size
+(1 to 100).</li>
+<li>The sample means are calculated and stored for both
+populations.</li>
+</ul></li>
+<li>Process:
+<ul>
+<li>The sample means are plotted against sample sizes to observe
+trends.</li>
+<li>Red Line: Population with larger variance (36)</li>
+<li>Blue Line: Population with smaller variance (9)</li>
+</ul></li>
+<li>Conclusion:
+<ul>
+<li>When the population variance is larger and sampling from this
+population, the sample means vary largely when the sample size is
+smaller. This variance is getting smaller when the sample size
+increases. In contrast, if the population variance is smaller and random
+samples from this population, there is less variability in the sample
+means compared to the first random sampling from the population with
+larger variance. The sample mean of the second population gets closer to
+the population mean which is 70 rapidly while showing greater stability
+even when the sample size is small.</li>
+</ul></li>
+</ol>
+<p><br></p>
+</div>
+<div id="code-2" class="section level3">
+<h3>4. Code</h3>
+<pre class="r"><code>### Set seed to ensure we consistently generate the same results 
+set.seed(1)
+
+### Create data frame to store the means of the samples
+sample_example &lt;- data.frame(matrix(0, nrow = 100, ncol = 3))
+
+### Name columns
+colnames(sample_example) &lt;- c(&#39;ssize&#39;, &#39;mean1&#39;, &#39;mean2&#39;)
+
+# Create random samples from a normal distribution with mean = 70 but with different variance
+# Sample sizes range from 1 to 100
+
+for (x in 1:100) {
+  # Generate random samples for two sets from the normal distribution with the same mean 70 and different variances. The first sample has 70 as mean and 36 as variance. The second sample has 70 as mean and 9 as variance. 
+  sample_run1 &lt;- data.frame(sample = rnorm(x, 70, 36))
+  sample_run2 &lt;- data.frame(sample = rnorm(x, 70, 9))
+  
+  # Store the sample size
+  sample_example$ssize[x] &lt;- x
+  
+  # Calculate the means of the samples and store them 
+  sample_example$mean1[x] &lt;- mean(sample_run1$sample)
+  sample_example$mean2[x] &lt;- mean(sample_run2$sample)
+}
+
+# View the results
+head(sample_example)</code></pre>
+<pre><code>##   ssize    mean1    mean2
+## 1     1 47.44766 71.65279
+## 2     2 83.67374 67.79068
+## 3     3 91.61842 74.78871
+## 4     4 54.19651 75.27123
+## 5     5 72.92430 66.86281
+## 6     6 68.78623 71.48757</code></pre>
+<pre class="r"><code># When the sample size is the same in each row, if the standard deviation is smaller, we could get more stable sample means closer to the population mean 70.</code></pre>
+<pre class="r"><code>### Plot X=Sample Size, Y = mean
+library(ggplot2)
+ggplot() + 
+  geom_line(data=sample_example, aes(x=ssize,y=mean1), color=&quot;red&quot;)+ 
+  geom_line(data=sample_example, aes(x=ssize,y=mean2), color=&quot;blue&quot;)+ 
+  ggtitle(&quot;How sample mean evolves as sample size increases&quot;) +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  labs(x=&#39;Sample Size&#39;,y=&#39;Sample Mean&#39;)</code></pre>
+<p><img src="stat2_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<br></p>
+<p><br><br><br></p>
+</div>
+</div>
+<div id="multi-armed-bandit" class="section level2">
+<h2>4. Multi-Armed Bandit</h2>
+<p><img src="https://img.shields.io/badge/Using-R-blue" /></p>
+<p><br></p>
+<p><br><br><br></p>
+<div id="definition" class="section level3">
+<h3>1. Definition</h3>
+<ul>
+<li>The Multi-Armed Bandit approach tests multiple levers (e.g.,
+advertisements) to identify the best lever offering the highest
+compensation. In this case:
+<ul>
+<li>4 advertisements are tested to determine the one with the highest
+CTR (Click-Through Rate).</li>
+<li>Fisher’s exact test is used instead of the proportion test when
+sample sizes (exposures of advertisements) are low.</li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><br><br></p>
+</div>
+<div id="goal-3" class="section level3">
+<h3>2. Goal</h3>
+<p>To identify the advertisement with the highest CTR and evaluate
+whether any other advertisements can serve as suitable alternatives.</p>
+<p><br></p>
+</div>
+<div id="methodology-1" class="section level3">
+<h3>3. Methodology</h3>
+<ol style="list-style-type: decimal">
+<li>Setup:
+<ul>
+<li>Four advertisements (Ad1, Ad2, Ad3, Ad4) are initialized with
+baseline CTRs:
+<ul>
+<li>Ad1: 2.5%, Ad2: 1%, Ad3: 0.5%, Ad4: 1.5%.</li>
+</ul></li>
+<li>The best advertisement starts with the highest baseline CTR.</li>
+</ul></li>
+<li>Dynamic Sampling:
+<ul>
+<li>Advertisements are exposed probabilistically, with higher
+probabilities assigned to the current best-performing ad.</li>
+<li>A random click (1 for success, 0 for failure) is generated based on
+the CTR of the selected ad.</li>
+</ul></li>
+<li>Updating Beliefs:
+<ul>
+<li>Clicks and exposures are updated after each trial.</li>
+<li>CTR for each advertisement is recalculated:
+<ul>
+<li><strong>CTR</strong> (Click-Through Rate):</li>
+</ul></li>
+</ul></li>
+</ol>
+<p><span class="math display">\[
+\text{CTR} = \frac{\text{Clicks}}{\text{Exposures}}
+\]</span> + CTR represents the ratio of the number of clicks to the
+number of times an advertisement was shown (exposures).</p>
+<ol start="4" style="list-style-type: decimal">
+<li>Testing Significance:
+<ul>
+<li>Once all advertisements have at least 10 exposures, Fisher’s test is
+applied:</li>
+<li><strong>Null Hypothesis (<span
+class="math inline">\(H_0\)</span>):</strong></li>
+</ul>
+<span class="math display">\[
+H_0: \text{CTR}_{\text{Best}} \geq \text{CTR}_{\text{Alternative}}
+\]</span>
+<ul>
+<li><strong>Alternative Hypothesis (<span
+class="math inline">\(H_1\)</span>):</strong></li>
+</ul>
+<span class="math display">\[
+H_1: \text{CTR}_{\text{Best}} &lt; \text{CTR}_{\text{Alternative}}
+\]</span>
+<ul>
+<li>Advertisements with p-values &lt; 0.05 are removed due to
+significant differences from the best ad.</li>
+</ul></li>
+<li>Conclusion:
+<ul>
+<li>The process continues until only the best advertisement and its
+close alternatives (if any) remain.</li>
+<li>The first advertisement has the highest CTR and there are no
+suitable alternatives with similar CTR compared to the best choice.</li>
+</ul></li>
+</ol>
+<p><br></p>
+</div>
+<div id="code-3" class="section level3">
+<h3>4. Code</h3>
+<pre class="r"><code># Choose 4 advertisements 
+N_ARMS = 4
+# Identifier for each advertisement 
+ARMS = c(1,2,3,4)
+# Set the baseline CTR for each advertisement 
+base_rates = c(.025,.01,.005,.015)
+# Before the experiment, the first advertisement has the highest CTR
+best = 1
+# Initialize the number of clicks, the number of advertisement exposure, and CTR (the number of clicks / the total number of advertisement exposure)
+clicks &lt;-c(0,0,0,0)
+draws &lt;-c(0,0,0,0)
+CTR &lt;-c(0,0,0,0)
+
+options(warn=-1)
+
+set.seed(1)
+
+while(N_ARMS&gt;1){
+  # Generate a random draw of ad from proportion .5 best, else other)
+  # Set arm probabilities
+  # Except for the best advertisement, 0.5 probabilities divided by remaining advertisements
+  epsilon = .5/(N_ARMS-1)
+  chosen_arm_p = c(0,0,0,0)
+  for (i in 1:length(ARMS)) {
+    chosen_arm_p[ARMS[i]]=epsilon
+  }
+  # Assign 0.5 exposure probability for the best advertisement
+  chosen_arm_p[best]=.5
+  # Choose the probability as the threshold to pull the arm
+  choicep &lt;- runif(1, min = 0, max = 1)
+  choice=0
+  # Choose the advertisement when the choice probability generated by uniform distribution is included in the cumulative range for each advertisement
+  # If one of the advertisements is selected, choice == 0 is not satisfied and the for loop is ended. 
+  for (i in 1:length(ARMS)) {
+    if (choicep&lt;=sum(chosen_arm_p[1:ARMS[i]]) &amp; choice==0){choice=ARMS[i]}
+  }
+  # Generate click or not click using CTR for each advertisement set above
+  # click has 1 (click) or 0 (not click) for one exposure 
+  click &lt;- rbinom(n=1,prob=base_rates[choice],size=1)
+  # Update beliefs about frequency
+  # Accumulate the number of clicks for each advertisement 
+  clicks[choice] &lt;- clicks[choice]+click
+  # The number of exposure increments by 1 for every trial 
+  draws[choice] &lt;- draws[choice]+1
+  # If the exposure is 0, the value is returned as 0 whereas CTR is calculated as clicks[choice] / draws [choice]
+  CTR[choice] = ifelse(draws[choice]==0, 0, (clicks[choice]/draws[choice]))
+  # Re-assign best 
+  best=0
+  # CTR object stores the CTR for each advertisement and find the best advertisement with the max CTR value
+  for (i in 1:length(ARMS)) {
+    if (CTR[ARMS[i]]==max(CTR) &amp; best==0){best=ARMS[i]}
+  }
+  # Test for significant difference between the best advertisement and the rest of the options
+  # Remove all for which p-value &lt;0.05, indicating that there is significant difference between the best and other option
+  # Only remove once each alternative has been drawn at least ten times 
+  # prop.test inappropriate and gives error if samples are too small
+  # The minimum exposure for each advertisement is greater than 10
+  if (min(draws)&gt;10) {
+  keep = c()
+  for (i in 1:length(ARMS)) {
+    if (ARMS[i]!=best) {
+      # The null hypothesis for the prop.test is CTR(best) is greater or than or equal to CTR(alternative) and the alternative hypothesis is CTR(best) is less than CTR(alternative). 
+      # If the null hypothesis is rejected, that alternative should be removed because there is statistically significant difference between the two. However, in this example. prop.test cannot be used due to lower exposure. Chi-squared test may not be appropriate when numerator is zero or very low.
+      # Fisher&#39;s test should be used 
+    result&lt;-fresult &lt;- fisher.test(
+  matrix(
+    c(clicks[best], clicks[ARMS[i]], 
+      draws[best] - clicks[best], draws[ARMS[i]] - clicks[ARMS[i]]),
+    nrow = 2
+  ),
+  alternative = &quot;greater&quot;
+)
+    if (result$p.value&gt;.05) {keep=c(keep,ARMS[i])}
+    }
+    if (ARMS[i]==best) {keep = c(keep,best)}
+  }
+  N_ARMS = length(keep)
+  ARMS=keep
+  }
+}
+
+ARMS  </code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre class="r"><code>rbind(base_rates, CTR)</code></pre>
+<pre><code>##                  [,1] [,2]        [,3]      [,4]
+## base_rates 0.02500000 0.01 0.005000000 0.0150000
+## CTR        0.02311007 0.00 0.003984064 0.0158883</code></pre>
+<pre class="r"><code>draws</code></pre>
+<pre><code>## [1] 2553  151  251 2077</code></pre>
+<p><br></p>
+<p><br><br><br></p>
+</div>
+</div>
+<div id="instagram-ads-ab-testing-disney" class="section level2">
+<h2>5. Instagram Ads A/B Testing (Disney)</h2>
+<p><img src="https://img.shields.io/badge/Using-R-blue" /></p>
+<p><br></p>
+<p><br><br><br></p>
+<div id="figure-3" class="section level3">
+<h3>1. Figure</h3>
+<p align="center">
+<img src="images/Disney.png" style="width:80%; height:auto;" align="center">
+</p>
+<p align="center">
+[Fig. Decide whether to continue on the Ad based on Incremental
+Conversion Rate]
+</p>
+<p><br></p>
+<p><br><br></p>
+</div>
+<div id="goal-4" class="section level3">
+<h3>2. Goal</h3>
+<p>To identify whether any treatment effect represented by Incremental
+Conversion Rate (ICR) is positive.</p>
+<p><br></p>
+</div>
+<div id="hypotheses-and-formula-of-icr" class="section level3">
+<h3>3. Hypotheses and Formula of ICR</h3>
+<ul>
+<li><p>The <strong>Incremental Conversion Rate (ICR)</strong> is defined
+as:</p>
+<ul>
+<li><strong>ICR</strong> (Incremental Conversion Rate):</li>
+</ul>
+<p><span class="math display">\[
+\text{ICR} = \text{Conversion_Rate(Treatment)} -
+\text{Conversion_Rate(Control)}
+\]</span></p></li>
+<li><p><strong>Treatment group</strong>: Exposed to the
+advertisement.<br />
+</p></li>
+<li><p><strong>Control group</strong>: Not exposed to the
+advertisement.</p></li>
+<li><p><strong>Null Hypothesis (<span
+class="math inline">\(H_0\)</span>):</strong></p>
+<p><span class="math display">\[
+H_0: \text{ICR} \leq 0 \quad \text{(The incremental conversion rate is
+less than or equal to 0)}.
+\]</span></p></li>
+<li><p><strong>Alternative Hypothesis (<span
+class="math inline">\(H_1\)</span>):</strong></p>
+<p><span class="math display">\[
+H_1: \text{ICR} &gt; 0 \quad \text{(The incremental conversion rate is
+greater than 0)}.
+\]</span></p></li>
+</ul>
+</div>
+<div id="conclusion" class="section level3">
+<h3>4. Conclusion:</h3>
+<ul>
+<li>The p-value obtained from this test allow us to reject the null
+hypothesis. This indicates that the conversion rate in the treatment
+group is statistically significantly greater than that in the control
+group.</li>
+</ul>
+<p><br></p>
+</div>
+<div id="code-4" class="section level3">
+<h3>5. Code</h3>
+<pre class="r"><code># Load the RData file
+load(&quot;DisneyAB.Rdata&quot;) 
+### tests
+### Proportion test for ICR
+# Sample is 10,000 people for treatment group and control group 
+sample=10000
+# 
+prop.test(x=c(sum(DisneyAB$TreatConv),sum(DisneyAB$ControlConv)), n=c(sample,sample), alternative = &quot;greater&quot;)</code></pre>
+<pre><code>## 
+##  2-sample test for equality of proportions with continuity correction
+## 
+## data:  c(sum(DisneyAB$TreatConv), sum(DisneyAB$ControlConv)) out of c(sample, sample)
+## X-squared = 6.1471, df = 1, p-value = 0.006581
+## alternative hypothesis: greater
+## 95 percent confidence interval:
+##  0.0007070449 1.0000000000
+## sample estimates:
+## prop 1 prop 2 
+## 0.0047 0.0025</code></pre>
+<p><br></p>
+<p><br><br><br></p>
+</div>
+</div>
+<div id="instagram-ads-roi-return-on-investment-disney"
+class="section level2">
+<h2>6. Instagram Ads ROI (Return On Investment) (Disney)</h2>
+<p><img src="https://img.shields.io/badge/Using-R-blue" /></p>
+<p><br></p>
+<p><br><br><br></p>
+<div id="figure-4" class="section level3">
+<h3>1. Figure</h3>
+<p align="center">
+<img src="images/AloA.png" style="width:80%; height:auto;" align="center">
+</p>
+<p align="center">
+[Fig. Calculate ROI to decide whether to continue on the Advertisement.]
+</p>
+<p><br></p>
+<p><br><br></p>
+</div>
+<div id="goal-5" class="section level3">
+<h3>2. Goal</h3>
+<p>To identify whether the conversion revenue is different between
+converted treatment and control group. In addition, Return On Investment
+(ROI) is calculated to decide whether to continue on the
+advertisement.</p>
+<p><br></p>
+</div>
+<div id="hypotheses-and-formula-of-roi" class="section level3">
+<h3>3. Hypotheses and Formula of ROI:</h3>
+<ul>
+<li><p><strong>Null Hypothesis (<span
+class="math inline">\(H_0\)</span>):</strong></p>
+<p><span class="math display">\[
+H_0: \mu_{\text{Treatment}} = \mu_{\text{Control}}
+\]</span></p></li>
+<li><p><strong>Alternative Hypothesis (<span
+class="math inline">\(H_1\)</span>):</strong></p>
+<p><span class="math display">\[
+H_1: \mu_{\text{Treatment}} \neq \mu_{\text{Control}}
+\]</span></p></li>
+<li><p>The <strong>ROI</strong> is calculated as follows: Sample 10,000
+people for treatment and control group. Total cost of experiment is
+<span class="math inline">\(10,000 \times 0.2 = 20\)</span>.</p>
+<p><span class="math display">\[
+\text{ROI} = \frac{\text{Revenue}_{\text{Treatment}} -
+\text{Revenue}_{\text{Control}} - \text{Cost}}{\text{Cost}}
+\]</span></p></li>
+</ul>
+</div>
+<div id="conclusion-1" class="section level3">
+<h3>4. Conclusion:</h3>
+<ul>
+<li><p>At 0.05 significance level, the null hypothesis cannot be
+rejected, indicating there is no statistically significant difference in
+conversion revenue between the converted control and treatment group
+exposed to Disney advertisement. Consequently, the experiment does not
+provide sufficient evidence to conclude that the Disney advertisement
+has a significant impact on the average conversion revenue among
+converted users.</p></li>
+<li><p>The Disney advertisement generates 305.95 times the return on
+investment compared to the cost of running the advertisement, relative
+to the control group.</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="code-5" class="section level3">
+<h3>5. Code</h3>
+<pre class="r"><code>### Subset the data
+DisTRev &lt;- subset(DisneyAB$TreatRev, DisneyAB$TreatConv == 1)
+DisCRev &lt;- subset(DisneyAB$ControlRev, DisneyAB$ControlConv == 1)
+
+### Test Welch Two Sample t-test under the assumption that the variances between the two differ
+t.test(DisTRev, DisCRev, alternative = &quot;two.sided&quot;, var.equal = FALSE)</code></pre>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  DisTRev and DisCRev
+## t = -0.34404, df = 40.45, p-value = 0.7326
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -1068.5255   757.5723
+## sample estimates:
+## mean of x mean of y 
+##  455.7234  611.2000</code></pre>
+<pre class="r"><code>### ROI Disney 
+(sum(DisTRev)-sum(DisCRev)-20)/20</code></pre>
+<pre><code>## [1] 305.95</code></pre>
+<p><br></p>
+<p><br><br><br></p>
+</div>
+</div>
+<div id="instagram-ads-ab-testing-alo" class="section level2">
+<h2>7. Instagram Ads A/B Testing (Alo)</h2>
+<p><img src="https://img.shields.io/badge/Using-R-blue" /></p>
+<p><br></p>
+<p><br><br><br></p>
+<div id="figure-5" class="section level3">
+<h3>1. Figure</h3>
+<p align="center">
+<img src="images/AloA.png" style="width:80%; height:auto;" align="center">
+</p>
+<p align="center">
+[Fig. Decide whether to continue on the Ad based on Incremental
+Conversion Rate]
+</p>
+<p><br></p>
+<p><br><br></p>
+</div>
+<div id="goal-6" class="section level3">
+<h3>2. Goal</h3>
+<p>To identify whether any treatment effect represented by Incremental
+Conversion Rate (ICR) is positive.</p>
+<p><br></p>
+</div>
+<div id="hypotheses-and-formula-of-icr-1" class="section level3">
+<h3>3. Hypotheses and Formula of ICR</h3>
+<ul>
+<li><p>The <strong>Incremental Conversion Rate (ICR)</strong> is defined
+as:</p>
+<ul>
+<li><p><strong>ICR</strong> (Incremental Conversion Rate):</p>
+<p><span class="math display">\[
+\text{ICR} = \text{Conversion\_Rate(Treatment)} -
+\text{Conversion\_Rate(Control)}
+\]</span></p></li>
+<li><p><strong>Treatment group</strong>: Exposed to the
+advertisement.<br />
+</p></li>
+<li><p><strong>Control group</strong>: Not exposed to the
+advertisement.</p></li>
+</ul></li>
+<li><p><strong>Null Hypothesis (<span
+class="math inline">\(H_0\)</span>):</strong></p>
+<p><span class="math display">\[
+H_0: \text{ICR} \leq 0 \quad \text{(The incremental conversion rate is
+less than or equal to 0)}.
+\]</span></p></li>
+<li><p><strong>Alternative Hypothesis (<span
+class="math inline">\(H_1\)</span>):</strong></p>
+<p><span class="math display">\[
+H_1: \text{ICR} &gt; 0 \quad \text{(The incremental conversion rate is
+greater than 0)}.
+\]</span></p></li>
+</ul>
+</div>
+<div id="conclusion-2" class="section level3">
+<h3>4. Conclusion:</h3>
+<ul>
+<li>The p-value obtained from this test allow us to reject the null
+hypothesis. This indicates that the conversion rate in the treatment
+group is statistically significantly greater than that in the control
+group.</li>
+</ul>
+<p><br></p>
+</div>
+<div id="code-6" class="section level3">
+<h3>5. Code</h3>
+<pre class="r"><code>load(&quot;AloAB.Rdata&quot;) 
+### tests for another data
+### Proportion test for ICR
+### ICR = Conversion_Rate(Treatment) − Conversion_Rate(Control)
+# Assign 10,000 units for both treatment and control groups 
+sample=10000
+prop.test(x=c(sum(AloAB$TreatConv),sum(AloAB$ControlConv)), n=c(sample,sample), alternative = &quot;greater&quot;)</code></pre>
+<pre><code>## 
+##  2-sample test for equality of proportions with continuity correction
+## 
+## data:  c(sum(AloAB$TreatConv), sum(AloAB$ControlConv)) out of c(sample, sample)
+## X-squared = 17.926, df = 1, p-value = 1.149e-05
+## alternative hypothesis: greater
+## 95 percent confidence interval:
+##  0.002874909 1.000000000
+## sample estimates:
+## prop 1 prop 2 
+## 0.0086 0.0038</code></pre>
+<p><br></p>
+<p><br><br><br></p>
+</div>
+</div>
+<div id="instagram-ads-roi-return-on-investment-alo"
+class="section level2">
+<h2>8. Instagram Ads ROI (Return On Investment) (Alo)</h2>
+<p><img src="https://img.shields.io/badge/Using-R-blue" /></p>
+<p><br></p>
+<p><br><br><br></p>
+<div id="figure-6" class="section level3">
+<h3>1. Figure</h3>
+<p align="center">
+<img src="images/AloA.png" style="width:80%; height:auto;" align="center">
+</p>
+<p align="center">
+[Fig. Calculate ROI to decide whether to continue on the Advertisement]
+</p>
+<p><br></p>
+<p><br><br></p>
+</div>
+<div id="goal-7" class="section level3">
+<h3>2. Goal</h3>
+<p>To identify whether the conversion revenue is different between
+converted treatment and control group. In addition, Return On Investment
+(ROI) is calculated to decide whether to continue on the
+advertisement.</p>
+<p><br></p>
+</div>
+<div id="hypotheses-and-formula-of-roi-1" class="section level3">
+<h3>3. Hypotheses and Formula of ROI:</h3>
+<ul>
+<li><p><strong>Null Hypothesis (<span
+class="math inline">\(H_0\)</span>):</strong></p>
+<p><span class="math display">\[
+H_0: \mu_{\text{Treatment}} = \mu_{\text{Control}}
+\]</span></p></li>
+<li><p><strong>Alternative Hypothesis (<span
+class="math inline">\(H_1\)</span>):</strong></p>
+<p><span class="math display">\[
+H_1: \mu_{\text{Treatment}} \neq \mu_{\text{Control}}
+\]</span></p></li>
+<li><p>The <strong>ROI</strong> is calculated as follows:<br />
+Sample 10,000 people for the treatment and control groups.<br />
+Total cost of the experiment is <span class="math inline">\(10,000
+\times 0.2 = \$20\)</span>.</p>
+<p><span class="math display">\[
+\text{ROI} = \frac{\text{Revenue}_{\text{Treatment}} -
+\text{Revenue}_{\text{Control}} - \text{Cost}}{\text{Cost}}
+\]</span></p></li>
+</ul>
+</div>
+<div id="conclusion-3" class="section level3">
+<h3>4. Conclusion:</h3>
+<ul>
+<li><p>At 0.05 significance level, the null hypothesis cannot be
+rejected, indicating there is no statistically significant difference in
+conversion revenue between the converted control and treatment group
+exposed to Alo advertisement. Consequently, the experiment does not
+provide sufficient evidence to conclude that the Alo advertisement has a
+significant impact on the average conversion revenue among converted
+users.</p></li>
+<li><p>In case of ROI of the Alo advertisement, the treatment group
+exposed to the advertisement 0.3655 times the return on investment
+compared to the cost of running the advertisement, relative to the
+control group. This indicates that the Alo advertisement is less
+effective to generate more revenue from the treatment group compared to
+the control group.</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="code-7" class="section level3">
+<h3>5. Code</h3>
+<pre class="r"><code>AloTRev &lt;- subset(AloAB$TreatRev, AloAB$TreatConv == 1)
+AloCRev &lt;- subset(AloAB$ControlRev, AloAB$ControlConv == 1)
+t.test(AloTRev, AloCRev, alternative = &quot;two.sided&quot;, var.equal = FALSE)</code></pre>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  AloTRev and AloCRev
+## t = -0.35691, df = 58.769, p-value = 0.7224
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -1.3206978  0.9209059
+## sample estimates:
+## mean of x mean of y 
+## 0.7272093 0.9271053</code></pre>
+<pre class="r"><code>(sum(AloTRev)-sum(AloCRev)-20)/20</code></pre>
+<pre><code>## [1] 0.3655</code></pre>
+<p><br></p>
+<p><br><br><br></p>
 </div>
 </div>
 
@@ -579,7 +1337,7 @@ $(document).ready(function ()  {
       ignoreSelector: ".toc-ignore",
       scrollTo: 0
     };
-    options.showAndHide = false;
+    options.showAndHide = true;
     options.smoothScroll = false;
 
     // tocify

@@ -13,7 +13,7 @@ navbar:
       menu: 
       - text: "Predicting Campaign Offer Acceptance"
         href: stat1.html
-      - text: "Predicting Airbnb prices in NYC" #연습용으로 추가한 것.
+      - text: "Statistics using R" #연습용으로 추가한 것.
         href: stat2.html
     - text: "DB/SQL"
       menu: 
