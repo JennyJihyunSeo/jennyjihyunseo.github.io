@@ -1273,6 +1273,989 @@ t.test(AloTRev, AloCRev, alternative = &quot;two.sided&quot;, var.equal = FALSE)
 <p><br><br><br></p>
 </div>
 </div>
+<div id="hypothesis-testing-with-multiple-treatments"
+class="section level2">
+<h2>9. Hypothesis Testing with Multiple Treatments</h2>
+<p><img src="https://img.shields.io/badge/Using-R-blue" /></p>
+<p><br></p>
+<p><br><br><br></p>
+<div id="figure-7" class="section level3">
+<h3>1. Figure</h3>
+<p align="center">
+<img src="images/Nutrition.png" style="width:80%; height:auto;" align="center">
+</p>
+<p align="center">
+[Fig. Do Nutrition Labels Encourage Healthier Eating?]
+</p>
+<p><br></p>
+<p><br><br></p>
+</div>
+<div id="objective" class="section level3">
+<h3>2. Objective</h3>
+<p>To determine if there is any difference in the average nutrition
+score of shopping baskets across different labeling treatments for an
+online grocer. The treatments include: - <strong>Star Nutrition
+Labels</strong> - <strong>Letter Grade Nutrition Labels</strong> -
+<strong>Warning Labels</strong> - <strong>Control Group (No
+Labels)</strong></p>
+<p>Dependent variable: Average nutrition score of the shopping
+basket.</p>
+<p><br></p>
+</div>
+<div id="methodology-2" class="section level3">
+<h3>3. Methodology</h3>
+<div id="a-visualization" class="section level4">
+<h4>(a) Visualization</h4>
+<p>Using boxplots to compare the basket scores across treatments.</p>
+<pre class="r"><code>getwd()</code></pre>
+<pre><code>## [1] &quot;C:/Github/jennyjihyunseo.github.io&quot;</code></pre>
+<pre class="r"><code>file_path &lt;- &quot;C:/Users/sjh50/OneDrive/문서/UC Davis/Paul/Github/Lecture2/Grocery.Rdata&quot;
+load(&quot;Grocery.Rdata&quot;)
+
+library(DescTools)
+library(ggplot2)</code></pre>
+<pre class="r"><code>summary(Grocery$BasketScore[Grocery$Condition==&quot;Control&quot;])</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   18.90   47.55   54.56   55.27   63.14  100.00</code></pre>
+<pre class="r"><code>summary(Grocery$BasketScore[Grocery$Condition==&quot;Star&quot;])</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   22.04   48.52   57.74   57.45   66.27   94.67</code></pre>
+<pre class="r"><code>summary(Grocery$BasketScore[Grocery$Condition==&quot;Letter&quot;])</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   19.46   50.02   57.86   58.46   67.36  100.00</code></pre>
+<pre class="r"><code>summary(Grocery$BasketScore[Grocery$Condition==&quot;Warn&quot;])</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   25.33   52.95   60.77   60.65   69.81   98.85</code></pre>
+<pre class="r"><code>### ggplot 
+ggplot(Grocery, aes(x=Condition, y=BasketScore, fill=Condition)) + 
+geom_boxplot()+
+ theme(text = element_text(size = 20))</code></pre>
+<p><img src="stat2_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+</div>
+<div id="b-anova-test" class="section level4">
+<h4>(b) ANOVA Test</h4>
+<p>To test for significant differences in means among treatments.</p>
+<pre class="r"><code>### ANOVA test to identify whether there is significant difference in the mean among different treatments 
+anova &lt;-aov(BasketScore ~ Condition, data = Grocery)
+summary(anova)</code></pre>
+<pre><code>##               Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+## Condition      3   7479  2493.0   16.09 2.45e-10 ***
+## Residuals   1996 309221   154.9                     
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p><strong>Null Hypothesis (<span
+class="math inline">\(H_0\)</span>)</strong>: <span
+class="math display">\[
+H_0: \mu_{\text{Star}} = \mu_{\text{Letter}} = \mu_{\text{Warning}} =
+\mu_{\text{Control}}
+\]</span></p>
+<p><strong>Alternative Hypothesis (<span
+class="math inline">\(H_A\)</span>)</strong>: <span
+class="math display">\[
+H_A: \text{At least one group mean is different.}
+\]</span></p>
+<p>At 0.05 significance level, the null hypothesis can be rejected. It
+concludes that at least one treatment mean is different. In order to
+find which treatment differs, TukeyHSD is used for finding.</p>
+</div>
+<div id="c-tukeyhsd-test" class="section level4">
+<h4>(c) TukeyHSD Test</h4>
+<p>To identify which treatments differ.</p>
+<pre class="r"><code>TukeyHSD(anova)</code></pre>
+<pre><code>##   Tukey multiple comparisons of means
+##     95% family-wise confidence level
+## 
+## Fit: aov(formula = BasketScore ~ Condition, data = Grocery)
+## 
+## $Condition
+##                     diff        lwr      upr     p adj
+## Letter-Control  3.189506  1.1654647 5.213548 0.0003077
+## Star-Control    2.178433  0.1543914 4.202475 0.0291183
+## Warn-Control    5.375293  3.3512514 7.399335 0.0000000
+## Star-Letter    -1.011073 -3.0351150 1.012968 0.5729945
+## Warn-Letter     2.185787  0.1617451 4.209828 0.0283479
+## Warn-Star       3.196860  1.1728183 5.220902 0.0002959</code></pre>
+<p>Interpretation: (1) Letter - Control: There is a statistically
+significant difference in basket score between Letter Nutrition Labels
+and no labels. If there are letter nutrition labels, it encourages
+customers to buy healthier groceries while increasing the basket scores
+by 3.18 units compared to the control group. (2) Star - Control: There
+is a statistically significant difference in basket score between Star
+Nutrition Labels and no labels (control). When Star Nutrition Labels are
+displayed, they encourage customers to buy healthier groceries,
+increasing the basket score by 2.18 units compared to the control group.
+(3) Warn - Control: There is a statistically significant difference in
+basket score between Warn Nutrition Labels and no labels. Warning Labels
+have the strongest effect, leading to a increase of 5.38 units in basket
+scores compared to the control group. (4) Warn - Letter: When comparing
+Warning Nutrition Labels and Letter Nutrition Labels, there is a
+statistically significant difference in basket scores. Warning Labels
+are more effective, increasing basket scores by 2.18 units compared to
+Letter Nutrition Labels. (5) Warn - Star: When comparing Warning
+Nutrition Labels and Star Nutrition Labels, there is a statistically
+significant difference in basket scores. Warning Labels are more
+effective, increasing basket scores by 3.19 units compared to Star
+Nutrition Labels. (6) Star - Letter: It is not statistically significant
+in basket scores between Star and Letter labels.</p>
+</div>
+<div id="d-regression-analysis" class="section level4">
+<h4>(d) Regression Analysis</h4>
+<pre class="r"><code>### Regression
+OLS &lt;- lm(Grocery$BasketScore ~ Grocery$Condition)
+summary(OLS)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = Grocery$BasketScore ~ Grocery$Condition)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -38.998  -8.141  -0.286   8.677  44.730 
+## 
+## Coefficients:
+##                         Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)              55.2703     0.5566  99.294  &lt; 2e-16 ***
+## Grocery$ConditionLetter   3.1895     0.7872   4.052 5.28e-05 ***
+## Grocery$ConditionStar     2.1784     0.7872   2.767   0.0057 ** 
+## Grocery$ConditionWarn     5.3753     0.7872   6.828 1.14e-11 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 12.45 on 1996 degrees of freedom
+## Multiple R-squared:  0.02362,    Adjusted R-squared:  0.02215 
+## F-statistic: 16.09 on 3 and 1996 DF,  p-value: 2.45e-10</code></pre>
+<p>At a 0.05 significance level, the overall model is statistically
+significant but R-squared is low. Only 2.3% of the variation in the
+dependent variable is explained by independent variables. In terms of
+coefficients of the independent variables, all coefficients are
+statistically significant at 0.05 significance level. The baseline
+Basket Score for the control group is 55.27 units, meaning that the
+average basket scores without labels is 55.27 units. In case of Warning
+Nutrition Labels, if there is one unit increase in the use of Warning
+Nutrition Labels, basket scores increase by 5.37 units on average.</p>
+<p><br></p>
+</div>
+</div>
+<div id="additional-analyses" class="section level3">
+<h3>4. Additional Analyses</h3>
+<div id="a-dunnetts-test" class="section level4">
+<h4>(a) Dunnett’s Test</h4>
+<p>Dunnett’s Test is specifically designed to compare the control group
+with each of the treatment groups individually.</p>
+<pre class="r"><code>DunnettTest(x=Grocery$BasketScore, g=Grocery$Condition)</code></pre>
+<pre><code>## 
+##   Dunnett&#39;s test for comparing several treatments with a control :  
+##     95% family-wise confidence level
+## 
+## $Control
+##                    diff    lwr.ci   upr.ci    pval    
+## Letter-Control 3.189506 1.3388959 5.040117 0.00016 ***
+## Star-Control   2.178433 0.3278227 4.029044 0.01582 *  
+## Warn-Control   5.375293 3.5246827 7.225904 2.4e-11 ***
+## 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Interpretation: All treatment groups increase the basket scores
+compared to the control group which means that all of them are effective
+to encourage people to buy healthier food. In case of Warning Nutrition
+Labels, it is the most effective labeling method compared to the other
+options by increasing 5.37 units of the basket scores.</p>
+</div>
+<div id="b-binary-analysis-warning-vs.-others" class="section level4">
+<h4>(b) Binary Analysis: Warning vs. Others</h4>
+<pre class="r"><code># Make Warning Nutrition Labels as 1 and the other labels (Control, Letter, Star) as 0
+Grocery$Warning &lt;- 0
+Grocery$Warning[Grocery$Condition == &quot;Warn&quot;] &lt;- 1</code></pre>
+<pre class="r"><code>OLS2 &lt;- lm(Grocery$BasketScore ~ Grocery$Warning)
+summary(OLS2)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = Grocery$BasketScore ~ Grocery$Warning)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -38.156  -8.304  -0.095   8.857  42.940 
+## 
+## Coefficients:
+##                 Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)      57.0596     0.3226 176.880  &lt; 2e-16 ***
+## Grocery$Warning   3.5860     0.6452   5.558 3.09e-08 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 12.49 on 1998 degrees of freedom
+## Multiple R-squared:  0.01523,    Adjusted R-squared:  0.01473 
+## F-statistic: 30.89 on 1 and 1998 DF,  p-value: 3.092e-08</code></pre>
+<p>When there are not Warning Nutrition Labels, the average basket score
+is 57.06. If there is Warning Nutrition Labels, it increases the basket
+scores by 3.58 units. At 0.05 significance level, the coefficient of
+Warning Labels is statistically significant. The overall model is valid
+due to the p-value less than 0.05 significance level.</p>
+<p>Compare the mean difference between Warning Nutrition Labels and the
+other label options to identify any significant mean difference in
+Waring Nutrition Labels in the basket scores compared with the other
+options.</p>
+<p><strong>Null Hypothesis (<span
+class="math inline">\(H_0\)</span>)</strong>: <span
+class="math display">\[
+H_0: \mu_{\text{Warning}} \leq \mu_{\text{Other}}
+\]</span></p>
+<p><strong>Alternative Hypothesis (<span
+class="math inline">\(H_A\)</span>)</strong>: <span
+class="math display">\[
+H_A: \mu_{\text{Warning}} &gt; \mu_{\text{Other}}
+\]</span></p>
+<pre class="r"><code>t.test(Grocery$BasketScore[Grocery$Warning==1], Grocery$BasketScore[Grocery$Warning==0], alternative = &quot;greater&quot;, var.equal = FALSE)</code></pre>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  Grocery$BasketScore[Grocery$Warning == 1] and Grocery$BasketScore[Grocery$Warning == 0]
+## t = 5.4558, df = 829.19, p-value = 3.22e-08
+## alternative hypothesis: true difference in means is greater than 0
+## 95 percent confidence interval:
+##  2.503641      Inf
+## sample estimates:
+## mean of x mean of y 
+##  60.64558  57.05960</code></pre>
+<p>At 0.05 significance level, the null hypothesis can be rejected.
+There is a statistically significant mean difference in the basket
+scores between Warning Nutrition Labels and other Label options and the
+mean basket scores of Warning Nutrition Labels is greater than the other
+labels.</p>
+</div>
+</div>
+<div id="pairwise-comparisons" class="section level3">
+<h3>5. Pairwise Comparisons</h3>
+<div id="a-warning-vs.-nutrition-star-letter" class="section level4">
+<h4>(a) Warning vs. Nutrition (Star + Letter)</h4>
+<pre class="r"><code># Combine Letter and Star as Nutrition
+Grocery$Condition2 &lt;- Grocery$Condition
+Grocery$Condition2[Grocery$Condition == &quot;Letter&quot; | Grocery$Condition == &quot;Star&quot;] &lt;- &quot;Nutrition&quot;
+
+t.test(Grocery$BasketScore[Grocery$Condition2 == &quot;Warn&quot;], 
+       Grocery$BasketScore[Grocery$Condition2 == &quot;Nutrition&quot;], 
+       alternative = &quot;greater&quot;, 
+       var.equal = FALSE)</code></pre>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  Grocery$BasketScore[Grocery$Condition2 == &quot;Warn&quot;] and Grocery$BasketScore[Grocery$Condition2 == &quot;Nutrition&quot;]
+## t = 3.8696, df = 967.64, p-value = 5.815e-05
+## alternative hypothesis: true difference in means is greater than 0
+## 95 percent confidence interval:
+##  1.546231      Inf
+## sample estimates:
+## mean of x mean of y 
+##  60.64558  57.95425</code></pre>
+<p><strong>Null Hypothesis (<span
+class="math inline">\(H_0\)</span>)</strong>: <span
+class="math display">\[
+H_0: \mu_{\text{Warn}} \leq \mu_{\text{Nutrition}}
+\]</span></p>
+<p><strong>Alternative Hypothesis (<span
+class="math inline">\(H_A\)</span>)</strong>: <span
+class="math display">\[
+H_A: \mu_{\text{Warn}} &gt; \mu_{\text{Nutrition}}
+\]</span> At 0.05 significance level, the null hypothesis can be
+rejected. The mean basket scores of Warning Nutrition Labels are greater
+than the mean basket scores of combined Nutrition (Star and Letter)
+Labels.</p>
+</div>
+<div id="b-nutrition-star-letter-vs.-control" class="section level4">
+<h4>(b) Nutrition (Star + Letter) vs. Control</h4>
+<pre class="r"><code>t.test(Grocery$BasketScore[Grocery$Condition2==&quot;Nutrition&quot;], 
+       Grocery$BasketScore[Grocery$Condition2==&quot;Control&quot;], 
+       alternative = &quot;greater&quot;, 
+       var.equal = FALSE)</code></pre>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  Grocery$BasketScore[Grocery$Condition2 == &quot;Nutrition&quot;] and Grocery$BasketScore[Grocery$Condition2 == &quot;Control&quot;]
+## t = 4.0079, df = 1017.4, p-value = 3.286e-05
+## alternative hypothesis: true difference in means is greater than 0
+## 95 percent confidence interval:
+##  1.581467      Inf
+## sample estimates:
+## mean of x mean of y 
+##  57.95425  55.27028</code></pre>
+<p><strong>Null Hypothesis (<span
+class="math inline">\(H_0\)</span>)</strong>: <span
+class="math display">\[
+H_0: \mu_{\text{Nutrition}} \leq \mu_{\text{Control}}
+\]</span></p>
+<p><strong>Alternative Hypothesis (<span
+class="math inline">\(H_A\)</span>)</strong>: <span
+class="math display">\[
+H_A: \mu_{\text{Nutrition}} &gt; \mu_{\text{Control}}
+\]</span> At 0.05 significance level, there is a statistically
+significant difference in the basket scores between Nutrition labels
+(Star and Letter) and Control groups. The null hypothesis can be
+rejected and the mean basket scores of Nutrition labels (Star and
+Letter) is greater than the mean basket scores of control groups.</p>
+<p><br></p>
+</div>
+</div>
+<div id="conclusion-4" class="section level3">
+<h3>6. Conclusion</h3>
+<ul>
+<li>Warning Labels are the most effective treatment, significantly
+increasing basket scores compared to all other treatments and the
+Control group.</li>
+<li>Nutrition Labels (Star + Letter) are also effective but less
+impactful than Warning Labels.</li>
+<li>Future recommendations could focus on optimizing the design and
+implementation of Warning Labels to maximize their impact on healthier
+grocery choices.</li>
+</ul>
+<p><br></p>
+<p><br><br><br></p>
+</div>
+</div>
+<div id="parametric-and-non-parametric-regression-analysis"
+class="section level2">
+<h2>10. Parametric and Non-parametric Regression Analysis</h2>
+<p><img src="https://img.shields.io/badge/Using-R-blue" /></p>
+<p><br></p>
+<p><br><br><br></p>
+<div id="figure-8" class="section level3">
+<h3>1. Figure</h3>
+<p align="center">
+<img src="images/Regression.png" style="width:80%; height:auto;" align="center">
+</p>
+<p align="center">
+[Fig. To Determine whether a Parametric or Non-parametric fit well with
+the data.]
+</p>
+<p><br></p>
+<p><br><br></p>
+</div>
+<div id="objective-1" class="section level3">
+<h3>2. Objective</h3>
+<p>To analyze the relationship between <strong>Price</strong> and
+<strong>Unit Sales</strong> using various regression approaches,
+including linear, non-linear, and non-parametric models.</p>
+<p><br></p>
+</div>
+<div id="methodology-3" class="section level3">
+<h3>2. Methodology</h3>
+<div id="a-data-preparation" class="section level4">
+<h4>(a) Data Preparation</h4>
+<pre class="r"><code>load(&quot;Prices.Rdata&quot;)</code></pre>
+</div>
+<div id="b-visualizations" class="section level4">
+<h4>(b) Visualizations</h4>
+<div id="i-boxplot-of-unit-sales-by-price-categorical"
+class="section level5">
+<h5>(i) Boxplot of Unit Sales by Price (Categorical)</h5>
+<pre class="r"><code>### Make a factor variable of prices to convert a continous variable into a categorical variable 
+prices$PriceFactor &lt;- as.factor(prices$Price)
+### Figures using price as a factor
+ggplot(prices, aes(x=PriceFactor, y=UnitSales)) + 
+ geom_boxplot()</code></pre>
+<p><img src="stat2_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+</div>
+<div id="ii-scatterplot-of-unit-sales-vs.-price-continuous"
+class="section level5">
+<h5>(ii) Scatterplot of Unit Sales vs. Price (Continuous)</h5>
+<p>Linear Trend:</p>
+<pre class="r"><code>ggplot(prices, aes(x=Price, y=UnitSales)) + 
+ geom_point() +
+ geom_smooth(method=lm)</code></pre>
+<pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
+<p><img src="stat2_files/figure-html/unnamed-chunk-27-1.png" width="672" />
+Non-linear Trend (Loess):</p>
+<pre class="r"><code>ggplot(prices, aes(x=Price, y=UnitSales)) + 
+ geom_point() +
+ geom_smooth(method = &quot;loess&quot;)</code></pre>
+<pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
+<p><img src="stat2_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<p><br></p>
+</div>
+</div>
+<div id="c-regression-models" class="section level4">
+<h4>(c) Regression Models</h4>
+<div id="i-linear-regression-price-as-continuous"
+class="section level5">
+<h5>(i) Linear Regression (Price as Continuous)</h5>
+<pre class="r"><code>### Simple Regression Models
+ OLS1 &lt;- lm(prices$UnitSales ~ prices$Price)
+ summary(OLS1)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = prices$UnitSales ~ prices$Price)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -237.037  -53.092    2.408   52.501  219.927 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  1521.353     14.223  106.96   &lt;2e-16 ***
+## prices$Price -557.408      9.333  -59.72   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 75.5 on 998 degrees of freedom
+## Multiple R-squared:  0.7814, Adjusted R-squared:  0.7811 
+## F-statistic:  3567 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Interpretation: The above linear relationship while treating Price as
+a continuous variable. The Price coefficient is statistically
+significant at 0.05 significance level. When the Price increases by 1
+unit, the Unit sales decreases by 557.408 units.</p>
+</div>
+<div id="ii-linear-regression-price-as-categorical"
+class="section level5">
+<h5>(ii) Linear Regression (Price as Categorical)</h5>
+<pre class="r"><code>OLS2 &lt;- lm(prices$UnitSales ~ prices$PriceFactor)
+summary(OLS2)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = prices$UnitSales ~ prices$PriceFactor)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -224.580  -47.970    0.937   51.335  200.208 
+## 
+## Coefficients:
+##                        Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)             878.752      6.930 126.811  &lt; 2e-16 ***
+## prices$PriceFactor1.19  -33.173     10.368  -3.199  0.00142 ** 
+## prices$PriceFactor1.29  -65.624      9.800  -6.696 3.57e-11 ***
+## prices$PriceFactor1.39 -112.129      9.692 -11.569  &lt; 2e-16 ***
+## prices$PriceFactor1.49 -166.827      9.573 -17.427  &lt; 2e-16 ***
+## prices$PriceFactor1.59 -223.073      9.800 -22.763  &lt; 2e-16 ***
+## prices$PriceFactor1.69 -281.248      9.446 -29.773  &lt; 2e-16 ***
+## prices$PriceFactor1.79 -372.416      9.917 -37.553  &lt; 2e-16 ***
+## prices$PriceFactor1.89 -442.961      9.573 -46.273  &lt; 2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 72.35 on 991 degrees of freedom
+## Multiple R-squared:  0.8007, Adjusted R-squared:  0.7991 
+## F-statistic: 497.6 on 8 and 991 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Interpretation: Compared to the linear regression model with the same
+coefficient slope making the linearly decreasing regression model, when
+making Price variable as a categorical variable, the coefficient
+variables vary depending on different price factors, indicating the
+relationship between Unit sales and Price factors is non-linear.</p>
+</div>
+<div id="iii-polynomial-regression" class="section level5">
+<h5>(iii) Polynomial Regression</h5>
+<pre class="r"><code># Add higher-order terms for polynomial regression
+prices$PriceSq &lt;- prices$Price^2
+prices$PriceCu &lt;- prices$Price^3
+
+OLS3 &lt;- lm(prices$UnitSales ~ prices$Price + prices$PriceSq + prices$PriceCu)
+summary(OLS3)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = prices$UnitSales ~ prices$Price + prices$PriceSq + 
+##     prices$PriceCu)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -226.879  -49.056   -0.159   51.812  202.625 
+## 
+## Coefficients:
+##                Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)      819.46     571.58   1.434    0.152
+## prices$Price     339.71    1185.53   0.287    0.775
+## prices$PriceSq  -227.29     806.27  -0.282    0.778
+## prices$PriceCu   -32.03     179.96  -0.178    0.859
+## 
+## Residual standard error: 72.3 on 996 degrees of freedom
+## Multiple R-squared:  0.7999, Adjusted R-squared:  0.7993 
+## F-statistic:  1327 on 3 and 996 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div id="iv-log-linear-regression" class="section level5">
+<h5>(iv) Log-Linear Regression</h5>
+<pre class="r"><code>prices$LnPrice &lt;- log(prices$Price)
+OLS4 &lt;- lm(prices$UnitSales ~ prices$LnPrice)
+summary(OLS4)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = prices$UnitSales ~ prices$LnPrice)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -237.877  -56.347    1.859   54.759  228.611 
+## 
+## Coefficients:
+##                Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)     998.438      6.166  161.92   &lt;2e-16 ***
+## prices$LnPrice -802.288     14.364  -55.85   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 79.5 on 998 degrees of freedom
+## Multiple R-squared:  0.7576, Adjusted R-squared:  0.7574 
+## F-statistic:  3119 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div id="v-exponential-regression" class="section level5">
+<h5>(v) Exponential Regression</h5>
+<pre class="r"><code>prices$ExpPrice &lt;- exp(prices$Price)
+OLS5 &lt;- lm(prices$UnitSales ~ prices$ExpPrice)
+summary(OLS5)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = prices$UnitSales ~ prices$ExpPrice)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -229.673  -50.011    0.303   50.166  203.604 
+## 
+## Coefficients:
+##                 Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)     1255.852      9.372  134.00   &lt;2e-16 ***
+## prices$ExpPrice -123.264      1.959  -62.93   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 72.45 on 998 degrees of freedom
+## Multiple R-squared:  0.7987, Adjusted R-squared:  0.7985 
+## F-statistic:  3960 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+</div>
+<div id="results-comparison" class="section level3">
+<h3>3. Results Comparison</h3>
+<ul>
+<li><strong>Polynomial Regression (OLS3)</strong>: Captures non-linear
+patterns with significant coefficients for higher-order terms.</li>
+<li><strong>Log-Linear Regression (OLS4)</strong>: Provides a
+logarithmic fit, indicating percentage changes in Unit Sales relative to
+Price changes.</li>
+<li><strong>Exponential Regression (OLS5)</strong>: Models rapid
+increases or decreases in Unit Sales.</li>
+<li><strong>Non-Parametric (Price as Categorical)</strong>: Achieves the
+highest Adjusted R-squared value (0.7791) and the lowest residual
+standard error. However, non-parametric models have limited scalability
+outside experimental price points.</li>
+</ul>
+</div>
+<div id="conclusion-5" class="section level3">
+<h3>4. Conclusion</h3>
+<p>Among the models, treating Price as a categorical variable yielded
+the best fit (highest Adjusted R-squared). However, for prediction
+purposes, polynomial and log-linear regressions are more scalable and
+practical for prices beyond the experimental range.</p>
+<p><br></p>
+<p><br><br><br></p>
+</div>
+</div>
+<div id="savings-analysis" class="section level2">
+<h2>11. Savings Analysis</h2>
+<p><img src="https://img.shields.io/badge/Using-R-blue" /></p>
+<p><br></p>
+<div id="objective-2" class="section level3">
+<h3>1. Objective</h3>
+<p>To analyze the impact of treatment on deposit amounts across
+different income groups and age categories using t-tests and regression
+models. The analysis also explores conditional average treatment effects
+(CATEs) to identify individual-level treatment heterogeneity.</p>
+<p><br></p>
+</div>
+<div id="methodology-4" class="section level3">
+<h3>2. Methodology</h3>
+<div id="a-visualizations" class="section level4">
+<h4>(a) Visualizations</h4>
+<div id="i-deposits-by-age-and-treatment-group" class="section level5">
+<h5>(i) Deposits by Age and Treatment Group</h5>
+<pre class="r"><code>load(&quot;Savings.Rdata&quot;)</code></pre>
+<pre class="r"><code>ggplot(Savings, aes(x=Age, y=Deposits, color=TreatGroup)) + 
+  geom_point() +
+  geom_smooth(method=lm, aes(group=TreatGroup))</code></pre>
+<pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
+<p><img src="stat2_files/figure-html/unnamed-chunk-35-1.png" width="672" />
+##### (ii) Deposits by Income and Treatment Group</p>
+<pre class="r"><code>ggplot(Savings, aes(x=Income, y=Deposits, color=TreatGroup)) + 
+  geom_point() +
+  geom_smooth(method=lm, aes(group=TreatGroup))</code></pre>
+<pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
+<p><img src="stat2_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+</div>
+</div>
+<div id="b-group-comparisons-using-t-tests" class="section level4">
+<h4>(b) Group Comparisons Using t-tests</h4>
+<div id="i-create-income-groups-and-age-dummies" class="section level5">
+<h5>(i) Create Income Groups and Age Dummies</h5>
+<p><strong>Null Hypothesis (<span
+class="math inline">\(H_0\)</span>)</strong>:</p>
+<p><span class="math display">\[
+H_0: \mu_{\text{Treatment}} \leq \mu_{\text{Control}}
+\]</span></p>
+<p><strong>Alternative Hypothesis (<span
+class="math inline">\(H_A\)</span>)</strong>:</p>
+<p><span class="math display">\[
+H_A: \mu_{\text{Treatment}} &gt; \mu_{\text{Control}}
+\]</span></p>
+<pre class="r"><code>### t-tests by group
+### Income group and age dummies
+Savings$Age35 &lt;- ifelse(Savings$Age&gt;=35, 1, 0)
+Savings$IncGrp &lt;- &quot;&lt;$50K&quot;
+Savings$IncGrp &lt;- ifelse(Savings$Income&gt;=50000, &quot;$50-100K&quot;, Savings$IncGrp)
+Savings$IncGrp &lt;- ifelse(Savings$Income&gt;100000, &quot;&gt;$100K&quot;, Savings$IncGrp)
+
+### t-tests
+INC1t &lt;- subset(Savings$Deposits, Savings$TreatGroup == 1 &amp;     Savings$IncGrp==&quot;&lt;$50K&quot;)
+
+INC1c &lt;- subset(Savings$Deposits, Savings$TreatGroup == 0 &amp;  Savings$IncGrp==&quot;&lt;$50K&quot;)
+
+INC2t &lt;- subset(Savings$Deposits, Savings$TreatGroup == 1 &amp; Savings$IncGrp==&quot;$50-100K&quot;)
+
+INC2c &lt;- subset(Savings$Deposits, Savings$TreatGroup == 0 &amp; Savings$IncGrp==&quot;$50-100K&quot;)
+
+INC3t &lt;- subset(Savings$Deposits, Savings$TreatGroup == 1 &amp; Savings$IncGrp==&quot;&gt;$100K&quot;)
+
+INC3c &lt;- subset(Savings$Deposits, Savings$TreatGroup == 0 &amp; Savings$IncGrp==&quot;&gt;$100K&quot;)
+
+INCt &lt;- subset(Savings$Deposits, Savings$TreatGroup == 1)
+INCc &lt;- subset(Savings$Deposits, Savings$TreatGroup == 0)
+
+### Entire population
+t.test(INCt, INCc, alternative = &quot;greater&quot;, var.equal = FALSE)</code></pre>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  INCt and INCc
+## t = 14.724, df = 4950.6, p-value &lt; 2.2e-16
+## alternative hypothesis: true difference in means is greater than 0
+## 95 percent confidence interval:
+##  476.9293      Inf
+## sample estimates:
+## mean of x mean of y 
+##  1918.569  1381.646</code></pre>
+<p>Compare the deposit amounts between control group and treatment group
+to identify if there is any difference in mean deposit amounts between
+the two groups. At 0.05 significance level, the null hypothesis can be
+rejected and the mean deposit amount of the treatment group is greater
+than the mean deposit amount of the control group.</p>
+</div>
+<div id="ii-perform-t-tests-for-each-income-group"
+class="section level5">
+<h5>(ii) Perform t-tests for Each Income Group</h5>
+<p><strong>Null Hypothesis (<span
+class="math inline">\(H_0\)</span>)</strong>: <span
+class="math display">\[
+H_0: \mu_{\text{Treatment, Income Group 1}} \leq \mu_{\text{Control,
+Income Group 1}}
+\]</span></p>
+<p><strong>Alternative Hypothesis (<span
+class="math inline">\(H_A\)</span>)</strong>: <span
+class="math display">\[
+H_A: \mu_{\text{Treatment, Income Group 1}} &gt; \mu_{\text{Control,
+Income Group 1}}
+\]</span></p>
+<pre class="r"><code>### Income group 1 (&lt;$50K)
+t.test(INC1t, INC1c, alternative = &quot;greater&quot;, var.equal = FALSE)</code></pre>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  INC1t and INC1c
+## t = 11.469, df = 2831.4, p-value &lt; 2.2e-16
+## alternative hypothesis: true difference in means is greater than 0
+## 95 percent confidence interval:
+##  468.0417      Inf
+## sample estimates:
+## mean of x mean of y 
+##  1794.196  1247.762</code></pre>
+<p>In the income group 1 (&lt;$50K), the null hypothesis can be rejected
+at 0.05 significance level, the mean deposit amount of the treatment
+group in the income group 1 is greater than the mean deposit amount of
+the control group in the income group 1.</p>
+<p><strong>Null Hypothesis (<span
+class="math inline">\(H_0\)</span>)</strong>: <span
+class="math display">\[
+H_0: \mu_{\text{Treatment, Income Group 2}} \leq \mu_{\text{Control,
+Income Group 2}}
+\]</span></p>
+<p><strong>Alternative Hypothesis (<span
+class="math inline">\(H_A\)</span>)</strong>: <span
+class="math display">\[
+H_A: \mu_{\text{Treatment, Income Group 2}} &gt; \mu_{\text{Control,
+Income Group 2}}
+\]</span></p>
+<pre class="r"><code>### Income group 2 ($50-100K)
+t.test(INC2t, INC2c, alternative = &quot;greater&quot;, var.equal = FALSE)</code></pre>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  INC2t and INC2c
+## t = 9.6702, df = 1750.4, p-value &lt; 2.2e-16
+## alternative hypothesis: true difference in means is greater than 0
+## 95 percent confidence interval:
+##  487.889     Inf
+## sample estimates:
+## mean of x mean of y 
+##  2057.428  1469.479</code></pre>
+<p>In the income group 2 ($50K-$100K), the null hypothesis can be
+rejected at 0.05 significance level, the mean deposit amount of the
+treatment group in the income group 2 is greater than the mean deposit
+amount of the control group in the income group 2.</p>
+<p><strong>Null Hypothesis (<span
+class="math inline">\(H_0\)</span>)</strong>: <span
+class="math display">\[
+H_0: \mu_{\text{Treatment, Income Group 3}} \leq \mu_{\text{Control,
+Income Group 3}}
+\]</span> <strong>Alternative Hypothesis (<span
+class="math inline">\(H_A\)</span>)</strong>:</p>
+<p><span class="math display">\[
+H_A: \mu_{\text{Treatment, Income Group 3}} &gt; \mu_{\text{Control,
+Income Group 3}}
+\]</span></p>
+<pre class="r"><code>### Income group 3 (&gt;$100K)
+t.test(INC3t, INC3c, alternative = &quot;greater&quot;, var.equal = FALSE)</code></pre>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  INC3t and INC3c
+## t = 1.1251, df = 354.7, p-value = 0.1307
+## alternative hypothesis: true difference in means is greater than 0
+## 95 percent confidence interval:
+##  -70.0936      Inf
+## sample estimates:
+## mean of x mean of y 
+##  2215.043  2064.558</code></pre>
+<p>In the income group 3 (&gt;$100K), the null hypothesis can be
+rejected at 0.05 significance level, the mean deposit amount of the
+treatment group in the income group 3 is greater than the mean deposit
+amount of the control group in the income group 3.</p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="regression-analysis" class="section level3">
+<h3>3. Regression Analysis</h3>
+<div id="a-model-1-income-group-treatment-effects"
+class="section level4">
+<h4>(a) Model 1: Income Group Treatment Effects</h4>
+<pre class="r"><code>### A regression approach
+### Create Variables
+Savings$INC1&lt;- ifelse(Savings$IncGrp==&quot;&lt;$50K&quot;,1,0)
+Savings$INC2 &lt;- ifelse(Savings$IncGrp==&quot;$50-100K&quot;,1,0)
+Savings$INC3 &lt;- ifelse(Savings$IncGrp==&quot;&gt;$100K&quot;,1,0)
+Savings$TreatInc1 &lt;- Savings$TreatGroup * Savings$INC1
+Savings$TreatInc2 &lt;- Savings$TreatGroup * Savings$INC2
+Savings$TreatInc3 &lt;- Savings$TreatGroup * Savings$INC3
+### First Model
+OLS&lt;-lm(Savings$Deposits ~ Savings$TreatInc1 + Savings$TreatInc2 + Savings$TreatInc3 + Savings$INC1 + Savings$INC2 + Savings$INC3)
+summary(OLS)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = Savings$Deposits ~ Savings$TreatInc1 + Savings$TreatInc2 + 
+##     Savings$TreatInc3 + Savings$INC1 + Savings$INC2 + Savings$INC3)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -2929.2  -945.9     8.7   900.2  3336.3 
+## 
+## Coefficients: (1 not defined because of singularities)
+##                   Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)        2064.56      97.77  21.116  &lt; 2e-16 ***
+## Savings$TreatInc1   546.43      47.62  11.476  &lt; 2e-16 ***
+## Savings$TreatInc2   587.95      60.58   9.705  &lt; 2e-16 ***
+## Savings$TreatInc3   150.48     135.09   1.114    0.265    
+## Savings$INC1       -816.80     103.26  -7.910 3.15e-15 ***
+## Savings$INC2       -595.08     106.40  -5.593 2.35e-08 ***
+## Savings$INC3            NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1275 on 4994 degrees of freedom
+## Multiple R-squared:  0.06102,    Adjusted R-squared:  0.06008 
+## F-statistic: 64.91 on 5 and 4994 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p><strong>Interpretation</strong>: - The intercept represents deposits
+for the control group in Income Group 3 (&gt;$100K): 2064.56 units. -
+<strong>Treatment Effects</strong>: - Income Group 1: +546.43 units
+(statistically significant). - Income Group 2: +587.95 units
+(statistically significant). - Income Group 3: +150.84 units (not
+statistically significant). - Income groups except for Income group 3
+has the lower savings amount compared to the Income group 3. - The
+treatment is the difference in the savings amount between the control
+group and the treatment group for each income group.</p>
+</div>
+<div id="b-model-2-interaction-of-treatment-and-income-groups"
+class="section level4">
+<h4>(b) Model 2: Interaction of Treatment and Income Groups</h4>
+<pre class="r"><code>OLS &lt;- lm(Savings$Deposits ~ Savings$TreatGroup * Savings$IncGrp)
+summary(OLS)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = Savings$Deposits ~ Savings$TreatGroup * Savings$IncGrp)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -2929.2  -945.9     8.7   900.2  3336.3 
+## 
+## Coefficients:
+##                                         Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)                              1469.48      41.98  35.002  &lt; 2e-16
+## Savings$TreatGroup                        587.95      60.58   9.705  &lt; 2e-16
+## Savings$IncGrp&lt;$50K                      -221.72      53.54  -4.141 3.51e-05
+## Savings$IncGrp&gt;$100K                      595.08     106.40   5.593 2.35e-08
+## Savings$TreatGroup:Savings$IncGrp&lt;$50K    -41.52      77.05  -0.539  0.59004
+## Savings$TreatGroup:Savings$IncGrp&gt;$100K  -437.46     148.05  -2.955  0.00314
+##                                            
+## (Intercept)                             ***
+## Savings$TreatGroup                      ***
+## Savings$IncGrp&lt;$50K                     ***
+## Savings$IncGrp&gt;$100K                    ***
+## Savings$TreatGroup:Savings$IncGrp&lt;$50K     
+## Savings$TreatGroup:Savings$IncGrp&gt;$100K ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1275 on 4994 degrees of freedom
+## Multiple R-squared:  0.06102,    Adjusted R-squared:  0.06008 
+## F-statistic: 64.91 on 5 and 4994 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p><strong>Interpretation</strong>: In the first regression model, it
+represents the treatment effect for each income group. The first
+regression shows different income levels affect the amount of deposits
+without any treatment effect. However, the most important thing to
+discuss is that it represents the treatment effect for each income
+group. Therefore, this regression model shows the treatment effect for
+each income level comparing with the control group for each income
+group. In contrast, the second regression model shows the baseline
+treatment effect of the income group 2 ($50-100K) which allows us to
+compare the treatment effect among different income levels. First, the
+income group 2 received the treatment effect increases deposit amounts
+by 587.95 units on average when comparing the income group 2 within the
+control group. The income group 1 received the treatment effect saved
+41.52 units less than the income group 2 received the treatment effect.
+However, this estimate is not statistically significant, meaning that
+this difference is not a meaningful difference but just random
+variation. However, the income group 3 in the treatment effect saved
+437.46 units less than the income 2 group under the treatment effect and
+this estimate is statistically significant,concluding that the treatment
+effect differs between these groups.</p>
+</div>
+<div id="c-model-3-including-age-interactions" class="section level4">
+<h4>(c) Model 3: Including Age Interactions</h4>
+<pre class="r"><code>### Third Model, with Age
+OLS&lt;-lm(Savings$Deposits ~ Savings$TreatGroup*Savings$IncGrp + Savings$TreatGroup*Savings$Age35)
+summary(OLS)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = Savings$Deposits ~ Savings$TreatGroup * Savings$IncGrp + 
+##     Savings$TreatGroup * Savings$Age35)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -2725.22  -913.01   -17.04   902.40  2853.08 
+## 
+## Coefficients:
+##                                         Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)                               803.44      48.81  16.461  &lt; 2e-16
+## Savings$TreatGroup                        352.64      70.26   5.019 5.36e-07
+## Savings$IncGrp&lt;$50K                      -206.15      47.90  -4.303 1.71e-05
+## Savings$IncGrp&gt;$100K                      583.82      95.19   6.133 9.29e-10
+## Savings$Age35                            1010.01      47.27  21.367  &lt; 2e-16
+## Savings$TreatGroup:Savings$IncGrp&lt;$50K    -38.99      68.94  -0.566 0.571681
+## Savings$TreatGroup:Savings$IncGrp&gt;$100K  -460.18     132.46  -3.474 0.000517
+## Savings$TreatGroup:Savings$Age35          356.44      67.79   5.258 1.52e-07
+##                                            
+## (Intercept)                             ***
+## Savings$TreatGroup                      ***
+## Savings$IncGrp&lt;$50K                     ***
+## Savings$IncGrp&gt;$100K                    ***
+## Savings$Age35                           ***
+## Savings$TreatGroup:Savings$IncGrp&lt;$50K     
+## Savings$TreatGroup:Savings$IncGrp&gt;$100K ***
+## Savings$TreatGroup:Savings$Age35        ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1140 on 4992 degrees of freedom
+## Multiple R-squared:  0.2488, Adjusted R-squared:  0.2477 
+## F-statistic: 236.1 on 7 and 4992 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p><strong>Interpretation</strong>: Here in this regression model, Age
+and income are covariates to estimate CATEs (Conditional Average
+Treatment effects) which can estimate an individual’s heterogeneous
+treatment effect. Age is a categorical variable with two different
+value, one of which is younger than 35 (&lt;35) and the other one is
+older than or equal to 35 (&gt;=35). Intercept 803.44 units represents
+people’s average saving amounts in the control group under 35 (&lt;35)
+within the income group 2 ($50-100K). The treatment group effect is
+352.64 units, indicating that people received treatment effect who are
+younger than 35 within the income group 2 saved more deposits (treatment
+effect) on average compared to the control group. We can answer the
+following questions by combining the effects of covariates such as age
+and income and their corresponding interaction terms with the treatment
+group and calculate CATE (Conditional Average Treatment Effect).</p>
+<ol style="list-style-type: decimal">
+<li>What would the treatment effect be for some of age 30 with income of
+$40K? The treatment effect is 38.99 units less than the control group
+with the same age and within the same income group , which is people
+younger than 30 within the income group 1 in the control group, which is
+803.44 - 206.15 = 597.29 units. In conclusion, the treatment effect is
+558.30 units.</li>
+<li>What would the treatment effect be for some of age 30 with income of
+$75K? The treatment effect is 325.64 units greater than the control
+group with the same age and within the same income group, which is
+people younger than 30 within income group2 in the control group, which
+is 803.44. In conclusion, the treatment effect is 1129.08 units.</li>
+</ol>
+</div>
+<div id="d-model-4-continuous-income-and-age" class="section level4">
+<h4>(d) Model 4: Continuous Income and Age</h4>
+<pre class="r"><code>### Fourth model, with continuous interactions
+# Appropriate if the treatment effect relationship is linear
+OLS&lt;-lm(Savings$Deposits ~ Savings$TreatGroup*Savings$Income + Savings$TreatGroup*Savings$Age)
+summary(OLS)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = Savings$Deposits ~ Savings$TreatGroup * Savings$Income + 
+##     Savings$TreatGroup * Savings$Age)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -1988.6  -905.9   -10.7   924.4  2062.0 
+## 
+## Coefficients:
+##                                     Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)                       -1.026e+03  7.630e+01 -13.450  &lt; 2e-16 ***
+## Savings$TreatGroup                 3.670e+02  1.075e+02   3.413 0.000647 ***
+## Savings$Income                     7.807e-03  6.884e-04  11.340  &lt; 2e-16 ***
+## Savings$Age                        4.847e+01  1.545e+00  31.367  &lt; 2e-16 ***
+## Savings$TreatGroup:Savings$Income -4.383e-03  9.749e-04  -4.496 7.10e-06 ***
+## Savings$TreatGroup:Savings$Age     8.963e+00  2.186e+00   4.101 4.19e-05 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1049 on 4994 degrees of freedom
+## Multiple R-squared:  0.3637, Adjusted R-squared:  0.363 
+## F-statistic: 570.9 on 5 and 4994 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p><strong>Interpretation</strong>: In this regression model, covariates
+such as income and age are both treated an continuous. In case of the
+intercept, it represents people in the control group when their age and
+income are both zero saved -1026 units on average but it is not
+realistic because in the real world, age and income cannot be zero. When
+people in the control group with their age and income being zero are
+treated, their savings increases by 367 units on average. When income
+increases by 1 unit in the control group, the savings increases by
+0.007807 units on average. Similarly, if age increases by 1 unit, the
+savings increases by 48.47 units on average. When income increases by 1
+unit , the treatment effect decreases by 0.004383 units on average
+whereas when age increases by 1 unit, the treatment effect increases by
+8.963 units on average.</p>
+</div>
+</div>
+<div id="conclusion-6" class="section level3">
+<h3>4. Conclusion</h3>
+<ul>
+<li>The first model focuses on treatment effects for each income group,
+showing significant increases in deposits for Income Groups 1 and
+2.</li>
+<li>The second model emphasizes comparisons between groups, revealing
+significant differences between Income Groups 3 and 2 under
+treatment.</li>
+<li>The inclusion of age in the third and fourth models highlights the
+role of individual-level covariates in explaining treatment
+heterogeneity.</li>
+<li>Continuous interaction models provide nuanced insights but require
+careful interpretation due to extrapolation limitations.</li>
+</ul>
+</div>
+</div>
 
 
 <br><br>
