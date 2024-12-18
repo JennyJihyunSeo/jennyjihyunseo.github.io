@@ -20,6 +20,12 @@ title: "Statistics using R"
 
 <br><br><br>
 
+
+
+<br>
+
+<br><br><br>
+
 ## 1. Hypothesis Testing with Two-Sample Proportion Test
 
 ![](https://img.shields.io/badge/Using-R-blue)
@@ -1323,4 +1329,414 @@ summary(OLS)
 
 
 
+<br>
+
+<br><br><br>
+
+## Theoretical Statistics Learning 
+
+This document contains structured explanations and analyses of statistical concepts, experiments, and methods to support theoretical understanding and practical applications.
+
+<br>
+
+### 1. Experiments
+
+<br>
+
+#### (1) Why do we randomly assign people to a treatment and control group in an experiment?
+
+- **Explanation**: If we want to compare two groups to determine any treatment effect on the dependent variable Y, we have to control other factors (confounders) except for the treatment effect to make the two groups identical. For example, if we want to experiment whether a specific treatment effect is effective by identifying any difference on the dependent variable, we have to control other factors and impose the treatment on a treatment group and compare the dependent variable of Y for each group to determine whether this treatment effect makes any difference on Y.   
+
+<br>
+
+#### (2) What is external validity, and why can it be low for lab experiments in a business setting?
+
+- **Explanation**: External validity is the extent to which any findings in experiments can be extrapolated to other settings outside a laboratory. However, lab experiments in a business setting have low external validity as real-world environments are useful to observe real customers’ behaviors which affected by diverse factors that cannot be identically reflected in the lab experiments. Therefore, results from the lab experiments cannot be extrapolated into real scenarios accurately. In contrast, lab experiments in medical settings can be more extrapolated well in other settings outside the laboratory as medication effects are mostly related to biological mechanism in body, which is almost similar to human beings.  
+
+<br>
+
+#### (3) Why do field experiments tend to have higher external validity than laboratory experiments in a business setting? 
+
+- **Explanation**: In a laboratory experiment, the primary limitation is that the experiment cannot perfectly reflect a real-scenario in which customers behave, which prevents external validity because there is high possibility that customers behave differently in the real-scenario. For example, in the laboratory experiment, customers prefer to purchase products with lower prices compared to field experiments where customers prefer to purchase high-quality products with higher prices. In a field experiment, we can monitor how customers behave in a real environment which would be maintained when applying learnings from this experiment and this identical environment can lead to similar results we have already obtained in the experiment.  
+
+<br>
+
+#### (4) When it comes to measuring important quantities like price elasticity, research has compared how field experiments perform relative to using statistical models on observational (non-experimental) data. What has the research found, and what likely explain this finding? 
+
+- **Explanation**: When examining price elasticity in a field experiment, researcher can control other factors except for price to see the true relationship between price and demand. The researcher controls the quality of products, which could affect demand and set different prices in different locations to identify the price effect on the demand. However, in case of an observational data, researchers use the dataset already gathered in which other factors (confounders), affecting the price cannot be controlled. However, price effect can be endogenous, meaning that other factors such as quality can affect the price and demand, which prevents researchers from identifying the true price effect on the demand. For example, even if the real effect of the price on the demand is that higher price leads to lower demand, the quality of product typically increase prices, which also makes the demand higher. However, the observational data cannot remove this confounding factor, which confounds the true price effect on the demand. 
+
+<br>
+
+#### (5) In the context of an experiment, explain what is the p-value tells you about your observed sample mean y ̂.
+
+- **Explanation**: p-value is the probability of observing extreme values which are not likely to be observed when assuming the null hypothesis is true. Observing the extreme values indicates that there are chances that the null hypothesis is false. For example, in a one-tailed greater test, Let’s assume that the null hypothesis is that the sample mean is less than or equal to 5 while the alternative hypothesis is the sample mean is greater than 5. If the p-value for observing an extreme value greater than 5 is 0.05 which is less than 0.05 significance level, the probability of observing this extreme value is too small not to reject the null hypothesis. 
+
+<br>
+
+#### (6) Sometimes people confuse significance level α with the likelihood that a discovery is false. Explain the distinction between the two. 
+
+- **Explanation**: - The significance level of α is the probability of rejecting the null hypothesis when it is actually true. In other words, the significance level of α is the probability of committing the type 1 error. When p-value which is the probability of observing extreme values when assuming that the null hypothesis is true is less than the significance level of α, the null hypothesis can be rejected. 
+- In case of the significance level of α, it assumes when the null hypothesis is actually true and it indicates that probability that we falsely conclude that a sample statistic is statistically significant. However, a false discovery in a past experiment is the case that we already concluded that a sample statistic is statistically significant by comparing a p-value with a specific significance level but after that, we found that the null hypothesis is true and there is not true effect. The false discovery rate is typically much higher than the significance level of α as there are diverse variables which led to a false discovery in experiments such as repetitive experiments increase the chances of obtaining the number of significant results by chance and statistical power of the experiment being lower at that moment.  
+
+<br>
+
+#### (7) What two factors discussed in class increase statistical power of an experiment? One of these you can control, one of them you cannot.
+
+- **Explanation**: We can increase the number of sample size to increase statistical power of an experiment. However, we cannot control the lower variation in the dependent variable Y. If Y is the true value and Y ̂ is the expected value from SRF, the variation in the dependent variable is Y - Y ̂ and if this difference is small, the statistical power increases. 
+
+<br>
+
+#### (8) In business experiments, we sometimes use smaller sample sizes that do not have the statistical power to detect all effects. Why is this typically ok? 
+
+- **Explanation**: If we do not have to detect all effect but want to only focus on profitable effects, it is allowed to use smaller sample sizes even if they cannot detect all effects compared to larger sample sizes. 
+
+<br>
+
+#### (9) Why do we care about incremental conversion rate of the treatment group, rather than the total click through rate? 
+
+- **Explanation**: While Incremental conversion rate considers both treatment group and control group (baseline), Click through rate (CTR) also includes the number of people clicking a banner without being influenced by the treatment, making it hard to distinguish with the true effect of the treatment. The incremental conversion rate compares the treatment effect with the baseline effect of the control group, making it effective to evaluate the true treatment effect. If the conversion rate increases compared to the baseline group, it indicates the treatment effect is effective. 
+
+<br>
+
+#### (10) For an online experiment where we are showing an ad with the intent of increasing sales on our website, we will typically calculate the ROI of ad. Explain in simple terms – no formula needed – the two major components of such as ROI calculation.
+
+- **Explanation**: In an experiment for showing an advertisement to increase sales, cost and revenue are two major components for ROI calculation. The cost per incremental conversion includes the advertisement cost contributed to increasing the number of converted customers due to the advertisement itself. The revenue is the total amount of money spent by converted customers. However, the net revenue must be subtracted by other operational costs other than the advertisement cost itself. Additionally, the revenue can include profit obtained by converted customers from both treatment group and control group. In more conservative way, the revenue only includes profit occurred by converted customers in the treatment group. 
+
+<br>
+
+#### (11) We have run an experiment online showing an ad, hoping to increase our sales. The ad was shown to 500 people, and another 400 people were tracked as a control group. 10% of the treatment group and 8% of the control group purchased our product. The treatment group generated $60 in profit (not including cost of the ad), while the control group generated $45 in profit. The ad cost was $0.01 each we show it. Our ROI benchmark is 30%; should we continue to show this ad? Explain why? The equations below may be helpful. 
+
+- **Explanation**: 500 people were included in the treatment group and 400 people were included in the control group. 50 customers purchased products after having seen the advertisement. In contrast, 32 customers purchased products without seeing any advertisement. The incremental conversion rate is 2% by deducting 8% from 10%. $60 is a profit obtained by the treatment group after deducting operational expenses other than the cost of the advertisement and $45 is a profit obtained by the control group after subtracting operational expenses other than the cost of the advertisement. The advertisement cost is $0.01 * 500 = $5 and our ROI benchmark is 30%, which means to continue the advertisement, the ROI should be at least over 30%.
+- First of all, Cost per Increment Conversion (CPIC) is $5 / (2% * 500) = $0.5. Increment conversion means additional conversion amount due to the true effect of the advertisement itself, which is the difference between the treatment group and the control group. The cost is assigned for the true incremental conversion amount compared to the control group. 
+- Secondly, profit for increment conversion is $60 / (500 * 10%) = $1.2. However, this is the profit for conversions in the treatment effect and not the profit for additional incremental conversion compared to the control group. In less conservative way, the profit for conversions in the control group can be added, and the total profit is $60 + $45 / (500*10%) + (400*8%) = $1.28. 
+- In more conservative way, ROI = (1.2 – 0.5) / 0.5 * 100 = 140% weigh over the benchmark. In conclusion, this outcome leads to a data-driven decision making to continue the advertisement. 
+
+<br>
+
+<br><br><br>
+
+### 2.  Experiments 2
+
+<br>
+
+#### (1) Explain What ANOVA tests.
+
+- **Explanation**: When comparing multiple group means, ANOVA test is used to determine whether all means among multiple groups are the same as each other or at least two means differ. In one-way ANOVA, there should be multiple k treatments and the null hypothesis is all treatment means are the same, indicating that there are no differences among them. Otherwise, the alternative hypothesis is at least two means differ, indicating that there is a treatment different from any of other treatments. 
+
+<br>
+
+#### (2) After running ANOVA, we may run a Tukey Multiple Comparisons test. What does this test tell us?
+
+- **Explanation**: The ANOVA test is an omni-test, meaning that we can identify at least two means differ after rejecting the null hypothesis, while we cannot identify which treatments differ from each other. The Tukey Multiple Comparisons test helps identify which treatment group differs from any of other treatment groups. 
+
+<br>
+
+#### (3) After running ANOVA, we may run a Tukey Multiple Comparisons test. What does this test tell us?
+
+- **Explanation**: There are 3 major Post hoc tests to identify which treatment groups differ among others, such as Fisher’s Least Significant Difference (LSD), Bonferroni correction, and Tukey’s multiple comparisons. In case of Fisher’s LSD, it inflates the probability of committing at least one type 1 error when comparing multiple pairwise comparisons. If the number of pairwise comparisons increases, the probability of committing at least one type 1 error also increases because the Fisher’s LSD applied 0.05 significance level for each pairwise comparison.
+- To address this inflation, Bonferroni is used by dividing the significance level for each pairwise comparison by the number of comparisons to prevent the inflation of the probability of at least one type 1 error. However, it increases the probability of type 2 error due to the lower significance level α. P-value must be lower than the extremely lower significance level, which increases the type 2 error by missing the true effect. 
+- In case of a Tukey’s multiple comparison, it uses family-wise error rate which is the same as significance level of α. It controls the probability of committing at least one type 1 error across all multiple comparisons in the test as around significance level of 0.05 to reduce the inflation of type 1 error by adjusting p-values. When p-value adjusted, it reflects that the observed values are less extreme under the null hypothesis, reducing the likelihood of falsely rejecting the null hypothesis. This adjustment helps to maintain the integrity of the test by preventing the rejection of the null hypothesis when it is actually true, thereby controlling for Type 1 error across multiple comparisons. 
+
+<br>
+
+#### (4) Why do we sometimes use a Bonferroni correction in our regressions? 
+
+- **Explanation**: Bonferroni is used by dividing the significance level for each pairwise comparison by the number of comparisons to prevent the inflation of the probability of at least one type 1 error. However, it increases the probability of type 2 error due to the lower significance level α. P-value must be lower the extremely lower significance level, which increases the type 2 error by missing the true effect. 
+
+<br>
+
+#### (5) Broadly speaking, when would we run planned comparison tests instead of a Tukey Multiple Comparison test? And what would be the downside of running the Tukey Multiple Comparison instead?
+
+- **Explanation**: The Tukey Multiple Comparison test compares all possible comparisons which inflates the probability of committing at least one type 1 error. However, the planned comparison test only compares some comparisons interested in, reducing the probability of at least one type 1 error. Matching our tests to our hypotheses, rather than testing all possible combinations of conditions, reduces the risk of Type 1 error; running a Tukey test instead would have a higher likelihood of Type1 error, simply because we are running more tests, and would necessitate more aggressively adjusting our p-values. Consequently, the p-values of the tests actually appropriate for our hypotheses would be higher than they should be if we use a Tukey test. 
+
+<br>
+
+#### (6) Explain why we can estimate a treatment effect in settings with no control group if we observe different levels of treatment (e.g., treatment doses)
+
+- **Explanation**: Even if there is no control group, treatment doses set different levels or intensity of treatment and determine if there is any different effect from others on the dependent variable of Y. For example, if we want to determine if different levels of medication intake influence a disease, we can set different levels of medication intake and observe the treatment effect of each level to decide whether there is any difference among them. 
+
+<br>
+
+#### (7) Interpret α and β in the following regression:
+
+$$
+Y = \alpha + \beta \exp(X)
+$$
+- **Explanation**: When exp⁡(X)  is zero, α means the baseline effect of the dependent variable Y. When exp⁡(X) increases by 1 unit, the dependent variable Y increases by β.
+
+<br>
+
+#### (8) When modeling treatment doses in a regression, we have the option of taking a parametric or non-parametric approach. Explain the pros and cons of choosing a parametric approach over a non-parametric approach (or vice-versa).
+
+- **Explanation**: A non-parametric approach represents the relationship between X and Y variables without exact mathematical equations. If we want to determine the price elasticity and identify the relationship between price and demand, non-parametric describes relationships based on observed data without using mathematical equations. However, a parametric approach uses a specific mathematical equation such as linear or polynomial and predicts the dependent variable Y with independent variables. This parametric approach lies strengths in predicting Y values outside the range of X values, which is known as extrapolation. This strength depends on the accuracy of the chosen model and its underlying assumptions. In contrast, non-parametric approach cannot reliably predict the Y value outside the range of the X values as it does not generalize beyond the available data. Additionally, non-parametric test can have an over-fitting issue while making random noise as meaningful. In case of parametric test, it may result in error if the chosen model does not accurately represent the data. 
+
+<br>
+
+<br><br><br>
+
+### 3.  Experiments 3
+
+<br>
+
+c We are evaluating a treatment – the option to switch to a prize-linked savings account – on a user’s savings. An experiment was run in which bank customers were randomly assigned to a treatment or control group. We believe ‘old’ users and ‘young’ users may differ in their treatment response, and so have constructed the following regression equation to evaluate our hypothesis with our data. I[OLD] is a dummy variable equal to 1 if a user is ‘old’, and I[TREAT] is a dummy variable equal to 1 if a user is in the treatment group. Interpret the coefficients in this regression (below).
+
+$$
+\text{Savings}_i = \alpha_1 + \alpha_2 I[\text{OLD}]_i + \beta_1 I[\text{TREAT}]_i + \beta_2 \big(I[\text{TREAT}]_i \cdot I[\text{OLD}]_i\big)
+$$
+- **Explanation**: First of all, α_1 refers to the young age in the control group. α_2 refers to the difference between the young and old in the control group. β_1 refers to the treatment effect for the young age. It indicates the difference between the young age in the control group and the treatment group. β_2 refers to the difference of the treatment effect between the young and old. It indicates both ages are in each treatment group and determine whether there is any difference in the treatment effect for those groups. 
+
+<br>
+
+#### (2) We are evaluating a treatment – the option to switch to a prize-linked savings account – on a user’s savings. An experiment was run in which bank customers were randomly assigned to a treatment or control group. Treatment response may vary by age and income. We have segment customers into two age groups (<35 and ≥35) and three income groups (less than $50K, between $50K and $100K, and greater than $100K). The variable Age35 is a dummy variable indicating that a user is 35 or older. Using the regression output below, forecast the savings for each type of user in the table below. 
+
+<p align="center">
+<img src="images/Result.png" style="width:80%; height:auto;" align="center">
+</p>
+
+- **Table 1: Treatment Effects by User Type**
+
+| User Type            | Control Group Savings ($) | Treatment Group Savings ($) |
+|----------------------|---------------------------|-----------------------------|
+| Income of $75K, Age 40 | $1813.45                 | $2522.53                    |
+| Income of $125K, Age 25 | $1387.26                 | $1279.72                    |
+| Income of $45K, Age 30 | $597.29                  | $910.94                     |
+
+<br>
+
+#### (3) We believe high- and low-income users may differ in their response to treatment, and so have constructed the following regression equation to evaluate our hypothesis with our data. I[HI] is a dummy variable equal to 1 if a user is ‘high income’ and I[TREAT] is a dummy variable equal to 1 if a user is in the treatment group. The savings of each group is listed in the table below. Using the table, calculate the value of each parameter (or coefficient). 
+
+$$
+\text{Savings}_i = \alpha_1 + \alpha_2 I[\text{HI}]_i + \beta_1 I[\text{TREAT}]_i + \beta_2 \big(I[\text{TREAT}]_i \cdot I[\text{HI}]_i\big)
+$$
+
+<p align="center">
+<img src="images/Result2.png" style="width:80%; height:auto;" align="center">
+</p>
+
+- **Explanation**: α_1 refers to the low-income in the control group ($1,200) and $400 is β_1 which is the treatment effect of the low-income group. α_2 is $800 which is the difference between the low-income and high-income in the control group. β_2 is -$400 which is the difference in the treatment effect between the low-income and high-income group. In the low-income group, the treatment effect is $400, while the treatment effect in the high-income group is $0. β_2 refers to the difference in the treatment effect of the high-income group compared to the low-income group. 
+
+<br>
+
+### 4.  Experiments 4
+
+Causal Inference with Observational Data; Difference-in-Differences 
+
+#### (1) In simple terms, explain endogeneity.
+
+- **Explanation**: Endogeneity occurs when the independent variables are correlated with the error term. To prevent a coefficient bias, the independent variables are independent from the error term. However, omitted variables included in the error term are correlated with independent variables which lead to coefficient bias, making it hard to distinguish the true effect between the dependent and independent variables. For example, if we want to identify the relationship between educational level and income, we have to control personal characteristics such as motivation and personal ability as they are correlated with educational level, leading to the coefficient bias. People with good personal ability often has higher educational level and this variable also influence the dependent variable, making it hard to identify the true effect between the income level and educational level. 
+
+<br>
+
+#### (2) We want to understand the causal effect of a change in X on Y. Say there are two time periods, t_1 and t_2, and X changed in the second period. We should not simply compare Y before and after the change; we should not compare Y in〖 t〗_2, to Y in t_1. If it were possible, what counterfactual would we really want to compare the value of Y in t_2 to? 
+
+- **Explanation**: We cannot simply compare the dependent variable Y during t_1 period and t_2 period. Otherwise, we can compare the value of the dependent variable Y in t_2 period to the dependent variable Y during the same period under the assumption if they had not received any treatment. The counterfactual should be what would have happened in the dependent variable Y if it had not received any treatment effect during t_2 period. The counterfactual is the process of assuming what would have happened to the dependent variable if the independent variable had not been treated and compare this value to the dependent variable obtained from the treated independent variable during the same period in order to distinguish the true treatment effect during the same period. 
+
+<br>
+
+#### (3) What features of panel data allow us to conduct a difference-in-differences analysis? 
+
+- **Explanation**: A panel data has multiple observations for multiple units across time. If some units are treated during a specific period, the other units without treatment can be used to identify the true treatment effect during the same period by acting as counterfactual. For example, if there is treatment effect occurred from July during one year for some units and parallel trends assumption is not violated before the treatment effect, we can identify the treatment effect by comparing the value for the treated units from July to December to the value for the untreated units during the same period. These untreated units during the same period (Jul – Dec) works as a counterfactual for the treated units. We cannot simply compare the dependent variable from Jan to Jun to the value from Jul to Dec to acquire the treatment effect. We should assume what would have happened if the treated units had not been treated by using the other units as counterfactual and compare them during the same treatment period (Jul – Dec). 
+
+<br>
+
+#### (4) Explain the regression you would run to formally test the parallel trends assumption for a simple difference-in-difference model, how you would interpret the results, and how the results would determine whether the assumption is violated. To help your exposition, you can assume your data has twelve months, and treatment began in month 7.
+
+$$
+Y_{it} = \alpha + \delta \cdot \text{TreatmentGroup}_i + \sum_{t=2}^6 \gamma_t \cdot \text{MonthDummy}_t + \sum_{t=2}^6 \beta_t \cdot (\text{TreatmentGroup}_i \cdot \text{MonthDummy}_t) + \epsilon_{it}
+$$
+
+- **Null Hypothesis (\(H_0\)):**
+
+$$
+\beta_2 = \beta_3 = \beta_4 = \beta_5 = \beta_6
+$$
+
+The null hypothesis states that there are no differences in trends between the treatment and control groups before the treatment period, meaning the parallel trends assumption holds.
+
+- **Alternative Hypothesis (\(H_1\)):**
+
+$$
+\text{At least one } \beta_t \neq 0 \text{ for } t = 2, 3, 4, 5, 6
+$$
+
+- **Explanation**: The baseline month is January and compare the control group and treatment group before the treatment effect occurs. The beta coefficient refers to the difference between the control group and the treatment group across months from Feb to Jun before the treatment begins. If the null hypothesis is not rejected and the beta coefficient is not statistically significant, it indicates the parallel trends assumption between the control group and the treatment group is maintained, which means there are no big difference between the treatment group and the control group across time. If the parallel trends assumption holds, any observed differences between the treatment and control groups after the treatment occurs can be attributed to the treatment effect, rather than pre-existing differences in trends. This results indicates if there is any difference between them during the post-treatment periods, this difference represents the true treatment effect. 
+
+<br>
+
+#### (5) Explain why we can estimate a treatment effect when all units receive treatment, as long as they receive treatment at different times. 
+
+- **Explanation**: If some units receive a treatment effect at different times, we can use the other units without receiving any treatment yet as a control group for some units already received the treatment effect. 
+
+<br>
+
+#### (6) The standard difference in difference equation for a treatment group, control group, treatment period, and control period are below. Explain what each of the parameters (or coefficients) measures? 
+
+$$
+Y = \alpha + \beta \cdot I[\text{TrtPer}] + \gamma \cdot I[\text{TrtGroup}] + \delta \cdot (I[\text{TrtPer}] \cdot I[\text{TrtGroup}])
+$$
+
+- **Explanation**: α measures the dependent variable Y of interest during the pre-treatment period for a control group. β measures the time effect for the control group during the treatment period. Even if the control group is not treated, the time effect between the control period and treatment period based on its value. γ measures the difference between the control group and the treatment group during the pre-treatment period. δ measures the difference of the treatment effect between the control group and the treatment group. It measures the difference between the treatment effect in the treatment group and the time effect occurred in the control group. 
+
+<br>
+
+#### (7) The standard difference in difference equation for a treatment group, control group, treatment period, and control period are below. Corresponding data is also in a table below. Calculate the value of each parameter. 
+
+$$
+Y = \alpha + \beta \cdot I[\text{TrtPer}] + \gamma \cdot I[\text{TrtGroup}] + \delta \cdot (I[\text{TrtPer}] \cdot I[\text{TrtGroup}])
+$$
+
+<p align="center">
+<img src="images/Result3.png" style="width:80%; height:auto;" align="center">
+</p>
+
+- **Explanation**: In the above table, α is $350 which indicates the dependent variable Y of interest during the control period. β = 90 which indicates the time effect between the control period and the treatment period in the control group. γ = -10 which indicates the difference between the control group and the treatment group during the pre-treatment period. δ = -40, which indicates the difference between the time effect and the treatment effect during the treatment period. The treatment effect in the treatment group during the treatment period is smaller than the time effect applied for the control group. 
+
+<br>
+
+#### (8) We are modeling data from a staggered treatment setting, using a staggered difference-in-difference (or “two-way-fixed-effects”) model. Assume the data come from multiple states and multiple years. Our treatment of interest is the change in tuition at universities of each state from year to year. We wish to measure the impact of tuition changes on some variable Y, and will include tuition as a continuous variable. What other variables are needed to complete the model? What will those variables control for? 
+
+- **Explanation**: We need two-fixed-effects such as fixed year variable and fixed state variable. In case of fixed year variable, it includes a specific event such as COVID-19, affecting both tuition fee and the dependent variable Y of interest. This impact must be controlled for using year fixed-effects to account for differences across different years. Additionally, in case of fixed state variable, states have their own characteristics which can influence both the tuition fee and the dependent variable. To capture the true effect of the tuition fee on the dependent variable Y, this state influence must be accounted for by including state fixed-effects in the model.
+
+
+<br>
+
+### 5.  Matching, Synthetic Control, and Instrumental Variables 
+
+#### (1) Say that we have data on some consumers that received treatment and other consumers that did not. The demographic makeup of treated consumers differs from non-treated consumers. We find that our measure of interest in Y is much larger among treated consumers than non-treated consumers. Why might this apparently strong treatment effect be misleading in this setting? 
+
+- **Explanation**: Differences between the control group and the treatment group such as age, income, educational level and other demographic factors could influence the dependent variable Y of interest, misleading the true treatment effect. To address this, we have to match the demographic makeup between the treatment group and the control group to remove the effect of demographic factors from the dependent variable and identify the true treatment effect. 
+
+<br>
+
+#### (2) When can matching be helpful in addressing endogeneity? When can it not? 
+
+- **Explanation**: Endogeneity is related to omitted variables included in the error term and this error term is correlated with the independent variable X of interest. Matching the treatment group with the control group based on observable confounding variables helps identify the true treatment effect. However, unobservable confounding variables can also influence both independent and dependent variable. The problem is that these variables are unobservable not able to remove the impact from the regression model by matching them between the groups. 
+
+<br>
+
+#### (3) When can matching be helpful in addressing a parallel trends violation? 
+
+- **Explanation**: Matching can be helpful when a parallel trends violation is due to the difference in observable confounding variables between the treatment and control group. If demographic makeup such as age, income, educational levels which are observable are different between the two groups, matching is helpful to make those factors consistent which can address a parallel trends violation due to observable confounding variables and help identify the treatment effect of interest. 
+
+<br>
+
+#### (4) Coarsened Exact Matching effectively provides us with a weighted sample. What is the objective of these weights? 
+
+- **Explanation**: Weights can be used to match a treatment group with a control group if they are different in observable confounding variables such as age. For example, the proportion of each age group in the treatment group is different to the control group, weights can be used to balance the proportion of each age group between the two to prevent this variable to confound the true treatment effect on the dependent variable Y. 
+
+<br>
+
+#### (5) Describe what a synthetic control group is. Explain (simply) how and why we would construct one.
+
+- **Explanation**: A synthetic control group constructed group combining units matched with the treatment group of interest based on observable confounding variables and the change trends on the dependent variable Y prior to the treatment period. We can use weights to make the control group comparable with the treatment group to control for the effects of observable confounding variables while simultaneously considering the trends of the dependent variables matched with the one shown on the treatment group during the control period. This method considers both matching the observable variables and the dependent variable with the treatment group when gathering units for the control group to comply with the standard difference-in-difference parallel trends assumption.
+- If the trends on the dependent variable Y for the control group is matched with the treatment group except for the confounding variable matches, it can suggest that any change occurred during the treatment period is related to the treatment effect and help identify the true causal treatment effect on the dependent variable. 
+
+<br>
+
+#### (6) What are instruments and how do they help us with endogenous variables?  
+
+- **Explanation**: Instrument variables are tools used to address endogeneity in regression analysis. Endogeneity occurs when the independent variable is correlated with the error term. Independent variables are correlated with error terms due to omitted confounding variables which influence both the independent variable and the dependent variable. These confounding variables make it hard to distinguish the true causal relationship between the independent variable and the dependent variable. However, Instrument variables which are not correlated with error term and does not affect the dependent variable except through the independent variable. By using the variation in the independent variable explained by the instrument (exogeneity), IVs help estimate the causal effect of the independent variable on the dependent variable, free from the biases introduced by endogeneity.  
+
+<br>
+
+#### (7) What are the three assumptions that must be satisfied for instrumental variables that we studied in class? Explain the assumptions.
+
+- **Explanation**: Firstly, inclusion must be satisfied. Instrumental variables affect independent variable of interest. Second, exclusion must be satisfied. Instrumental variables affect the dependent variable only through the independent variable. Lastly, independence must be satisfied. Instrumental variables must not be correlated with error terms especially with omitted confounding variables which can affect the dependent variable directly. 
+
+<br>
+
+#### (8) Describe the two-stage least squares procedure in terms of regression models and the variables X, Y, and Z, and explain what the approach accomplishes? 
+
+- **Explanation**: First, to isolate exogenous variation in X using Z, the 2SLS model regresses X on Z. For example, if the independent variable is educational level and the dependent variable Y is income, instrumental variable can be the distance between the school and students’ housing. The distance can affect people’s educational level and the first step of regression isolates the variation in the independent variable, educational level, that is explained by the instrumental variable, distance. 
+- Second, if this effect can be denoted by X ̂, the dependent variable Y is regressed on this exogeneous variation. The 2SLS is free from the effects of confounding variables which can affect both the independent variable and dependent variable, making it hard to distinguish the true educational effect on the income level. This model only isolates the variation in the independent variable X occurred by the instrument variable and regresses the dependent variable Y on the exogenous effect reflected on those variation to identify the true causal relationship. 
+
+<br>
+
+### 6.  Customer Analytics 
+
+#### (1) What is price discrimination? 
+
+- **Explanation**: Price discrimination offers different prices for customers for the same services or products.
+
+<br>
+
+#### (2) How can dynamic pricing help smooth demand and supply?
+
+- **Explanation**: Dynamic pricing offers different prices by time such as different pricing by time of day or day of week. If prices go up in a specific time, it suppresses demand whereas if prices go down during a specific period, it increases demand. Dynamic pricing can lead to price discrimination as this strategy offers different prices during a specific period for the same products or services. In case of supply, if prices go up such as for car sharing services, it would motivate drivers to work, leading to the increase in supply.
+
+<br>
+
+#### (3) What are the benefits of surge pricing to the riders who must pay higher prices?
+
+- **Explanation**: If prices go up, in case of car-sharing services, the riders can easily catch rides even if they must pay higher prices as drivers are motivated to supply drives for the riders during the surge pricing time. 
+
+<br>
+
+#### (4) Why is dynamic pricing likely to lead to price discrimination?
+
+- **Explanation**: Offering discounts during certain period to attract more customers is a dynamic pricing, which can lead to price discrimination as customers purchase a product during discount seasons pay less compared to customers purchasing the same product during normal seasons, related to price discrimination for the same product or services.
+
+<br>
+
+#### (5) Why do temporary discounts lead to what is commonly referred to as the “post-promotion dip”?
+
+- **Explanation**: During a temporary promotion season, customers are attracted to purchase more units of a product compare to the actual amount they need for stockpiling. After the promotion, post-promotion dip happens as customers already purchased more units of the product as needed, leading to the reduction in the sales. 
+
+<br>
+
+#### (6) What are the pros and cons of temporary discounts? 
+
+- **Explanation**: The pros of temporary discounts attract customers who would not have purchased any products at full price by motivating them to purchase the product with more reasonable price. The cons of the temporary discounts offer discounts to customers who would have purchased the product without any discount, meaning that a company offering this discount offers unnecessary discounts for customers who did not need any discount for purchasing the product. 
+
+<br>
+
+#### (7) We want to model the impact of stockpiling on our unit sales of toilet paper. Stockpiling typically occurs when there are price discounts, and the impact on sales lasts from some period of time. As a result, we collect data on prices and sales at our store and create the regression equation below. Interpret the coefficients. Would you anticipate the coefficients of γ would be positive or negative, and why? 
+
+$$
+\text{Sales}_t = \alpha + \beta \cdot \text{Price}_t + \gamma_1 \cdot \text{Price}_{t-1} + \gamma_2 \cdot \text{Price}_{t-2} + \gamma_3 \cdot \text{Price}_{t-3} + \gamma_4 \cdot \text{Price}_{t-4}
+$$
+
+- **Explanation**: α measures the sales when all prices are zero. β measures the sales of the current week or today. All γ measure the impact of discounts during 4 weeks on the sales for this week. If there are discounts on the units of toilet paper prior to this week, the sales during this week or today is likely to decrease due to stockpiling during the promotions. The coefficients of γ would be positive because if the prices during the promotion weeks drop, the sales for this week are likely to drop, moving the same direction with the coefficients of γ.
+
+<br>
+
+#### (8) Using the same regression from the prior question, if we believe that stockpiling hurts sales for three weeks and then sales return to normal. If our hypothesis is correct, describe what the sign and significance (whether it would be significant or not) of each γ coefficient would be.
+
+- **Explanation**: If stockpiling due to promotions hurts sales for three weeks, γ for three weeks prior to this week would be positive and statistically significant whereas γ for 4 weeks prior to this week would not be significant as stockpiling hurts sales for this week only for three weeks. 
+
+<br>
+
+### 7.  Recommendation Systems 
+
+#### (1) I claim that recommendation systems like the collaborative filter help us account for unobservable heterogeneous preferences. What do I mean by that? 
+
+- **Explanation**: Unobservable heterogeneous preferences cannot accurately be analyzed but the collaborative filter helps recommend suitable products or services for users by referencing other users’ choices with similar characteristics. We cannot accurately know heterogeneous preferences for the target user but can assume other users with similar characteristics with the target user provides sufficient hints for the target user’s preferences and recommend products or services for the target user that were recommended for other similar users with similar preferences. 
+
+#### (2) Explain at least two benefits of recommendation systems to customers that we discussed in class. 
+
+- **Explanation**: First, the recommendation systems to customers can reduce search engine cost as customers do not need to search every option to find what they exactly need, which can make them overwhelmed with too many options. It also reduces time that customers have to input to find proper items, making the entire process more efficient. Second, the first benefit is actually related to this second benefit which increases customers’ satisfaction. The collaborative filter can remind users of things that they might want to purchase again or effectively find products that align with customers’ preferences, leading to the increase in their satisfaction after using them. Third, the recommendation systems allow businesses particularly for online retailers to increase product offerings while increasing larger inventories as it helps offer the subset of products for users based on their preferences, requiring niche products to satisfy more broadened range of customers. For example, Costco often reduces inventories by offering only products which can meet the preferences for average customers whereas this recommendation systems allow online retailers to increase the inventories for niche products which can attract more diverse customers and broaden their customer segmentation. 
+
+#### (3) How do recommendation systems make larger inventories more plausible for online retailers? 
+
+- **Explanation**: The recommendation systems allow businesses particularly for online retailers to increase product offerings while increasing larger inventories as it helps offer the subset of products for users based on their preferences, requiring niche products to satisfy more broadened range of customers. For example, Costco often reduces inventories by offering only products which can meet the preferences for average customers whereas this recommendation systems allow online retailers to increase the inventories for niche products which can attract more diverse customers and broaden their customer segmentation. 
+
+#### (4) What is the key trade-off the collaborative filter makes versus more sophisticated models? 
+
+- **Explanation**: The collaborative filter trade-off the accuracy in exchange for the speed. The accuracy is higher in sophisticated models than the collaborative filter whereas the collaborative filter achieves higher speed which is necessary sometimes for online retailers to motivate customers to purchase recommended products. 
+
+#### (5) A major limitation of the collaborative filter is that it implicitly treats a product not purchased by a customer as unknown to them, and something to potentially be recommended. Why might this implicit assumption be wrong? 
+
+- **Explanation**: The implicit assumption is the collaborative filter implicitly treats products not purchased by customers as being unaware to them and something invaluable to be recommended. However, in reality, customers often know their preferences on whether to dislike a product before deciding to purchase it. If any product with lower demand and not purchased by customers, it would mean that customers dislike the product and decide not to purchase it. 
+
+#### (6) What is algorithmic bias? 
+
+- **Explanation**: Algorithmic bias generates outcomes which disadvantage specific protected lines, such as gender, age, religion, and other socioeconomic status. 
+
+#### (7) One-way algorithmic bias can happen is if human inputs are used to train the model. Explain how algorithmic bias might occur in this case. 
+
+- **Explanation**:  If any model is trained by human inputs, it is likely to learn about human behaviors or thought towards protected lines, such as gender, age, disability, race and other socioeconomic factors. For example, if the model is trained by user-generated texts and images in SNSs like Instagram, Facebook and Twitter where users’ biased opinions towards protected lines were already reflected, there is high possibility that this model is biased towards the same lines.   
+
+#### (8) Algorithmic bias occurs even if the algorithm does not explicitly model protected dimensions like gender. In machine learning models where a large number of variables are used to predict an outcome (e.g., mortgage default), how might this happen? 
+
+- **Explanation**: Even if the algorithm does not explicitly include any protected dimensions as model variables such as gender, age, disability and other socioeconomic factors, algorithmic bias occurs, for example certain racial groups have shown high default rate from historical data due to some systematic disparities, for certain racial groups even if the model does not include race as one of the model variables. If included variables are correlated with this unexplicit variable such as race, the model can be biased, disadvantaging certain racial group.
 
