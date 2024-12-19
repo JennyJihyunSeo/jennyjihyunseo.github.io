@@ -82,7 +82,7 @@ title: "Cloud Fundamentals"
 
 ---
 
-To access the full analysis report and code, [click here](files/Week_1.pdf).
+**To access the full AWS Learning Summary:** [click here](files/Week_1.pdf).
 
 <br>
 
@@ -141,7 +141,7 @@ To access the full analysis report and code, [click here](files/Week_1.pdf).
 
 ---
 
-**Link to Full Analysis Report and Code**: [Download PDF](files/Week_2.pdf)
+**To access the full AWS Learning Summary:** [Download PDF](files/Week_2.pdf)
 
 <br>
 
@@ -219,7 +219,7 @@ To access the full analysis report and code, [click here](files/Week_1.pdf).
 
 ---
 
-**Link to Full Analysis Report and Code**: [Download PDF](files/Week_3.pdf)
+**To access the full AWS Learning Summary:** [Download PDF](files/Week_3.pdf)
 
 <br>
 
@@ -283,7 +283,7 @@ To access the full analysis report and code, [click here](files/Week_1.pdf).
 
 ---
 
-**Link to Full Analysis Report and Code**: [Download PDF](files/Week_4.pdf)
+**To access the full AWS Learning Summary:** [Download PDF](files/Week_4.pdf)
 
 <br>
 
@@ -344,4 +344,4 @@ To access the full analysis report and code, [click here](files/Week_1.pdf).
 
 ---
 
-**Link to Full Analysis Report and Code**: [Download PDF](files/Week_5.pdf)
+**To access the full AWS Learning Summary:** [Download PDF](files/Week_5.pdf)
