@@ -27,6 +27,10 @@ navbar:
         href: visualization1.html
       - text: "Squid Game Elimination Analysis2"
         href: visualization2.html
+    - text: "AWS"
+      menu:
+      - text: "AWS Fundamentals"
+        href: AWS.html
   right:
     - icon: fa-sharp fa-solid fa-envelope                       # fas fa-envelope
       href: contact.html

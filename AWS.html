@@ -742,7 +742,7 @@ ggplot() +
   ggtitle(&quot;How sample mean evolves as sample size increases&quot;) +
   theme(plot.title = element_text(hjust = 0.5)) +
   labs(x=&#39;Sample Size&#39;,y=&#39;Sample Mean&#39;)</code></pre>
-<p><img src="stat2_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<p><img src="AWS_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 <br></p>
 <p><br><br><br></p>
 </div>
@@ -1345,7 +1345,7 @@ library(ggplot2)</code></pre>
 ggplot(Grocery, aes(x=Condition, y=BasketScore, fill=Condition)) + 
 geom_boxplot()+
  theme(text = element_text(size = 20))</code></pre>
-<p><img src="stat2_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="AWS_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 </div>
 <div id="b-anova-test" class="section level4">
 <h4>(b) ANOVA Test</h4>
@@ -1666,7 +1666,7 @@ prices$PriceFactor &lt;- as.factor(prices$Price)
 ### Figures using price as a factor
 ggplot(prices, aes(x=PriceFactor, y=UnitSales)) + 
  geom_boxplot()</code></pre>
-<p><img src="stat2_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<p><img src="AWS_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 </div>
 <div id="ii-scatterplot-of-unit-sales-vs.-price-continuous"
 class="section level5">
@@ -1676,13 +1676,13 @@ class="section level5">
  geom_point() +
  geom_smooth(method=lm)</code></pre>
 <pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
-<p><img src="stat2_files/figure-html/unnamed-chunk-27-1.png" width="672" />
+<p><img src="AWS_files/figure-html/unnamed-chunk-27-1.png" width="672" />
 Non-linear Trend (Loess):</p>
 <pre class="r"><code>ggplot(prices, aes(x=Price, y=UnitSales)) + 
  geom_point() +
  geom_smooth(method = &quot;loess&quot;)</code></pre>
 <pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
-<p><img src="stat2_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<p><img src="AWS_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
 <p><br></p>
 </div>
 </div>
@@ -1880,13 +1880,13 @@ models. The analysis also explores conditional average treatment effects
   geom_point() +
   geom_smooth(method=lm, aes(group=TreatGroup))</code></pre>
 <pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
-<p><img src="stat2_files/figure-html/unnamed-chunk-35-1.png" width="672" />
+<p><img src="AWS_files/figure-html/unnamed-chunk-35-1.png" width="672" />
 ##### (ii) Deposits by Income and Treatment Group</p>
 <pre class="r"><code>ggplot(Savings, aes(x=Income, y=Deposits, color=TreatGroup)) + 
   geom_point() +
   geom_smooth(method=lm, aes(group=TreatGroup))</code></pre>
 <pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
-<p><img src="stat2_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+<p><img src="AWS_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
 </div>
 </div>
 <div id="b-group-comparisons-using-t-tests" class="section level4">
@@ -2323,8 +2323,16 @@ H_1: \Delta \text{NegativeReviews}_{Expedia} - \Delta
 <h3>4. Methodology &amp; Summary</h3>
 <div id="a-data-preparation-1" class="section level4">
 <h4>(a) Data Preparation</h4>
-<pre class="r"><code>library(dplyr)
-library(ggplot2)
+<pre class="r"><code>library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>library(ggplot2)
 
 setwd(&#39;C:/Users/sjh50/OneDrive/문서/UC Davis/Paul/Github/Lecture3&#39;)
 ### Load data :: This data will include data frames for all three examples
@@ -2432,7 +2440,7 @@ the average negative reviews.</p>
 ggplot(Hotels, aes(x = Month, y = NegativeReviews, color = Website)) +
   stat_summary(fun = mean, geom = &quot;line&quot;) +
   scale_x_continuous(breaks = seq(min(Hotels$Month), max(Hotels$Month), by = 1))</code></pre>
-<p><img src="stat2_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
+<p><img src="AWS_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
 <p><strong>Interpretation:</strong> Before the treatment effect (Jan -
 June), parallel trends assumption holds during the control period. This
 parallel trends assumption is validated when the differences between the
@@ -2681,7 +2689,7 @@ distraction caused by the availability of games.</p>
 ggplot(Gamification, aes(x = RunMonth, y = `OnTime?`, color = `AppUser?`)) + 
   stat_summary(fun = mean, geom = &#39;line&#39;) + 
   scale_x_continuous(breaks = seq(min(Gamification$RunMonth), max(Gamification$RunMonth), by = 1))</code></pre>
-<p><img src="stat2_files/figure-html/unnamed-chunk-49-1.png" width="672" />
+<p><img src="AWS_files/figure-html/unnamed-chunk-49-1.png" width="672" />
 <strong>Interpretation:</strong> It seems parallel trends assumption
 appears to holds. The average proportions of on-time bill payment for
 both app users and bank users not using application shows similar
@@ -2944,7 +2952,7 @@ prescriptions.</p>
 ggplot(Pharma, aes(x = Month, y = Prescrip, color = State)) +
   stat_summary(fun = mean, geom = &#39;line&#39;) +
   scale_x_continuous(breaks = seq(min(Pharma$Month), max(Pharma$Month), by = 1))</code></pre>
-<p><img src="stat2_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
+<p><img src="AWS_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
 <p><strong>Interpretation:</strong> It appears that the parallel trends
 assumption holds during the control period from Jan - May 2009 as both
 groups exhibit similar decreasing patterns. After the control period,
@@ -3291,7 +3299,7 @@ load(&#39;StaggeredDiD.Rdata&#39;)
 ggplot(DigiGame[DigiGame$MonthID&lt;=6,], aes(x = MonthID)) +
   stat_summary(aes(y = Game1), fun = mean, geom = &quot;line&quot;, color = &quot;blue&quot;) + 
   stat_summary(aes(y = Game2), fun = mean, geom = &quot;line&quot;, color = &quot;red&quot;) + stat_summary(aes(y = Game3), fun = mean, geom = &#39;line&#39;, color = &quot;green&quot;) + stat_summary(aes(y = Game4), fun = mean, geom = &#39;line&#39;, color = &#39;purple&#39;) + stat_summary(aes(y = Game5), fun = mean, geom = &#39;line&#39;, color = &quot;orange&quot;)</code></pre>
-<p><img src="stat2_files/figure-html/unnamed-chunk-57-1.png" width="672" />
+<p><img src="AWS_files/figure-html/unnamed-chunk-57-1.png" width="672" />
 - Prior to the treatment effects, Game1 ~ 5 shows similar patterns in
 average spending during the six months period proving that the parallel
 trends assumption holds. This indicates the differences among games
@@ -3314,7 +3322,7 @@ ggplot(DigiGame_MC, aes(x = MonthID)) +
   stat_summary(aes(y = Game3), fun = mean, geom = &#39;line&#39;, color = &#39;green&#39;) +
   stat_summary(aes(y = Game4), fun = mean, geom = &#39;line&#39;, color = &#39;purple&#39;) +
   stat_summary(aes(y = Game5), fun = mean, geom = &#39;line&#39;, color = &#39;orange&#39;) </code></pre>
-<p><img src="stat2_files/figure-html/unnamed-chunk-58-1.png" width="672" />
+<p><img src="AWS_files/figure-html/unnamed-chunk-58-1.png" width="672" />
 - Mean centering is necessary to remove the differences in the dependent
 values among different games during the control period to make them
 started from 0 in order to identify the true treatment staggered effects
