@@ -14,7 +14,7 @@ output:
 
 <br><br><br>
 
-## **Predicting Campaign Offer Acceptance**
+## **Customer Segmentation and Predicting Campaign Offer Acceptance**
 
 ![](https://img.shields.io/badge/Using-Python-blue)
 ![](https://img.shields.io/badge/RandomForest-red)

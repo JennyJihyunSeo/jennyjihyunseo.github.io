@@ -11,22 +11,22 @@ navbar:
   #    href: tutorials.html
     - text: "Stat/ML"
       menu: 
-      - text: "Predicting Campaign Offer Acceptance"
+      - text: "Customer Segmentation and Predicting Campaign Offer Acceptance"
         href: stat1.html
       - text: "Statistics using R" #연습용으로 추가한 것.
         href: stat2.html
     - text: "DB/SQL"
       menu: 
-      - text: "Movie Explorer"
+      - text: "Customer Personality Analysis"
         href: dbsql1.html
-      - text: "Movie Explorer2" 
-        href: dbsql2.html  # C드라이브에서 dbsql1파일을 복붙해서 dbsql2파일로 만들고 build website하면 html 파일이 생성
+  #    - text: "Movie Explorer2" 
+   #     href: dbsql2.html  # C드라이브에서 dbsql1파일을 복붙해서 dbsql2파일로 만들고 build website하면 html 파일이 생성
     - text: "Visualization"
       menu: 
       - text: "Squid Game Elimination Analysis"
         href: visualization1.html
-      - text: "Squid Game Elimination Analysis2"
-        href: visualization2.html
+   #   - text: "Squid Game Elimination Analysis2"
+   #      href: visualization2.html
     - text: "AWS"
       menu:
       - text: "AWS Fundamentals"
