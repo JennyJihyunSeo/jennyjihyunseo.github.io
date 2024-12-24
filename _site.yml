@@ -7,8 +7,8 @@ output_dir: "."
 navbar:
   title: "Jihyun (Jenny) Seo"
   left:
-    - text: "Tutorials"
-      href: tutorials.html
+  #  - text: "Tutorials"
+  #    href: tutorials.html
     - text: "Stat/ML"
       menu: 
       - text: "Predicting Campaign Offer Acceptance"
