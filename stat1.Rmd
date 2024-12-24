@@ -18,6 +18,8 @@ output:
 
 ![](https://img.shields.io/badge/Using-Python-blue)
 ![](https://img.shields.io/badge/RandomForest-red)
+![](https://img.shields.io/badge/CARTRegression-orange)
+![](https://img.shields.io/badge/K--means%20clustering-purple)
 ![](https://img.shields.io/badge/-MachineLearning-success)
 
 <br>
@@ -27,6 +29,16 @@ output:
 <br><br><br>
 
 ### 1. Figure
+
+<p align="center">
+<img src="images/feature_importance.png" style="width:80%; border:0px solid; margin-right: 20px" align="center">
+</p>
+<p align="center">
+[Fig. CART Regression features by importance]
+</p>
+
+
+<br>
 
 <p align="center">
 <img src="images/predict_houseprice.png" style="width:80%; border:0px solid; margin-right: 20px" align="center">
@@ -51,21 +63,41 @@ output:
 <br><br>
 
 ### 2. Goal
-To predict the final price of each home using 79 explanatory variables describing (almost) every aspect of residential homes in Ames, Iowa.
+Understanding customers is crucial for creating effective marketing strategies by predicting high-potential customers who are most likely to respond to marketing campaigns while optimizing limited resources. I aim to improve campaign efficiency by classifying customers into distinct spending groups and accurately predicting customer responses to the most recent marketing campaign using historical marketing campaign response data and customer demographic information. To achieve this goal, I separated data analysis into 2 different parts. First, I used CART regression and K-means clustering for customer segmentation depending on their spending on products. I analyzed customer data from the retail industry to segment customers on their spending behavior. This segmentation identifies which spending groups are more likely to respond to marketing campaigns and highlights effective marketing channels for targeting specific groups. Second, I used several machine learning models to predict customer responses to the last marketing campaign. I divided the entire dataset into a train and test dataset to evaluate each model performance and select the best-performing model based on several metrics such as accuracy, precision and recall. 
 
 <br>
 
 ### 3. Methodology & Summary
 
-  + LASSO regressions showed the best performance with a cross validation RMSE-score of 0.1121. Although there is a lot of multicollinearity among the variables, LASSO regression include feature selection; it does not select a substantial number of the available variables in its model, as it is supposed to do.
-  + The XGBoost model also performs very well with a cross validation RMSE of 0.1162.
-  + As those two algorithms are very different, averaging predictions is likely to improve the predictions. As the Lasso cross validated RMSE is better than XGBoost's CV score, I decided to weight the Lasso results double.
+#### (1) Customer Segmentation
 
+  + CART regression and K-means clustering were used to segment customers.
+  + Stepwise regression identified multicollinearity and heteroscedasticity issues, so CART regression was preferred.
+  + Final predictors included catalog purchases, income, store purchases, AnyAcceptedCmp, length, and web purchases.
+  + Customers were segmented into Low Spender, Medium Spender, High Spender, and Very High Spender. Medium Spenders exhibited the highest predicted spending.
+  + Recommendation: Target Medium and High Spenders through catalog campaigns to boost conversions.
+  
+#### (2) Classfication
+
+  + Tested machine learning models: Logistic Regression, Decision Tree, Random Forest, and KNN.
+  + Focus: Improve responder classification accuracy.
+  + Evaluation metrics: Accuracy (overall performance), F1 Score (balance of precision and recall), and AUC (distinguishing responders vs. non-responders).
+  + Observations: Class imbalance affected responder F1-scores, which were lower than non-responders.
+  + Random Forest was selected as the best predictive model due to its superior performance in Accuracy, F1 Score, and AUC metrics.
+  + While Random Forest achieved high overall scores, the F1-score for responders remained relatively low due to class imbalance.
+
+  
 <br>
 
 ### 4. Code
 
-Please click [HERE](https://nbviewer.org/github/JennyJihyunSeo/jennyjihyunseo.github.io/blob/main/files/Customer_Personality_Analysis.ipynb) for the analysis report and code.
+Please click [HERE](https://nbviewer.org/github/JennyJihyunSeo/jennyjihyunseo.github.io/blob/main/Customer_Personality_Analysis.ipynb) for the code.
+
+<br>
+
+### 5. Report 
+
+Please click [HERE](files/report_Python.pdf) for the full analysis report. 
 
 <br>
 
