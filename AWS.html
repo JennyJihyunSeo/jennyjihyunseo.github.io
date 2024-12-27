@@ -416,583 +416,1060 @@ div.tocify {
 <link rel="stylesheet" href="site_libs/academicons-1.9.1/css/academicons.min.css"/></p>
 <p><br><br><br></p>
 <p><br><br><br></p>
-<div id="cloud-fundamentals---summary" class="section level1">
-<h1>Cloud Fundamentals - Summary</h1>
+<div id="cloud-fundamentals-project" class="section level2">
+<h2>Cloud Fundamentals Project</h2>
 <p><br></p>
 <p><br><br><br></p>
-<div id="what-is-cloud-computing" class="section level2">
-<h2>1. What is Cloud Computing?</h2>
-<ul>
-<li>Cloud computing delivers computing services (e.g., servers, storage,
-databases) over the Internet on a <strong>pay-as-you-go</strong>
-basis.</li>
-<li>Benefits: Eliminates the need for physical data centers and enables
-scalability, flexibility, and cost-efficiency.</li>
-</ul>
-</div>
-<div id="cloud-computing-models" class="section level2">
-<h2>2. Cloud Computing Models</h2>
-<ul>
-<li><strong>IaaS (Infrastructure as a Service)</strong>: Provides basic
-infrastructure like servers and storage (e.g., AWS EC2).</li>
-<li><strong>PaaS (Platform as a Service)</strong>: Provides platforms
-for developers to build and deploy applications (e.g., AWS Elastic
-Beanstalk).</li>
-<li><strong>SaaS (Software as a Service)</strong>: Delivers applications
-over the Internet (e.g., Netflix, Google Workspace).</li>
-</ul>
-</div>
-<div id="cloud-deployment-models" class="section level2">
-<h2>3. Cloud Deployment Models</h2>
-<ul>
-<li><strong>Public Cloud</strong>: Accessible to multiple users;
-scalable and cost-effective.</li>
-<li><strong>Private Cloud</strong>: Dedicated to a single organization;
-ideal for security and compliance.</li>
-<li><strong>Hybrid Cloud</strong>: Combines public and private clouds
-for flexibility.</li>
-</ul>
-</div>
-<div id="key-characteristics-of-cloud-computing" class="section level2">
-<h2>4. Key Characteristics of Cloud Computing</h2>
-<ul>
-<li><strong>On-Demand Self-Service</strong>: Users provision resources
-without manual interaction.</li>
-<li><strong>Resource Pooling</strong>: Dynamic resource allocation for
-multiple users.</li>
-<li><strong>Elasticity</strong>: Scales resources up/down as
-needed.</li>
-<li><strong>Measured Service</strong>: Tracks and controls usage
-efficiently.</li>
-</ul>
-</div>
-<div id="benefits-for-businesses" class="section level2">
-<h2>5. Benefits for Businesses</h2>
-<ul>
-<li><strong>Cost Efficiency</strong>: Pay for what you use; reduced
-capital expenditure.</li>
-<li><strong>Flexibility</strong>: Adjust resources dynamically based on
-needs.</li>
-<li><strong>Collaboration</strong>: Enables global teamwork with tools
-like Google Workspace.</li>
-<li><strong>Innovation</strong>: Facilitates quick IT provisioning.</li>
-</ul>
-</div>
-<div id="virtualization" class="section level2">
-<h2>6. Virtualization</h2>
-<ul>
-<li>Converts physical resources into virtual ones (e.g., virtual
-machines).</li>
-<li>Types: Server, Storage, Network, Desktop virtualization.</li>
-<li>Benefits: Cost savings, scalability, disaster recovery.</li>
-</ul>
-</div>
-<div id="networking-and-dns" class="section level2">
-<h2>7. Networking and DNS</h2>
-<ul>
-<li>Networking enables data sharing and communication between
-devices.</li>
-<li><strong>DNS</strong>: Translates domain names to IP addresses for
-accessibility (e.g., Route 53 in AWS).</li>
-</ul>
-</div>
-<div id="software-development-lifecycle-sdlc-in-cloud"
-class="section level2">
-<h2>8. Software Development Lifecycle (SDLC) in Cloud</h2>
-<ul>
-<li>Stages: Planning → Design → Development → Testing → Deployment →
-Maintenance.</li>
-<li>Cloud engineers integrate by designing scalable, secure cloud
-architectures and automating environments.</li>
-</ul>
-</div>
-<div id="cloud-operating-systems" class="section level2">
-<h2>9. Cloud Operating Systems</h2>
-<ul>
-<li>Popular OS: <strong>Windows Server</strong> (user-friendly, hybrid
-support), <strong>Linux distributions</strong> (open-source,
-customizable).</li>
-<li>Cloud-specific features: Scalability, virtualization, isolation, and
-enhanced security.</li>
-</ul>
-</div>
-<div id="databases-in-cloud" class="section level2">
-<h2>10. Databases in Cloud</h2>
-<ul>
-<li><strong>Relational Databases</strong>: Structured (SQL-based).</li>
-<li><strong>NoSQL Databases</strong>: Flexible (e.g., key-value,
-document-based).</li>
-<li>Use CRUD operations and APIs for database interactions.</li>
-</ul>
-</div>
-<div id="ip-addresses" class="section level2">
-<h2>11. IP Addresses</h2>
-<ul>
-<li>Types: IPv4, IPv6, Static, Dynamic.</li>
-<li>Role: Enables communication between devices and cloud
-resources.</li>
-<li>AWS Elastic IPs allow dynamic reallocation for flexibility.</li>
-</ul>
-<hr />
-<p><strong>To access the full AWS Learning Summary:</strong> <a
-href="files/Week_1.pdf">click here</a>.</p>
+<div id="goals" class="section level3">
+<h3>1. Goals</h3>
+<p>This AWS Fundamentals project aimed to understand AWS services
+through hands-on experience by using AWS Management Console and
+CloudFormation templates with VS Code. After acquiring AWS certified
+Cloud Practitioner, I aspire to deepen my understanding of AWS through
+hands-on experience as I am not familiar with using cloud services while
+working in a food manufacturing industry and cloud services are not
+tangible compared to food products which makes me hard to understand the
+back-end processes occurred in AWS environments. This project helped me
+understand fundamental AWS services by manually deploying and automating
+resources. Particularly, I created a VPC manually using the AWS Console
+and configured public subnets and private subnets across different
+availability zones to understand how AWS resources connect to the
+Internet and control both inbound and outbound traffic while enhancing
+security. Furthermore, I automated this process through Infrastructure
+as Code by implementing CloudFormation templates and creating YAML files
+in VS Code. I built stacks including different AWS resources such as
+VPCs, subnets, security groups, route tables, auto scaling groups, an
+Amason S3 bucket hosting a simple static website and a relational
+database. All these hands-on activities were proceeded with AWS
+fundamental concepts which enhances my deep understanding of AWS global
+infrastructure and its applications.</p>
 <p><br></p>
-<p><br><br><br></p>
 </div>
-</div>
-<div id="git-cloud-architecture---summary" class="section level1">
-<h1>Git &amp; Cloud Architecture - Summary</h1>
+<div id="aws-global-infrastructure-review" class="section level3">
+<h3>2. AWS Global Infrastructure Review</h3>
+<p>AWS operate distinct AWS regions such as us-west-1 where
+independently isolated availability zones are designed to provide stable
+and fast services for users. Each availability zone has its own data
+centers which have redundant power, network and connectivity for fault
+tolerance to provide reliable, scalable, low latency services for users.
+CloudFront is AWS content delivery network service providing fast and
+reliable connectivity for users using AWS services around the globe by
+strategically locating Edge Locations near them. I learned the functions
+of public subnets and private subnets located within VPC. Public subnets
+connect directly to the Internet using a public route table, a router
+and an Internet Gateway (IGW). In contrast, private subnets cannot
+directly connect to the Internet for enhanced security. However, they
+can indirectly communicate with the Internet through a NAT gateway
+located in a public subnet. Within a VPC, public subnets and private
+subnets can communicate with each other using private route tables.
+Typically, outbound traffic responding to users’ requests is allowed but
+inbound traffic from users to access AWS resources within VPC is not
+allowed. Web servers handling users’ requests are located in public
+subnets while back-end databases and other business logics are located
+in private subnets to enhance security. When launching a VPC, CIDR
+Blocks are used to assign an IP address range to the VPC. CIDR notation
+specifies the IP address range and determines the number of distinct AWS
+resources which can be assigned within the VPC. There can be distinct
+VPCs within AWS whereas they are independent of each other. CIDR blocks
+enabled effective management of grouped AWS resources and subnets within
+a VPC Security groups are attached to instances and other AWS resources
+while Network Access Control Lists (NACLs) are attached to subnets to
+control both inbound and outbound traffic. Security groups are stateful,
+effectively remembering allowed traffic and applying the same rule to
+the same traffic whereas NACLs are stateless, checking every inbound and
+outbound traffic individually whenever traffic accesses subnets.<br />
+Additionally, I learned about Identity and Access Management (IAM) which
+provides credentials to users, groups and roles, enabling secure access
+to AWS resources while enhancing security management. IAM users allow
+individual users to access AWS resources while IAM groups allow groups
+including several users with similar roles to access AWS resources
+rather than controlling individual users. IAM roles are temporary
+credentials provided for applications or services to allow them to
+interact with AWS resources rather than providing permanent credentials
+which can pose security issues. Policies define permissions specifying
+whether access to AWS resources is allowed or denied. The principle of
+least privilege means that users, group or roles must be provided the
+least permissions necessary to perform their specific tasks to enhance
+security management within AWS.</p>
 <p><br></p>
-<p><br><br><br></p>
-<div id="version-control" class="section level2">
-<h2>1. Version Control</h2>
-<ul>
-<li><strong>Definition</strong>: Manages and tracks code changes over
-time.</li>
-<li><strong>Key Roles</strong>: Tracks changes, enables
-collaboration.</li>
-<li><strong>Concepts</strong>: Repository, Commit, Branch.</li>
-<li><strong>Types</strong>: Local, Centralized, Distributed (e.g.,
-Git).</li>
-</ul>
 </div>
-<div id="git" class="section level2">
-<h2>2. Git</h2>
-<ul>
-<li><strong>Definition</strong>: A distributed version control system
-for efficient project tracking.</li>
-<li><strong>Key Commands</strong>:
-<ul>
-<li><code>git init</code>: Initialize repository.</li>
-<li><code>git clone</code>: Clone remote repository.</li>
-<li><code>git add/commit</code>: Stage and commit changes.</li>
-<li><code>git branch/checkout</code>: Manage branches.</li>
-<li><code>git push/pull</code>: Sync changes with remote
-repositories.</li>
-</ul></li>
-</ul>
-</div>
-<div id="github" class="section level2">
-<h2>3. GitHub</h2>
-<ul>
-<li><strong>Definition</strong>: Web-based platform for version control
-using Git.</li>
-<li><strong>Key Features</strong>: Collaboration, hosting open/private
-projects.</li>
-<li><strong>Setup</strong>: Use SSH keys for secure access.</li>
-</ul>
-</div>
-<div id="cloud-architecture" class="section level2">
-<h2>4. Cloud Architecture</h2>
-<ul>
-<li><strong>Components</strong>: Front End (user-facing), Back End
-(servers/databases), Cloud Delivery (IaaS, PaaS, SaaS), Networking
-(connectivity).</li>
-<li><strong>Layers</strong>: Hardware, Virtualization,
-Applications/Services.</li>
-<li><strong>Principles</strong>: Scalability, Security, Reliability,
-Performance, Cost Optimization.</li>
-</ul>
-</div>
-<div id="system-design-principles" class="section level2">
-<h2>5. System Design Principles</h2>
-<ul>
-<li><strong>Focus</strong>: Scalability, Reliability, Performance,
-Maintenance, Cost.</li>
-<li><strong>Process</strong>: Analyze requirements, architecture design,
-data models, interfaces, and security.</li>
-</ul>
-</div>
-<div id="front-end-vs-back-end" class="section level2">
-<h2>6. Front End vs Back End</h2>
-<ul>
-<li><strong>Front End</strong>: User interaction via web browsers.</li>
-<li><strong>Back End</strong>: Data processing, server logic, and
-databases.</li>
-</ul>
-</div>
-<div id="vertical-vs-horizontal-scaling" class="section level2">
-<h2>7. Vertical vs Horizontal Scaling</h2>
-<ul>
-<li><strong>Vertical</strong>: Upgrading machine resources (CPU,
-RAM).</li>
-<li><strong>Horizontal</strong>: Adding servers to distribute load
-(e.g., AWS Auto-scaling).</li>
-</ul>
-</div>
-<div id="load-balancing" class="section level2">
-<h2>8. Load Balancing</h2>
-<ul>
-<li><strong>Definition</strong>: Distributes traffic across multiple
-servers.</li>
-<li><strong>Key Features</strong>: Reduces downtime, improves
-performance, scalability, health checks, session persistence.</li>
-</ul>
-</div>
-<div id="high-availability-vs-fault-tolerance" class="section level2">
-<h2>9. High Availability vs Fault Tolerance</h2>
-<ul>
-<li><strong>High Availability</strong>: Minimizes downtime with
-redundancy and failover mechanisms.</li>
-<li><strong>Fault Tolerance</strong>: Ensures uninterrupted operations
-even during failures.</li>
-</ul>
-<hr />
-<p><strong>To access the full AWS Learning Summary:</strong> <a
-href="files/Week_2.pdf">Download PDF</a></p>
+<div
+id="explaining-results-for-configuring-a-vpc-with-public-and-private-subnets"
+class="section level3">
+<h3>3. Explaining Results for configuring a VPC with public and private
+subnets</h3>
+<div id="creating-vpc" class="section level4">
+<h4>(1) Creating VPC</h4>
+<p>I created a VPC and assigned an IP address range using a CIDR block.
+I configured 2 distinct availability zones within VPC, each containing 1
+public subnet and 2 private subnets. Public subnets have a common route
+table connecting to the Internet Gateway (IGW) while private subnets
+have their own private route tables communicating with public subnets
+and other AWS resources locally. When private subnets route outbound
+traffic to the Internet, this must be routed through a NAT gateway in a
+public subnet indirectly and securely connected to the Internet while
+enhancing security. VPC endpoints can be Amazon S3 bucket and Dynamo DB,
+enabling direct connections to AWS resources within VPC without using
+the public connectivity. However, installing a NAT gateway in each
+public subnet costs a lot of money. Instead, I installed a Bastion Host
+(EC2 instance) in a public subnet, connected to an EC2 instance in a
+private subnet within the same Availability Zone (AZ) and then to
+another EC2 instance in a different Availability Zone. I also generated
+a key pair as bastion to securely connect to the Bastion server from my
+local computer and a security group for this bastion server only
+allowing inbound traffic from my own local computer. I can send inbound
+traffic to the bastion instance by using its public IPv4 address.</p>
 <p><br></p>
-<p><br><br><br></p>
 </div>
-</div>
-<div id="system-design-applications-summary" class="section level1">
-<h1>System Design Applications Summary</h1>
+<div id="ssh-access-to-a-private-subnet" class="section level4">
+<h4>(2) SSH access to a private subnet</h4>
+<p>SSH is an encrypted protocol using a key pair to securely control
+remote computers and servers effectively. I used the key pair when
+connecting to an EC2 instance in the public subnet and then SSH
+connection to another E2 instance in the private subnet within the same
+availability zone. Rather than creating another bastion host in a public
+subnet in a different availability zone, I sent a request to another EC2
+instance in the private subnet in the different availability zone. The
+public IPv4 address of my local computer must be allowed by the security
+group of the instance installed in the public subnet while using the
+bastion key pair for the public connection. In addition, the security
+group for the instance in the public subnet must be allowed by the
+security group for the private subnet within the same availability zone.
+In contrast, when connecting to another instance in the private subnet
+in the different availability zone, SSH connection using the key pair
+was not necessary. Instead, sending the request from the instance in the
+private subnet must be allowed by the security group for the counterpart
+private instance.</p>
 <p><br></p>
-<p><br><br><br></p>
-<div id="monolithic-architecture" class="section level2">
-<h2>Monolithic Architecture</h2>
-<ul>
-<li><strong>Definition</strong>: Single-tiered software tightly
-integrating UI, business logic, and data interface.</li>
-<li><strong>Advantages</strong>: Simplicity, uniformity; suitable for
-small teams and applications.</li>
-<li><strong>Disadvantages</strong>: Limited scalability, flexibility,
-and deployment challenges due to tightly coupled components.</li>
-<li><strong>Relevance</strong>: Important for legacy systems, cloud
-migration, and resource management.</li>
-</ul>
 </div>
-<div id="microservices-architecture" class="section level2">
-<h2>Microservices Architecture</h2>
-<ul>
-<li><strong>Definition</strong>: Collection of small, independent
-services; each handles specific business functionality.</li>
-<li><strong>Key Features</strong>: Independent scalability, dedicated
-databases, supports agile development.</li>
-<li><strong>Advantages</strong>: Scalability, flexibility, resilience;
-updates to one service don’t affect others.</li>
-<li><strong>Challenges</strong>: Deployment complexity; requires robust
-integration and testing.</li>
-</ul>
+<div id="automate-the-same-process-by-using-cloudformation"
+class="section level4">
+<h4>(3) Automate the same process by using CloudFormation</h4>
+<p>I learned about Infrastructure as Code and CloudFormation automating
+the entire processes of establishing AWS resources in AWS environments
+consistently using VS Code and creating YAML. Infrastructure as Code
+means installing AWS resources within AWS environments using code not
+relying on manual processes to configure resources fast and efficiently.
+CloudFormation is the most famous tool for Infrastructure as Code, which
+can reduce manual errors and generate several versions to help
+developers track the changes made. These CloudFormation templates can be
+reused, which automates the configuration processes and improves the
+efficiency. CloudFormation templates are created by JSON or YAML. First,
+I create a ‘MyVPC’ and DNS server which support AWS resources within VPC
+to communicate with other resources effectively using IP address. And
+then, I created one public subnet and 2 private subnets in each
+availability zone. When configuring the public subnet named as
+‘PublicSubnet1A’, I mapped public IP address to ensure the public access
+to the Internet. In contrast, when configuring private subnets, I did
+not map the public IP address as they are not directly connected to the
+Internet. Finally, I deployed ‘PublicSubnet1A’, ‘AppPrivateSubnet1A’ and
+‘DataPrivateSubnet1A’ in us-west-1a and then ‘PublicSubnet2B’,
+‘ppPrivateSubnet2B’ and ‘DataPrivateSubnet2B’ in the other availability
+zone in us-west-1b.</p>
+<p>Second, I defined an Internet Gateway and then attached it to the
+‘MyVPC’ to ensure public access to the public subnet in us-west-1a. I
+generated a public route table attached to the public subnet and public
+route allowing all outbound IPv4 traffic to the Internet Gateway (IGW).
+Third, before creating an EC2 instance called as Bastion Host in the
+public subnet in us-west-1a, I learned about AWS computing services such
+as Amazon EC2, AWS Lambda, AWS Elastic Beanstalk and Amazon ECS. Amazon
+EC2 has diverse instance types such as general purpose,
+compute-optimized, memory optimized and storage optimized and different
+pricing models such as on-demand instances, reserved instances and spot
+instances. On-demand instances are ideal for short-term and
+unpredictable usage as consumers are allowed to pay for what they used.
+In contrast, reserved instances offer significant discounts on long-term
+usage such as 1 to 3 commitments and are ideal for steady workloads.
+Spot instances provide cost savings by bidding on unused EC2 instances
+but they can be interrupted when prices exceed bids. AWS Lambda is a
+serverless computing, completely managed by AWS by uploading code. It
+does not need any manual management process of underlying
+infrastructure. AWS Elastic Beanstalk is a Platform as a Service for
+managing and deploying applications, managed by AWS but provides more
+flexibility for managing underlying EC2 instances. Amazon ECS manages
+docker containers and runs applications on cluster of EC2 instances.</p>
+<p>I created an EC2 instance in the PublicSubnet1A named as a
+BastionHost and used the same key pair I have created through AWS
+Management Console. I created a security group of the instance in the
+public subnet and put the IPv4 address of my local computer to SSH to
+the Bastion Host, which allows inbound traffic rule in the security
+group. Additionally, I created a private instance named as ‘App1’ in
+AppPrivateSubnet1A with the security group allowed SSH access from the
+Bastion Host in the public subnet within the same availability zone. I
+configured another private instance named as ‘App2’ in
+AppPrivateSubnet2B with the security group. I did not SSH to the App2
+instance. Instead, I made the security group to allow the ping request
+from App1 by allowing ICMP echo requests originating from App1.</p>
 </div>
-<div id="serverless-architecture" class="section level2">
-<h2>Serverless Architecture</h2>
-<ul>
-<li><strong>Definition</strong>: Event-triggered, stateless architecture
-managed by cloud providers.</li>
-<li><strong>Advantages</strong>: Auto-scaling, cost-effective, reduced
-operational overhead.</li>
-<li><strong>Use Cases</strong>: User authentication, payment processing,
-notifications.</li>
-<li><strong>Comparison with Microservices</strong>:
-<ul>
-<li>Serverless is more cost-efficient and abstracts infrastructure.</li>
-<li>Microservices offer continuous operation but require manual
-scaling.</li>
-</ul></li>
-</ul>
-</div>
-<div id="three-tier-architecture" class="section level2">
-<h2>Three-Tier Architecture</h2>
-<ul>
-<li><strong>Tiers</strong>: Presentation (UI), Application (business
-logic), Database (storage).</li>
-<li><strong>Advantages</strong>: Scalability, maintainability,
-reusability, flexibility.</li>
-</ul>
-</div>
-<div id="scaling-techniques" class="section level2">
-<h2>Scaling Techniques</h2>
-<ul>
-<li><strong>Vertical Scaling</strong>: Increase server capacity (CPU,
-memory); limited by hardware constraints.</li>
-<li><strong>Horizontal Scaling</strong>: Add more servers; managed using
-load balancers and auto-scaling groups.</li>
-</ul>
-</div>
-<div id="cloud-storage-options" class="section level2">
-<h2>Cloud Storage Options</h2>
-<ul>
-<li><strong>File Storage</strong>: Hierarchical structure, suitable for
-shared files.</li>
-<li><strong>Block Storage</strong>: High I/O performance for databases
-and VMs.</li>
-<li><strong>Object Storage</strong>: Scalable, cost-effective; ideal for
-unstructured data and backups.</li>
-</ul>
-</div>
-<div id="caching" class="section level2">
-<h2>Caching</h2>
-<ul>
-<li><strong>Purpose</strong>: Improve performance, scalability, and
-reduce costs.</li>
-<li><strong>Types</strong>: Browser caching, CDN caching, in-memory
-caching, database caching.</li>
-</ul>
-</div>
-<div id="load-balancer-vs-api-gateway" class="section level2">
-<h2>Load Balancer vs API Gateway</h2>
-<ul>
-<li><strong>Load Balancer</strong>: Distributes traffic, ensures high
-availability and performance.</li>
-<li><strong>API Gateway</strong>: Manages API requests, supports
-authentication, rate limiting, and monitoring.</li>
-</ul>
-</div>
-<div id="project-comparison" class="section level2">
-<h2>Project Comparison</h2>
-<div id="monolithic-architecture-1" class="section level3">
-<h3>Monolithic Architecture</h3>
-<ul>
-<li><strong>Advantages</strong>: Simple to develop and deploy.</li>
-<li><strong>Disadvantages</strong>: Scaling entire stack is
-resource-intensive.</li>
-</ul>
-</div>
-<div id="microservices-architecture-1" class="section level3">
-<h3>Microservices Architecture</h3>
-<ul>
-<li><strong>Advantages</strong>: Independent scalability, flexibility in
-updates.</li>
-<li><strong>Challenges</strong>: Integration and testing.</li>
-</ul>
-</div>
-<div id="serverless-architecture-1" class="section level3">
-<h3>Serverless Architecture</h3>
-<ul>
-<li><strong>Advantages</strong>: Automatic scaling, cost-efficient.</li>
-<li><strong>Challenges</strong>: Potential database bottlenecks under
-heavy load.</li>
-</ul>
-</div>
-</div>
-<div id="use-cases" class="section level2">
-<h2>Use Cases</h2>
-<ul>
-<li><strong>Monolithic</strong>: Small-scale, consistent workloads.</li>
-<li><strong>Microservices</strong>: Medium to large-scale with
-independent services.</li>
-<li><strong>Serverless</strong>: Event-driven applications with
-fluctuating demand.</li>
-</ul>
-</div>
-<div id="performance-and-cost" class="section level2">
-<h2>Performance and Cost</h2>
-<ul>
-<li><strong>Serverless</strong>: Best for variable loads,
-cost-saving.</li>
-<li><strong>Microservices</strong>: Reliable for consistent traffic, but
-higher operational costs.</li>
-<li><strong>Monolithic</strong>: Least scalable, cost-intensive for
-updates.</li>
-</ul>
-<hr />
-<p><strong>To access the full AWS Learning Summary:</strong> <a
-href="files/Week_3.pdf">Download PDF</a></p>
+<div id="code" class="section level4">
+<h4>(4) Code</h4>
+<pre class="yaml"><code># My VPC
+AWSTemplateFormatVersion: &#39;2010-09-09&#39;
+Description: &#39;CloudFormation for VPC&#39;
+Resources:
+  MyVPC:
+    Type: &#39;AWS::EC2::VPC&#39;
+    Properties:
+      CidrBlock: &#39;172.16.0.0/16&#39;
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      Tags:
+        - Key: Name
+          Value: MyVPC
+# Public Subnet in AZ 1
+  PublicSubnet1A:
+    Type: &#39;AWS::EC2::Subnet&#39;  
+    Properties:
+      VpcId: !Ref MyVPC
+      CidrBlock: &#39;172.16.1.0/24&#39;
+      AvailabilityZone: !Select [0, !GetAZs &#39;&#39;]
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: PublicSubnet1A
+# App Private Subnet in AZ 1
+  AppPrivateSubnet1A:
+    Type: &#39;AWS::EC2::Subnet&#39;
+    Properties:
+      VpcId: !Ref MyVPC
+      CidrBlock: &#39;172.16.2.0/24&#39;
+      AvailabilityZone: !Select [0, !GetAZs &#39;&#39;]
+      Tags:
+        - Key: Name
+          Value: AppPrivateSubnet1A
+# Data Private Subnet in AZ 1
+  DataPrivateSubnet1A:
+    Type: &#39;AWS::EC2::Subnet&#39;
+    Properties:
+      VpcId: !Ref MyVPC
+      CidrBlock: &#39;172.16.3.0/24&#39;
+      AvailabilityZone: !Select [0, !GetAZs &#39;&#39;]
+      Tags:
+        - Key: Name
+          Value: DataPrivateSubnet1     
+# Public subnet in AZ 2
+  PublicSubnet2B:
+    Type: &#39;AWS::EC2::Subnet&#39;
+    Properties:
+      VpcId: !Ref MyVPC
+      CidrBlock: &#39;172.16.4.0/24&#39;
+      AvailabilityZone: !Select [1, !GetAZs &#39;&#39;]
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: PublicSubnet2B
+# App Private Subnet in AZ 2
+  AppPrivateSubnet2B:
+    Type: &#39;AWS::EC2::Subnet&#39;
+    Properties:
+      VpcId: !Ref MyVPC
+      CidrBlock: &#39;172.16.5.0/24&#39;
+      AvailabilityZone: !Select [1, !GetAZs &#39;&#39;]
+      Tags:
+        - Key: Name
+          Value: AppPrivateSubnet2B
+# Data Private Subnet in AZ 2
+  DataPrivateSubnet2B:
+    Type: &#39;AWS::EC2::Subnet&#39;
+    Properties:
+      VpcId: !Ref MyVPC
+      CidrBlock: &#39;172.16.6.0/24&#39;
+      AvailabilityZone: !Select [1, !GetAZs &#39;&#39;]
+      Tags:
+        - Key: Name
+          Value: DataPrivateSubnet2B
+
+# Define the Internet Gateway (IGW)
+  InternetGateway:
+    Type: &#39;AWS::EC2::InternetGateway&#39;
+    Properties:
+      Tags:
+        - Key: Name
+          Value: MyVPC-IGW
+# Attach the IGW to VPC
+  AttachGateway:
+    Type: &#39;AWS::EC2::VPCGatewayAttachment&#39;
+    Properties:
+      VpcId: !Ref MyVPC
+      InternetGatewayId: !Ref InternetGateway          
+
+# Public Route Table
+  PublicRouteTable:
+    Type: &#39;AWS::EC2::RouteTable&#39;
+    Properties:
+      VpcId: !Ref MyVPC
+      Tags:
+        - Key: Name
+          Value: PublicRouteTable
+# Public Route
+  PublicRoute:
+    Type: &#39;AWS::EC2::Route&#39;
+    DependsOn: AttachGateway
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      DestinationCidrBlock: &#39;0.0.0.0/0&#39;
+      GatewayId: !Ref InternetGateway
+
+# Attach the public route table to the public subnet (Public Subnet Association)
+  PublicSubnet1ARouteTableAssociation:
+    Type: &#39;AWS::EC2::SubnetRouteTableAssociation&#39;
+    Properties:
+      SubnetId: !Ref PublicSubnet1A
+      RouteTableId: !Ref PublicRouteTable
+      
+# Create Bastion Host EC2
+  BastionHost:
+    Type: &#39;AWS::EC2::Instance&#39;
+    Properties:
+      InstanceType: t2.micro
+      KeyName: bastion
+      ImageId: ami-0aa117785d1c1bfe5
+      SubnetId: !Ref PublicSubnet1A
+      SecurityGroupIds:
+        - !Ref BastionSG
+      Tags:
+        - Key: Name
+          Value: BastionHost  
+
+# Bastion Security Group
+  BastionSG:
+    Type: &#39;AWS::EC2::SecurityGroup&#39;
+    Properties:
+      GroupDescription: &#39;Enable SSH access&#39;
+      VpcId: !Ref MyVPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 209.129.88.192/32
+
+ # AppInstance1A
+  AppInstance1A:
+    Type: &#39;AWS::EC2::Instance&#39;
+    Properties:
+      InstanceType: t2.micro
+      KeyName: bastion
+      ImageId: ami-0aa117785d1c1bfe5
+      SubnetId: !Ref AppPrivateSubnet1A   
+      SecurityGroupIds:
+        - !Ref AppInstance1ASG
+      Tags:
+        - Key: Name
+          Value: App1
+ # AppInstance2B
+  AppInstance2B:
+    Type: &#39;AWS::EC2::Instance&#39;
+    Properties:
+      InstanceType: t2.micro
+      ImageId: ami-0aa117785d1c1bfe5  
+      SubnetId: !Ref AppPrivateSubnet2B  
+      SecurityGroupIds:
+        - !Ref AppInstance2BSG
+      Tags:
+        - Key: Name
+          Value: App2         
+
+# Security Group of App1A
+  AppInstance1ASG:
+    Type: &#39;AWS::EC2::SecurityGroup&#39;
+    Properties:
+      GroupDescription: &#39;Allow SSH from the Bastion&#39;
+      VpcId: !Ref MyVPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          SourceSecurityGroupId: !Ref BastionSG
+
+# Security Group of App2B
+  AppInstance2BSG:
+    Type: &#39;AWS::EC2::SecurityGroup&#39;
+    Properties:
+      GroupDescription: &#39;Allow ICMP Ping from App1A&#39;
+      VpcId: !Ref MyVPC
+      SecurityGroupIngress:
+        - IpProtocol: icmp
+          FromPort: 22
+          ToPort: 22
+          SourceSecurityGroupId: !Ref AppInstance1ASG</code></pre>
 <p><br></p>
-<p><br><br><br></p>
 </div>
 </div>
-<div id="linux-and-bash-summary" class="section level1">
-<h1>Linux and Bash Summary</h1>
-<p><br></p>
-<p><br><br><br></p>
-<div id="key-points" class="section level2">
-<h2>Key Points</h2>
-<div id="ec2-and-linux-basics" class="section level3">
-<h3>EC2 and Linux Basics</h3>
-<ul>
-<li><strong>EC2</strong>: Elastic Compute Cloud, a virtual machine in
-the cloud running Linux as the operating system.</li>
-<li><strong>Linux Mastery</strong>: Crucial for cloud computing, as most
-EC2 instances operate on Linux.</li>
-</ul>
+<div
+id="explaining-results-for-iam-load-balancing-s3-bucket-rds-and-auto-scaling-group"
+class="section level3">
+<h3>4. Explaining results for IAM, Load Balancing, S3 bucket, RDS and
+Auto Scaling Group</h3>
+<div id="iam-users-iam-groups-iam-roles-and-iam-policies"
+class="section level4">
+<h4>(1) IAM users, IAM groups, IAM roles, and IAM policies</h4>
+<p>I created an IAM user and granted it ‘AdministratorAccess’ permission
+and IAM group named ‘Developergroup’ to attach this user to the group.
+IAM users are individuals which are granted permissions through IAM
+policies. IAM groups involve several IAM users who have similar roles
+and allow us to manage users effectively by providing permissions
+collectively to the users in the same group. IAM roles can be attached
+to AWS resources, such as EC2 instances, to grant permissions for
+specific actions on other resources in AWS environments. IAM policies
+define permissions to IAM users, groups and roles by specifying actions
+and effects (allow or deny) applied to specific resources. In this
+project, I created a S3 bucket custom policy which allows to get all
+objects stored in any configured S3 bucket.</p>
+<pre class="yaml"><code>AWSTemplateFormatVersion: &#39;2010-09-09&#39;
+Description: &#39;IAM Cloudformation template&#39;
+
+
+# Create IAM user 
+Resources:
+  MyIAMUser:
+    Type: &#39;AWS::IAM::User&#39;
+    Properties:
+       UserName: &#39;JennyAWSUser&#39;
+       ManagedPolicyArns:
+         - &#39;arn:aws:iam::aws:policy/AdministratorAccess&#39; # grant a permission
+  # My IAM Group
+  MyIAMGroup:
+    Type: &#39;AWS::IAM::Group&#39;
+    Properties:
+      GroupName: &#39;Developergroup&#39;
+
+  # Attach User to Group    
+  UserToGroup:
+    Type: &#39;AWS::IAM::UserToGroupAddition&#39;
+    Properties:
+      GroupName: !Ref MyIAMGroup 
+      Users:
+        - !Ref MyIAMUser
+  # IAM Role for EC2
+  MyIAMRole:
+    Type: &#39;AWS::IAM::Role&#39;
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: &#39;2012-10-17&#39;
+        Statement:
+          - Effect: &#39;Allow&#39;
+            Principal:
+              Service: [&quot;ec2.amazonaws.com&quot;] # grant IAM role for EC2 instance
+            Action: [&#39;sts:AssumeRole&#39;]  
+      ManagedPolicyArns:
+        - &#39;arn:aws:iam::aws:policy/PowerUserAccess&#39;    
+  
+  # S3 Custom Policy
+  MyIAMPolicy:
+    Type: &#39;AWS::IAM::Policy&#39;
+    Properties:
+      PolicyName: &#39;CustomPolicy&#39;
+      PolicyDocument:
+        Version: &#39;2012-10-17&#39;
+        Statement:
+          - Effect: &#39;Allow&#39;
+            Action:
+              - &quot;S3:GetObject&quot; # Get all objects in S3
+            Resource: &#39;*&#39; # Apply this policy to all S3 buckets 
+      Roles:
+        - !Ref MyIAMRole     </code></pre>
 </div>
-<div id="navigating-the-linux-file-system" class="section level3">
-<h3>Navigating the Linux File System</h3>
-<ol style="list-style-type: decimal">
-<li><strong>Commands</strong>:
-<ul>
-<li><code>pwd</code>: Prints the current working directory.</li>
-<li><code>cd ..</code>: Moves back to the parent directory.</li>
-<li><code>ls</code>: Lists directory contents (<code>-l</code> for
-details, <code>-a</code> for hidden files).</li>
-</ul></li>
-<li><strong>File System Structure</strong>:
-<ul>
-<li><code>/home</code>: User personal files.</li>
-<li><code>/etc</code>: System configurations.</li>
-<li><code>/var</code>: Logs and cache data.</li>
-<li><code>/bin</code>: Executable binaries.</li>
-<li><code>/tmp</code>: Temporary files.</li>
-</ul></li>
-</ol>
+<div id="aws-elastic-load-balancing" class="section level4">
+<h4>(2) AWS Elastic Load Balancing</h4>
+<p>Before configuring an Application Load Balancer through a
+CloudFormation template, I learned about what is Elastic Load balancing.
+ELB distributed incoming traffic across back-end target servers to
+enhance the fault tolerance of applications. If demands peaked posing a
+huge number of requests, ELB is necessary to distribute those incoming
+traffic across multiple EC2 instances to retain low-latency and high
+performance of applications. There are 2 different Elastic Load
+Balancers, such as Application Load Balancers and Network Load
+Balancers. Application Load Balancers (ALB) distribute HTTP/HTTPS
+requests across multiple EC2 instances based on host names and URL
+paths. It allows more advanced incoming traffic distribution based on
+their requests ideal for moder applications, such as containers,
+microservices and Kubernetes. Network Load Balancers (NLB) distribute
+TCP, UDP and TLS traffic to enables ultra-low latency and high
+performance necessary for real-time and high throughput applications. I
+created 2 public subnets with the public route table to connect
+instanced to the public Internet. I configured an application load
+balancer distributing incoming HTTP request from the public Internet to
+the target configured WebServerInstance1A and WebServerInstance2B in
+distinct public subnets. If incoming traffic reached out one of the web
+servers, a web page would be displayed hosted on the EC2 instance.</p>
+<pre class="yaml"><code># My VPC
+AWSTemplateFormatVersion: &#39;2010-09-09&#39;
+Description: &#39;CloudFormation for VPC&#39;
+Resources:
+  MyVPC:
+    Type: &#39;AWS::EC2::VPC&#39;
+    Properties:
+      CidrBlock: &#39;172.16.0.0/16&#39;
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      Tags:
+        - Key: Name
+          Value: MyVPC
+# Public Subnet in AZ 1
+  PublicSubnet1A:
+    Type: &#39;AWS::EC2::Subnet&#39;  
+    Properties:
+      VpcId: !Ref MyVPC
+      CidrBlock: &#39;172.16.1.0/24&#39;
+      AvailabilityZone: !Select [0, !GetAZs &#39;&#39;]
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: PublicSubnet1A
+# App Private Subnet in AZ 1
+  AppPrivateSubnet1A:
+    Type: &#39;AWS::EC2::Subnet&#39;
+    Properties:
+      VpcId: !Ref MyVPC
+      CidrBlock: &#39;172.16.2.0/24&#39;
+      AvailabilityZone: !Select [0, !GetAZs &#39;&#39;]
+      Tags:
+        - Key: Name
+          Value: AppPrivateSubnet1A
+# Data Private Subnet in AZ 1
+  DataPrivateSubnet1A:
+    Type: &#39;AWS::EC2::Subnet&#39;
+    Properties:
+      VpcId: !Ref MyVPC
+      CidrBlock: &#39;172.16.3.0/24&#39;
+      AvailabilityZone: !Select [0, !GetAZs &#39;&#39;]
+      Tags:
+        - Key: Name
+          Value: DataPrivateSubnet1     
+# Public subnet in AZ 2
+  PublicSubnet2B:
+    Type: &#39;AWS::EC2::Subnet&#39;
+    Properties:
+      VpcId: !Ref MyVPC
+      CidrBlock: &#39;172.16.4.0/24&#39;
+      AvailabilityZone: !Select [1, !GetAZs &#39;&#39;]
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: PublicSubnet2B
+# App Private Subnet in AZ 2
+  AppPrivateSubnet2B:
+    Type: &#39;AWS::EC2::Subnet&#39;
+    Properties:
+      VpcId: !Ref MyVPC
+      CidrBlock: &#39;172.16.5.0/24&#39;
+      AvailabilityZone: !Select [1, !GetAZs &#39;&#39;]
+      Tags:
+        - Key: Name
+          Value: AppPrivateSubnet2B
+# Data Private Subnet in AZ 2
+  DataPrivateSubnet2B:
+    Type: &#39;AWS::EC2::Subnet&#39;
+    Properties:
+      VpcId: !Ref MyVPC
+      CidrBlock: &#39;172.16.6.0/24&#39;
+      AvailabilityZone: !Select [1, !GetAZs &#39;&#39;]
+      Tags:
+        - Key: Name
+          Value: DataPrivateSubnet2B
+
+# Define the Internet Gateway (IGW)
+  InternetGateway:
+    Type: &#39;AWS::EC2::InternetGateway&#39;
+    Properties:
+      Tags:
+        - Key: Name
+          Value: MyVPC-IGW
+# Attach the IGW to VPC
+  AttachGateway:
+    Type: &#39;AWS::EC2::VPCGatewayAttachment&#39;
+    Properties:
+      VpcId: !Ref MyVPC
+      InternetGatewayId: !Ref InternetGateway          
+
+# Public Route Table
+  PublicRouteTable:
+    Type: &#39;AWS::EC2::RouteTable&#39;
+    Properties:
+      VpcId: !Ref MyVPC
+      Tags:
+        - Key: Name
+          Value: PublicRouteTable
+# Public Route
+  PublicRoute:
+    Type: &#39;AWS::EC2::Route&#39;
+    DependsOn: AttachGateway
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      DestinationCidrBlock: &#39;0.0.0.0/0&#39;
+      GatewayId: !Ref InternetGateway
+
+# Attach the public route table to the public subnet (Public Subnet Association)
+  PublicSubnet1ARouteTableAssociation:
+    Type: &#39;AWS::EC2::SubnetRouteTableAssociation&#39;
+    Properties:
+      SubnetId: !Ref PublicSubnet1A
+      RouteTableId: !Ref PublicRouteTable
+
+# Attach the public route table to the public subnet 2B
+  PublicSubnet2BRouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PublicSubnet2B
+      RouteTableId: !Ref PublicRouteTable
+
+
+# Application Load Balancer
+  MyLoadBalancer:
+    Type: &#39;AWS::ElasticLoadBalancingV2::LoadBalancer&#39;
+    Properties:
+      Subnets:
+        - !Ref PublicSubnet1A 
+        - !Ref PublicSubnet2B
+      SecurityGroups:
+        - !Ref WebServerSecurityGroup
+
+# Target Group for ALB
+  MyTargetGroup:
+    Type: &#39;AWS::ElasticLoadBalancingV2::TargetGroup&#39;
+    Properties:
+      VpcId: !Ref MyVPC
+      Port: 80
+      Protocol: &#39;HTTP&#39; # When receiving HTTP requests, ALB routes them to a target within the pre-defined target group
+      Targets:
+        - Id: !Ref WebServerInstance1A
+        - Id: !Ref WebServerInstance2B
+
+# Listener for ALB
+  MyListener:
+    Type: &#39;AWS::ElasticLoadBalancingV2::Listener&#39;
+    Properties:
+      DefaultActions:
+        - Type: &#39;forward&#39; # Forward incoming HTTP requests to the target group 
+          TargetGroupArn: !Ref MyTargetGroup
+      LoadBalancerArn: !Ref MyLoadBalancer # Attach load balancer
+      Port: 80
+      Protocol: &#39;HTTP&#39;
+
+# Web Server / ALB Security Group 
+  WebServerSecurityGroup:
+    Type: &#39;AWS::EC2::SecurityGroup&#39;
+    Properties:
+      GroupDescription: &#39;Enable HTTP Access&#39;
+      VpcId: !Ref MyVPC
+      SecurityGroupIngress:
+        - IpProtocol: &#39;tcp&#39;
+          FromPort: &#39;80&#39;
+          ToPort: &#39;80&#39;
+          CidrIp: &#39;0.0.0.0/0&#39;
+
+# WebServerInstance1A
+  WebServerInstance1A:
+    Type: &#39;AWS::EC2::Instance&#39;
+    Properties:
+      InstanceType: &#39;t2.micro&#39;
+      ImageId: &#39;ami-0aa117785d1c1bfe5&#39; # Find it 
+      SubnetId: !Ref PublicSubnet1A
+      SecurityGroupIds:
+        - !Ref WebServerSecurityGroup
+      Tags:
+        - Key: &#39;Name&#39;
+          Value: &#39;WebServerInstance1A&#39;
+      UserData: # Build EC2 instance 
+        Fn::Base64: !Sub | 
+          #!/bin/bash
+          yum install -y httpd
+          systemctl start httpd
+          systemctl enable httpd
+          echo &quot;Hello from My Web Server 1A&quot; &gt; /var/www/html/index.html
+
+# WebServerInstance2B
+  WebServerInstance2B:
+    Type: &#39;AWS::EC2::Instance&#39;
+    Properties:
+      InstanceType: &#39;t2.micro&#39;
+      ImageId: &#39;ami-0aa117785d1c1bfe5&#39;
+      SubnetId: !Ref PublicSubnet2B
+      SecurityGroupIds:
+        - !Ref WebServerSecurityGroup
+      Tags:
+        - Key: &#39;Name&#39;
+          Value: &#39;WebServerInstance2B&#39;
+      UserData: # Build Web server
+        Fn::Base64: !Sub | 
+          #!/bin/bash
+          yum install -y httpd
+          systemctl start httpd
+          systemctl enable httpd
+          echo &quot;Hello from My Web Server 1A&quot; &gt; /var/www/html/index.html</code></pre>
 </div>
-<div id="file-operations" class="section level3">
-<h3>File Operations</h3>
-<ul>
-<li><strong>Creating Files</strong>:
-<ul>
-<li><code>touch my-file.txt</code>: Creates or updates a file.</li>
-<li><code>nano</code> and <code>vi</code>: Text editors to edit
-files.</li>
-</ul></li>
-<li><strong>Editing in <code>vi</code></strong>:
-<ul>
-<li><code>i</code>: Insert mode.</li>
-<li><code>:wq</code>: Save and exit.</li>
-</ul></li>
-</ul>
+<div id="s3-bucket" class="section level4">
+<h4>(3) S3 bucket</h4>
+<p>An Amazon S3 bucket is a storage managed by AWS, storing files,
+documents and images ensuring scalability, availability and durability.
+It also hosts a static web page and bucket policies are attached to a S3
+bucket to manage access to the bucket. I created a S3 bucket hosting a
+static website by creating a index.html file and allowed the public
+access to the bucket. In addition, I created a bucket policy attached to
+the bucket to allow public access to the bucket to get all objects
+stored.</p>
+<pre class="yaml"><code># CloudFormationTemplateVersion
+# Description
+
+AWSTemplateFormatVersion: &#39;2010-09-09&#39;
+Description: &#39;Cloudformation template for S3 Bucket&#39;
+Resources:
+  S3Bucket:
+    Type: &#39;AWS::S3::Bucket&#39;
+    Properties:
+      BucketName: &#39;jenny-s3-bucket-yaml&#39;</code></pre>
+<pre class="yaml"><code>AWSTemplateFormatVersion: &#39;2010-09-09&#39;
+Description: &#39;S3 static file hosting&#39;
+
+Resources:
+  MyS3Bucket:
+    Type: &#39;AWS::S3::Bucket&#39;
+    Properties:
+      BucketName: &#39;my-static-website-jh&#39;
+      WebsiteConfiguration:
+        IndexDocument: &#39;index.html&#39;
+      PublicAccessBlockConfiguration:
+        RestrictPublicBuckets: false # Allow public access
+
+  BucketPolicy:
+    Type: &#39;AWS::S3::BucketPolicy&#39;
+    Properties:
+      Bucket: !Ref MyS3Bucket
+      PolicyDocument:
+        Version: &#39;2012-10-17&#39;
+        Statement:
+          - Sid: &#39;PublicReadGetObject&#39;
+            Effect: &#39;Allow&#39;
+            Principal: &#39;*&#39;
+            Action: &#39;s3:GetObject&#39;
+            Resource: !Sub &#39;arn:aws:s3:::${MyS3Bucket}/*&#39;     </code></pre>
 </div>
-<div id="aws-cli-and-access-keys" class="section level3">
-<h3>AWS CLI and Access Keys</h3>
-<ol style="list-style-type: decimal">
-<li>Configure AWS CLI with access and secret keys.</li>
-<li><code>aws s3 ls</code>: Lists S3 buckets.</li>
-</ol>
+<div id="rds" class="section level4">
+<h4>(4) RDS</h4>
+<p>There are 2 main categories of database such as relational database
+and non-relational database. Relational database stores data in an
+organized and structural way such as tables. Tables are associated with
+each other to provide more detailed information. In contrast,
+non-relational databases typically have more flexible schemas and may
+handle relationships between entities differently compared to relational
+database. Amazon RDS is relational database and their provisioning,
+configuration, patching and backups are automatically managed by AWS.
+RDS is built on the top of EC2 instances and RDS supports various
+database engines such as MySQL, PostgreSQL, MariaDB and ORACLE Database.
+RDS can be replicated in different availability zones to enhance fault
+tolerance and high availability. If primary database fails, standby
+database is automatically operated for failover. Read replicas prevent
+master database from being overloaded by separating read and write
+operations and assuming read operations instead of master database. RDS
+automatically backs up to Amazon S3.</p>
+<pre class="yaml"><code>AWSTemplateFormatVersion: &#39;2010-09-09&#39;
+Description: &#39;Create an RDS Instance with a VPC&#39;
+
+Resources: 
+  # VPC
+  MyVPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: &#39;10.0.0.0/16&#39;
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      Tags:
+        - Key: Name
+          Value: MyVPC
+
+  # Private Subnets
+  PrivateSubnet1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref MyVPC
+      CidrBlock: &#39;10.0.1.0/24&#39;
+      AvailabilityZone: !Select [0, !GetAZs &#39;&#39;]
+      Tags:
+        - Key: Name
+          Value: PrivateSubnet1
+
+  PrivateSubnet2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref MyVPC
+      CidrBlock: &#39;10.0.2.0/24&#39;
+      AvailabilityZone: !Select [1, !GetAZs &#39;&#39;]
+      Tags:
+        - Key: Name
+          Value: PrivateSubnet2
+
+  # DB Subnet Group
+  MyDBSubnetGroup:
+    Type: AWS::RDS::DBSubnetGroup
+    Properties:
+      DBSubnetGroupDescription: &#39;Subnet group for RDS&#39;
+      SubnetIds:
+        - !Ref PrivateSubnet1
+        - !Ref PrivateSubnet2
+      Tags:
+        - Key: Name
+          Value: MyDBSubnetGroup
+
+  # Security Group
+  MyDBSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: &#39;Allow MySQL access&#39;
+      VpcId: !Ref MyVPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 3306
+          ToPort: 3306
+          CidrIp: 10.0.0.0/16  # Allow connections from within the VPC
+
+  # RDS Instance
+  rdsDBInstance:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      AllocatedStorage: &#39;20&#39;
+      DBInstanceClass: &#39;db.t3.micro&#39;
+      BackupRetentionPeriod: 7
+      DBInstanceIdentifier: &#39;MyNewRDSInstance&#39;
+      Engine: &#39;mysql&#39;
+      MasterUsername: &#39;admin&#39;
+      MasterUserPassword: &#39;password&#39;
+      DBSubnetGroupName: !Ref MyDBSubnetGroup
+      VPCSecurityGroups:
+        - !Ref MyDBSecurityGroup</code></pre>
 </div>
-<div id="iam-role-and-s3-access" class="section level3">
-<h3>IAM Role and S3 Access</h3>
-<ul>
-<li>Assign IAM roles to EC2 instances for S3 access.</li>
-<li>Create S3 buckets and upload files using CLI.</li>
-</ul>
+<div id="auto-scaling-group" class="section level4">
+<h4>(5) Auto Scaling Group</h4>
+<p>An Auto Scaling Group (ASG) consists of a collection of EC2 instances
+automatically increasing or decreasing the number of instances based on
+the amount of incoming traffic and pre-defined parameters. These
+parameters defines both minimum and maximum number of instances allowed
+in the scaling group. ASG can be combined with AWS Elastic Load
+balancers to distribute incoming traffic across multiple instances by
+adjusting the number of instances to improve performance and fault
+tolerance of applications. I configured an Auto Scaling group in
+distinct public subnets with a minimum of 1 instance, a maximum of 3
+instances and a desired capacity of 2 instances. I set up a CloudWatch
+alarm to monitor CPU utilization. When CPU usage exceeds 70%, the alarm
+triggers a scale-out policy to increase 1 instance in the auto scaling
+group. This scaling process occurs every 300 seconds which ensures high
+performance applications.</p>
+<pre class="yaml"><code># My VPC
+AWSTemplateFormatVersion: &#39;2010-09-09&#39;
+Description: &#39;CloudFormation for VPC&#39;
+Resources:
+  MyVPC:
+    Type: &#39;AWS::EC2::VPC&#39;
+    Properties:
+      CidrBlock: &#39;172.16.0.0/16&#39;
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      Tags:
+        - Key: Name
+          Value: MyVPC
+# Public Subnet in AZ 1
+  PublicSubnet1A:
+    Type: &#39;AWS::EC2::Subnet&#39;  
+    Properties:
+      VpcId: !Ref MyVPC
+      CidrBlock: &#39;172.16.1.0/24&#39;
+      AvailabilityZone: !Select [0, !GetAZs &#39;&#39;]
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: PublicSubnet1A
+# App Private Subnet in AZ 1
+  AppPrivateSubnet1A:
+    Type: &#39;AWS::EC2::Subnet&#39;
+    Properties:
+      VpcId: !Ref MyVPC
+      CidrBlock: &#39;172.16.2.0/24&#39;
+      AvailabilityZone: !Select [0, !GetAZs &#39;&#39;]
+      Tags:
+        - Key: Name
+          Value: AppPrivateSubnet1A
+# Data Private Subnet in AZ 1
+  DataPrivateSubnet1A:
+    Type: &#39;AWS::EC2::Subnet&#39;
+    Properties:
+      VpcId: !Ref MyVPC
+      CidrBlock: &#39;172.16.3.0/24&#39;
+      AvailabilityZone: !Select [0, !GetAZs &#39;&#39;]
+      Tags:
+        - Key: Name
+          Value: DataPrivateSubnet1     
+# Public subnet in AZ 2
+  PublicSubnet2B:
+    Type: &#39;AWS::EC2::Subnet&#39;
+    Properties:
+      VpcId: !Ref MyVPC
+      CidrBlock: &#39;172.16.4.0/24&#39;
+      AvailabilityZone: !Select [1, !GetAZs &#39;&#39;]
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: PublicSubnet2B
+# App Private Subnet in AZ 2
+  AppPrivateSubnet2B:
+    Type: &#39;AWS::EC2::Subnet&#39;
+    Properties:
+      VpcId: !Ref MyVPC
+      CidrBlock: &#39;172.16.5.0/24&#39;
+      AvailabilityZone: !Select [1, !GetAZs &#39;&#39;]
+      Tags:
+        - Key: Name
+          Value: AppPrivateSubnet2B
+# Data Private Subnet in AZ 2
+  DataPrivateSubnet2B:
+    Type: &#39;AWS::EC2::Subnet&#39;
+    Properties:
+      VpcId: !Ref MyVPC
+      CidrBlock: &#39;172.16.6.0/24&#39;
+      AvailabilityZone: !Select [1, !GetAZs &#39;&#39;]
+      Tags:
+        - Key: Name
+          Value: DataPrivateSubnet2B
+
+# Define the Internet Gateway (IGW)
+  InternetGateway:
+    Type: &#39;AWS::EC2::InternetGateway&#39;
+    Properties:
+      Tags:
+        - Key: Name
+          Value: MyVPC-IGW
+# Attach the IGW to VPC
+  AttachGateway:
+    Type: &#39;AWS::EC2::VPCGatewayAttachment&#39;
+    Properties:
+      VpcId: !Ref MyVPC
+      InternetGatewayId: !Ref InternetGateway          
+
+# Public Route Table
+  PublicRouteTable:
+    Type: &#39;AWS::EC2::RouteTable&#39;
+    Properties:
+      VpcId: !Ref MyVPC
+      Tags:
+        - Key: Name
+          Value: PublicRouteTable
+# Public Route
+  PublicRoute:
+    Type: &#39;AWS::EC2::Route&#39;
+    DependsOn: AttachGateway
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      DestinationCidrBlock: &#39;0.0.0.0/0&#39;
+      GatewayId: !Ref InternetGateway
+
+# Attach the public route table to the public subnet (Public Subnet Association)
+  PublicSubnet1ARouteTableAssociation:
+    Type: &#39;AWS::EC2::SubnetRouteTableAssociation&#39;
+    Properties:
+      SubnetId: !Ref PublicSubnet1A
+      RouteTableId: !Ref PublicRouteTable
+
+# Attach the public route table to the public subnet 2B
+  PublicSubnet2BRouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PublicSubnet2B
+      RouteTableId: !Ref PublicRouteTable
+
+# Web Server / ALB Security Group 
+  WebServerSecurityGroup:
+    Type: &#39;AWS::EC2::SecurityGroup&#39;
+    Properties:
+      GroupDescription: &#39;Enable HTTP Access&#39;
+      VpcId: !Ref MyVPC
+      SecurityGroupIngress:
+        - IpProtocol: &#39;tcp&#39;
+          FromPort: &#39;80&#39;
+          ToPort: &#39;80&#39;
+          CidrIp: &#39;0.0.0.0/0&#39;
+
+# Launch Config
+  MyLaunchConfiguration:
+    Type: &#39;AWS::EC2::LaunchTemplate&#39;
+    Properties:
+      LaunchTemplateData:
+        ImageId: !Sub &#39;{{resolve:ssm:/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2}}&#39;
+        InstanceType: &#39;t2.micro&#39;
+        NetworkInterfaces:
+          - DeviceIndex: 0
+            SubnetId: !Ref PublicSubnet1A
+            Groups:
+              - !Ref WebServerSecurityGroup
+        UserData:
+          Fn::Base64: !Sub  |
+            #!/bin/bash
+            yum install -y httpd
+            systemctl start httpd
+            systemctl enable httpd
+            echo &quot;Hello from Auto Scaling Instance&quot; &gt; /var/www/html/index.html
+        
+# ASG
+  MyAutoScalingGroup:
+    Type: &#39;AWS::AutoScaling::AutoScalingGroup&#39;
+    Properties:
+      LaunchTemplate:
+        LaunchTemplateId: !Ref MyLaunchConfiguration
+        Version: !GetAtt MyLaunchConfiguration.LatestVersionNumber
+      MinSize: &#39;1&#39;
+      MaxSize: &#39;3&#39;
+      DesiredCapacity: &#39;2&#39;
+      VPCZoneIdentifier:
+        - !Ref PublicSubnet1A
+        - !Ref PublicSubnet2B
+      HealthCheckType: ELB
+      HealthCheckGracePeriod: 300
+      Tags:
+        - Key: Environment
+          Value: Production
+          PropagateAtLaunch: true
+
+# Alarm
+  HighCPUAlarm:
+    Type: &#39;AWS::CloudWatch::Alarm&#39;
+    Properties:
+      AlarmDescription: &#39;Alarm when CPU exceeds 70%&#39;
+      MetricName: &#39;CPUUtilization&#39;
+      Namespace: &#39;AWS/EC2&#39;
+      Statistic: Average
+      Period: &#39;300&#39;
+      EvaluationPeriods: &#39;1&#39;
+      Threshold: &#39;70&#39;
+      ComparisonOperator: GreaterThanThreshold
+      Dimensions:
+        - Name: AutoScalingGroupName
+          Value: !Ref MyAutoScalingGroup
+      AlarmActions:
+        - !Ref ScaleOutPolicy
+
+# Scale Out Policy
+  ScaleOutPolicy:
+    Type: &#39;AWS::AutoScaling::ScalingPolicy&#39;
+    Properties:
+      AutoScalingGroupName: !Ref MyAutoScalingGroup
+      PolicyType: SimpleScaling
+      ScalingAdjustment: &#39;1&#39;
+      Cooldown: &#39;300&#39;
+      AdjustmentType: ChangeInCapacity</code></pre>
 </div>
-<div id="linux-file-permissions" class="section level3">
-<h3>Linux File Permissions</h3>
-<ol style="list-style-type: decimal">
-<li><strong>Permission Format</strong>:
-<ul>
-<li>Example: <code>-rw-r--r--</code>.</li>
-<li><code>r</code> = Read, <code>w</code> = Write, <code>x</code> =
-Execute.</li>
-</ul></li>
-<li><strong>Commands</strong>:
-<ul>
-<li><code>chmod</code>: Changes file permissions.</li>
-<li>Symbolic Mode: <code>chmod g+x</code> (group execute).</li>
-<li>Numeric Mode: <code>chmod 755</code> (owner all, group/others
-read/execute).</li>
-</ul></li>
-</ol>
 </div>
-<div id="file-permission-exercises" class="section level3">
-<h3>File Permission Exercises</h3>
-<ul>
-<li>Example Tasks:
-<ul>
-<li>Make files readable by everyone: <code>chmod 444</code>.</li>
-<li>Allow owner to write: <code>chmod 644</code>.</li>
-<li>Add execute for group: <code>chmod g+x</code>.</li>
-<li>Remove write for group: <code>chmod g-w</code>.</li>
-</ul></li>
-</ul>
-<hr />
-<p><strong>To access the full AWS Learning Summary:</strong> <a
-href="files/Week_4.pdf">Download PDF</a></p>
-<p><br></p>
-<p><br><br><br></p>
-</div>
-</div>
-</div>
-<div id="aws-fundamentals" class="section level1">
-<h1>AWS Fundamentals</h1>
-<p><br></p>
-<p><br><br><br></p>
-<div id="aws-global-infrastructure" class="section level2">
-<h2>AWS Global Infrastructure</h2>
-<ul>
-<li>AWS ensures 24/7 availability and scalability globally.</li>
-<li>Components:
-<ul>
-<li><strong>Regions</strong>: Independent, geographically isolated
-networks (e.g., <code>us-east-1</code>).</li>
-<li><strong>Availability Zones (AZs)</strong>: Isolated data centers
-providing fault tolerance.</li>
-<li><strong>Local Zones</strong>: Low-latency zones for specific user
-needs.</li>
-<li><strong>Edge Locations</strong>: Cache data closer to users via
-Amazon CloudFront.</li>
-</ul></li>
-</ul>
-</div>
-<div id="public-vs.-private-subnets" class="section level2">
-<h2>Public vs. Private Subnets</h2>
-<ul>
-<li><strong>Public Subnets</strong>: Accessible via Internet Gateway,
-ideal for front-end services.</li>
-<li><strong>Private Subnets</strong>: No direct Internet access, used
-for back-end services and databases.</li>
-<li>Benefits: Enhanced security, improved performance, and simplified
-management.</li>
-</ul>
-</div>
-<div id="amazon-vpc" class="section level2">
-<h2>Amazon VPC</h2>
-<ul>
-<li><strong>VPC</strong>: Logical isolation for AWS resources.</li>
-<li>Key Components:
-<ul>
-<li><strong>CIDR Blocks</strong>: Define IP ranges.</li>
-<li><strong>Subnets</strong>: Public and private segmentation.</li>
-<li><strong>Route Tables</strong>: Direct traffic flows.</li>
-<li><strong>Internet Gateway (IGW)</strong>: Enables Internet access for
-public subnets.</li>
-<li><strong>NAT Gateway</strong>: Allows outbound traffic from private
-subnets.</li>
-<li><strong>Security Groups</strong>: Manage inbound/outbound rules
-(stateful).</li>
-<li><strong>NACLs</strong>: Subnet-level stateless traffic
-controls.</li>
-</ul></li>
-</ul>
-</div>
-<div id="aws-iam-identity-access-management" class="section level2">
-<h2>AWS IAM (Identity Access Management)</h2>
-<ul>
-<li><strong>Users, Groups, Roles</strong>: Define and manage
-access.</li>
-<li><strong>Policies</strong>: Define permissions.</li>
-<li><strong>MFA</strong>: Enhance security via multi-factor
-authentication.</li>
-<li><strong>Identity Federation</strong>: Integrates external identity
-systems.</li>
-<li>Follows <strong>least privilege principle</strong>.</li>
-</ul>
-</div>
-<div id="bastion-host-setup" class="section level2">
-<h2>Bastion Host Setup</h2>
-<ul>
-<li><strong>Bastion Host</strong>: Acts as a secure bridge for accessing
-private instances.</li>
-<li>Steps:
-<ul>
-<li>Create Bastion Host in public subnet.</li>
-<li>Assign key pairs and configure security groups.</li>
-<li>Use SSH to access private instances via the Bastion Host.</li>
-</ul></li>
-</ul>
-</div>
-<div id="key-networking-configurations" class="section level2">
-<h2>Key Networking Configurations</h2>
-<ul>
-<li><strong>Routing</strong>: Private subnets use NAT gateways for
-outbound traffic and IGWs for public subnets.</li>
-<li><strong>Ping Requests</strong>: Test connectivity between private
-instances.</li>
-</ul>
-</div>
-<div id="key-lessons" class="section level2">
-<h2>Key Lessons</h2>
-<ul>
-<li>Understand VPC setup, including CIDR, subnets, IGW, and NAT
-Gateway.</li>
-<li>Configure IAM roles and policies following security best
-practices.</li>
-<li>Use Bastion Hosts for secure private instance access.</li>
-</ul>
-<hr />
-<p><strong>To access the full AWS Learning Summary:</strong> <a
-href="files/Week_5.pdf">Download PDF</a></p>
+<div id="conclusion" class="section level3">
+<h3>5. Conclusion</h3>
+<p>Through these practical activities through AWS Management Console and
+CloudFormation templates, I could imagine the back-end processes
+interacted with a front-end web page by sending incoming traffic or
+requests. One thing that I struggled with when learning about AWS
+services for certification was imagining the entire behind-the-scenes
+process for deep understanding. This project enables not only reviewing
+fundamental concepts of AWS services but also applying the concepts to
+real scenarios through hands-on experience. Infrastructure as Code is
+the most effective way to configure AWS services effectively and
+establish consistent environments by adjusting templates while reducing
+manual errors posed by human interventions. It was a meaningful
+experience for me to configure essential AWS services by utilizing
+CloudFormation templates in person.</p>
 </div>
 </div>
 
