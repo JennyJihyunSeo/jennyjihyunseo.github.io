@@ -875,7 +875,9 @@ Resources:
 ### 5. Conclusion
 Through these practical activities through AWS Management Console and CloudFormation templates, I could imagine the back-end processes interacted with a front-end web page by sending incoming traffic or requests. One thing that I struggled with when learning about AWS services for certification was imagining the entire behind-the-scenes process for deep understanding. This project enables not only reviewing fundamental concepts of AWS services but also applying the concepts to real scenarios through hands-on experience. Infrastructure as Code is the most effective way to configure AWS services effectively and establish consistent environments by adjusting templates while reducing manual errors posed by human interventions. It was a meaningful experience for me to configure essential AWS services by utilizing CloudFormation templates in person. 
 
+<br>
+<br><br>
 
-
+Please click [HERE](files/report-AWS.pdf) for the full project report.
 
 
