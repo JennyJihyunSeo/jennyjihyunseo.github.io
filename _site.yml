@@ -13,6 +13,8 @@ navbar:
       menu: 
       - text: "Customer Segmentation and Predicting Campaign Offer Acceptance"
         href: stat1.html
+      - text: "Multiple Linear Regression: California Housing Dataset"
+        href: stat3.html
       - text: "Statistics using R" #연습용으로 추가한 것.
         href: stat2.html
     - text: "DB/SQL"
