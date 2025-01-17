@@ -14,7 +14,7 @@ output:
 
 <br><br><br>
 
-## **Customer Segmentation and Predicting Campaign Offer Acceptance**
+## **Multiple Linear Regression Model: California Housing Dataset**
 
 ![](https://img.shields.io/badge/Using-Python-blue)
 ![](https://img.shields.io/badge/OLSRegression-red)
@@ -32,11 +32,11 @@ output:
 <br>
 
 | Metrics              | Baseline Model | Final Model |
-|----------------------|------------|------------|
-| MSE                  | 0.1028     | 0.0996     | 
-| RMSE                 | 0.3206     | 0.3156     | 
-| R-squared            | 0.6781     | 0.6940     | 
-| Adjusted R-squared   | 0.6780     | 0.6988     |
+|:--------------------:|:--------------:|:-----------:|
+| MSE                  | 0.1028         | 0.0996      | 
+| RMSE                 | 0.3206         | 0.3156      | 
+| R-squared            | 0.6781         | 0.6940      | 
+| Adjusted R-squared   | 0.6780         | 0.6988      |
 
 <p align="center">
 [Table. Model Performance Comparison]
