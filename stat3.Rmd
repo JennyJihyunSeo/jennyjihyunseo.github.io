@@ -54,21 +54,21 @@ This analysis uses a multiple linear regression using California Housing dataset
 
 ### 3. Results Summary
 
-#### (1) Median Income as a Key Determinant based on the beta coefficient
+ (1) **Median Income as a Key Determinant based on the beta coefficient**
 
   + Median income is one of the most significant positive impact on housing prices, emphasizing the direct relationship between higher income levels and increased housing values. This finding aligns with the expectation that wealthier neighborhoods attract higher housing prices, making median income a crucial predictor for real estate valuation.
   
-#### (2) Geographic and Demographic Influences
+ (2) **Geographic and Demographic Influences**
 
   + Housing prices are notably higher along the southern coastlines, reflecting the desirability of living in areas with favorable climates, proximity to economic hubs, and better amenities. The concentration of population in central regions with relatively lower housing prices suggests a trade-off between affordability and location desirability.
 
-#### (3) Impact of Housing Characteristics 
+ (3) **Impact of Housing Characteristics** 
   
   + Among the housing features, the average number of rooms and bedrooms play significant roles in determining prices. The average number of rooms and bedrooms increase the median value of housing, aligned with typical real estate valuation. However, managing outliers in these variables is essential, as the presence of vacation resorts or vacant houses can distort their distributions. After addressing these outliers, the model improved in capturing the true impact of these features on housing prices.
   
-#### (4) Improved Model with Log Transformations and Interaction Terms
+ (4) **Improved Model with Log Transformations and Interaction Terms**
 
-  + Log transformations addressed skewness in the data, stabilized residual variance, and improved the model's assumptions of homoscedasticity as well as the linearity between the observed values and the predicted values particularity the log transformation with the target variable. Incorporating interaction terms further enhanced the model, resulting in better explanatory power (Adjusted R-squared increased from 67.79% to 69.88%) and reduced error metrics (RMSE decreased from 0.32 to 0.31). These improvements highlight the importance of accounting for the log-transformation of the variables and variable interactions in complex datasets.
+  + Log transformations addressed skewness in the data, stabilized residual variance, and improved the model's assumptions of homoscedasticity as well as the linearity between the observed values and the predicted values particularity the log transformation with the target variable. Incorporating interaction terms further enhanced the model, resulting in better explanatory power (Adjusted R-squared increased from 67.79% to 69.88%) and reduced error metrics (RMSE decreased from 0.32 to 0.31). These improvements highlight the importance of accounting for the log-transformation of the variables and variable interactions in complex dataset.
 
   
 <br><br>
