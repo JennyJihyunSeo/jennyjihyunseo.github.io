@@ -105,7 +105,7 @@ Utilizing ‘Customer Preference’ dataset, I created a function to identify op
 
 ### 5. Code
 
-Please click [HERE](files/HW1_Stats_code.pdf) for the code.
+Please click [HERE](files/HW1_stats_code.pdf) for the code.
 
 <br>
 
