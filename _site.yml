@@ -15,6 +15,8 @@ navbar:
         href: stat1.html
       - text: "Multiple Linear Regression: California Housing Dataset"
         href: stat3.html
+      - text: "Conjoint Analysis"
+        href: stat4.html
       - text: "Statistics using R" #연습용으로 추가한 것.
         href: stat2.html
     - text: "DB/SQL"
