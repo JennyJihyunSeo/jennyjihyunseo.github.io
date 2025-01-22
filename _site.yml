@@ -17,6 +17,8 @@ navbar:
         href: stat3.html
       - text: "Conjoint Analysis"
         href: stat4.html
+      - text: "Bootstrap and Monte Carlo Simulation"
+        href: stat5.html
       - text: "Statistics using R" #연습용으로 추가한 것.
         href: stat2.html
     - text: "DB/SQL"

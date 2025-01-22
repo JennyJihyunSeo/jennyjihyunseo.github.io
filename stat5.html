@@ -11,7 +11,7 @@
 
 
 
-<title>Stat1</title>
+<title>Stat5</title>
 
 <script src="site_libs/header-attrs-2.26/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -429,144 +429,234 @@ div.tocify {
 <p><link rel="stylesheet" href="styles.css" type="text/css">
 <link rel="stylesheet" href="site_libs/academicons-1.9.1/css/academicons.min.css"/></p>
 <p><br><br><br></p>
-<div id="customer-segmentation-and-predicting-campaign-offer-acceptance"
-class="section level2">
-<h2><strong>Customer Segmentation and Predicting Campaign Offer
-Acceptance</strong></h2>
-<p><img src="https://img.shields.io/badge/Using-Python-blue" /> <img
-src="https://img.shields.io/badge/RandomForest-red" /> <img
-src="https://img.shields.io/badge/CARTRegression-orange" /> <img
-src="https://img.shields.io/badge/K--means%20clustering-purple" /> <img
-src="https://img.shields.io/badge/-MachineLearning-success" /></p>
+<div id="bootstrap-and-monte-carlo-simulation" class="section level2">
+<h2><strong>Bootstrap and Monte Carlo Simulation</strong></h2>
+<p><img src="https://img.shields.io/badge/Using-R-blue" /> <img
+src="https://img.shields.io/badge/Residual%20Bootstrap-red" /> <img
+src="https://img.shields.io/badge/-Data%20Bootstrap-success" /> <img
+src="https://img.shields.io/badge/Monte%20Carlo%20Simulation-orange" /></p>
 <p><br></p>
 <p><br><br><br></p>
-<div id="figure" class="section level3">
-<h3>1. Figure</h3>
-<p align="center">
-<img src="images/feature_importance.png" style="width:80%; border:0px solid; margin-right: 20px" align="center">
-</p>
-<p align="center">
-[Fig. CART Regression features by importance]
-</p>
+<div id="definition-of-bootstrap-and-monte-carlo-simulation"
+class="section level3">
+<h3>1. Definition of Bootstrap and Monte Carlo Simulation</h3>
 <p><br></p>
-<p align="center">
-<img src="images/predict_houseprice.png" style="width:80%; border:0px solid; margin-right: 20px" align="center">
-</p>
-<p align="center">
-[Fig. Random Forest features by importance]
-</p>
+<p>The goal of analysis is to compute the 95% confidence intervals for
+values derived from Willingness to Pay (WTP), which is calculated by
+beta coefficients associated with product attributes such as
+Screen85Inch, Resolution 4K, and Sony. Willingness to Pay differs by
+coefficients and customers’ utility per dollar which indicates this is a
+variable without knowing the exact probability distribution. However, if
+we want to expect the range within which the real WTP values are located
+by calculating CI, there are three methods we can use such as Residuals
+Bootstrap, Data Bootstrap and Monte Carlo Simulation. Residual Bootstrap
+resamples residuals from the original model with replacement to generate
+new datasets where new coefficients will be extracted used for
+calculating WTP values. Data Bootstrap resamples the rows of the
+original dataset directly with replacement to create new datasets which
+are also used for calculating beta coefficients used for the calculation
+of WTP values. Monte Carlo Simulation does not repeat the process of
+linear regression to calculate coefficients for each new dataset but it
+uses the estimated coefficients and their variance and covariance matrix
+from the original dataset and multivariate normal distribution is used
+to generate new coefficients.</p>
+<p><br><br></p>
+</div>
+<div id="goals-and-dataset-review" class="section level3">
+<h3>2. Goals and Dataset Review</h3>
 <p><br></p>
+<p>The goal of this analysis uses three different methods for
+calculating the confidence intervals of WTP when the distribution of WTP
+is not defined. We cannot use the normal distribution to calculate the
+confidence interval of WTP unless there is an assumption that the
+distribution of WTP is a normal distribution. However, if we want to
+find a specific range where the true values of WTP are located, three
+different kinds of methods such as Residuals Bootstrap, Data Bootstrap
+and Monte Carlo Simulation are useful because they do not need to assume
+the probability distribution of the target variable. The dataset is the
+same as that we have used for the conjoin analysis. Utilizing ‘Customer
+Preference’ dataset, WTP (Willingness to Pay) is calculated based on
+beta coefficients extracted from the original dataset but these values
+differ when resampling with replacement, indicating WTP is the variable.
+All independent variables such as screen size, brand, resolution are
+dummy variables. ‘Screen 75 inch’, ‘Screen 85 inch’ are dummy variables
+with the baseline variable of ‘Screen 65 inch’. The ‘Resolution 4K = 1’
+is a dummy variable with the baseline variable of ‘Resolution 1K = 0’.
+Sony is encoded as 1 with the baseline variable of ‘Sharp = 0’.
+Resampling is executed 1000 times and the 95% confidence interval is
+calculated for each method.</p>
+<p><br><br></p>
+</div>
+<div id="outcomes" class="section level3">
+<h3>3. Outcomes</h3>
+<ol style="list-style-type: decimal">
+<li><strong>Residual Bootstrap</strong></li>
+</ol>
+<ul>
+<li>The Residual Bootstrap resamples residuals from the original
+regression model with replacement. This process repeated 1000 times. The
+new predicted y value is calculated by adding the original predicted
+value to these new resampled residuals. The new predicted y regresses on
+the original X independent variables to extract new beta coefficients
+used for calculating the WTP. The confidence interval is calculated for
+the WTP values derived from each beta coefficient associated with
+features of the linear regression, such as Screen size, Resolution and
+Brand and the quantile function is used to determine the 2.5% and 97.5%
+points of the WTP distribution for each feature. Here is the result of
+the confidence intervals for the WTP values of each beta
+coefficient.</li>
+</ul>
+<pre class="r"><code>knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+library(knitr)
+library(ggplot2)
+library(dplyr)
+library(formattable)
+
+# Residual Bootstrap Results (Example Table)
+resid_boot_table &lt;- data.frame(
+  Attribute = c(&quot;Screen85Inch&quot;, &quot;Resolution4K&quot;, &quot;Sony&quot;),
+  `Lower 95%` = c(481.54, 634.75, 209.91),
+  `Upper 95%` = c(608.22, 740.74, 318.70)
+)
+kable(resid_boot_table, caption = &quot;Residual Bootstrap Results&quot;)</code></pre>
 <table>
+<caption>Residual Bootstrap Results</caption>
 <thead>
 <tr class="header">
-<th>Model</th>
-<th>Accuracy</th>
-<th>F1 Score</th>
-<th>AUC</th>
+<th align="left">Attribute</th>
+<th align="right">Lower.95.</th>
+<th align="right">Upper.95.</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Logistic Regression</td>
-<td>0.88</td>
-<td>0.47</td>
-<td>0.87</td>
+<td align="left">Screen85Inch</td>
+<td align="right">481.54</td>
+<td align="right">608.22</td>
 </tr>
 <tr class="even">
-<td>Decision Tree</td>
-<td>0.83</td>
-<td>0.43</td>
-<td>0.67</td>
+<td align="left">Resolution4K</td>
+<td align="right">634.75</td>
+<td align="right">740.74</td>
 </tr>
 <tr class="odd">
-<td>Random Forest</td>
-<td>0.89</td>
-<td>0.51</td>
-<td>0.88</td>
-</tr>
-<tr class="even">
-<td>KNN</td>
-<td>0.87</td>
-<td>0.40</td>
-<td>0.82</td>
+<td align="left">Sony</td>
+<td align="right">209.91</td>
+<td align="right">318.70</td>
 </tr>
 </tbody>
 </table>
-<p align="center">
-[Table. Model Performance Comparison]
-</p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Data Bootstrap</strong></li>
+</ol>
+<ul>
+<li>The data bootstrap analysis resamples the rows of the original
+matrix of dataset with replacement to generate new datasets. This method
+fits a linear regression using each new dataset and calculate new beta
+coefficient estimates used for calculating WTP values. When calculating
+the confidence intervals, each confidence interval for beta coefficients
+associated with WTP is respectively calculated. Here is the result of
+the confidence intervals for the WTP values of each beta
+coefficient.</li>
+</ul>
+<pre class="r"><code># Data Bootstrap Results (Example Table)
+data_boot_table &lt;- data.frame(
+  Attribute = c(&quot;Screen85Inch&quot;, &quot;Resolution4K&quot;, &quot;Sony&quot;),
+  `Lower 95%` = c(482.22, 639.47, 210.41),
+  `Upper 95%` = c(615.03, 735.91, 312.45)
+)
+kable(data_boot_table, caption = &quot;Data Bootstrap Results&quot;)</code></pre>
+<table>
+<caption>Data Bootstrap Results</caption>
+<thead>
+<tr class="header">
+<th align="left">Attribute</th>
+<th align="right">Lower.95.</th>
+<th align="right">Upper.95.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Screen85Inch</td>
+<td align="right">482.22</td>
+<td align="right">615.03</td>
+</tr>
+<tr class="even">
+<td align="left">Resolution4K</td>
+<td align="right">639.47</td>
+<td align="right">735.91</td>
+</tr>
+<tr class="odd">
+<td align="left">Sony</td>
+<td align="right">210.41</td>
+<td align="right">312.45</td>
+</tr>
+</tbody>
+</table>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>Monte Carlo Simulation </strong></li>
+</ol>
+<ul>
+<li>The Monte Carlo Simulation does not fit a linear regression
+repeatedly to extract different beta coefficient estimates for the
+calculation of WTP. This method fits a linear regression using the
+original dataset to extract beta coefficient estimates with intercepts
+as well as a covariance matrix. New beta coefficients follow the
+multivariate normal distribution with the mean of beta coefficients
+matrix from the original dataset and the covariance matrix. This
+multivariate resamples 1000 times and extracts new beta coefficient
+estimates. Compared to bootstrap methods, the Monte Carlo Simulation
+utilizes the normal distribution to resample datasets. Here is the
+result of the confidence intervals for the WTP values of each beta
+coefficient.</li>
+</ul>
+<pre class="r"><code>  # Monte Carlo Simulation Results (Example Table)
+mc_table &lt;- data.frame(
+  Attribute = c(&quot;Screen85Inch&quot;, &quot;Resolution4K&quot;, &quot;Sony&quot;),
+  `Lower 95%` = c(485.14, 636.55, 209.14),
+  `Upper 95%` = c(614.97, 740.89, 315.46)
+)
+kable(mc_table, caption = &quot;Monte Carlo Simulation Results&quot;)</code></pre>
+<table>
+<caption>Monte Carlo Simulation Results</caption>
+<thead>
+<tr class="header">
+<th align="left">Attribute</th>
+<th align="right">Lower.95.</th>
+<th align="right">Upper.95.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Screen85Inch</td>
+<td align="right">485.14</td>
+<td align="right">614.97</td>
+</tr>
+<tr class="even">
+<td align="left">Resolution4K</td>
+<td align="right">636.55</td>
+<td align="right">740.89</td>
+</tr>
+<tr class="odd">
+<td align="left">Sony</td>
+<td align="right">209.14</td>
+<td align="right">315.46</td>
+</tr>
+</tbody>
+</table>
 <p><br><br></p>
-</div>
-<div id="goal" class="section level3">
-<h3>2. Goal</h3>
-<p>Understanding customers is crucial for creating effective marketing
-strategies by predicting high-potential customers who are most likely to
-respond to marketing campaigns while optimizing limited resources. I aim
-to improve campaign efficiency by classifying customers into distinct
-spending groups and accurately predicting customer responses to the most
-recent marketing campaign using historical marketing campaign response
-data and customer demographic information. To achieve this goal, I
-separated data analysis into 2 different parts. First, I used CART
-regression and K-means clustering for customer segmentation depending on
-their spending on products. I analyzed customer data from the retail
-industry to segment customers on their spending behavior. This
-segmentation identifies which spending groups are more likely to respond
-to marketing campaigns and highlights effective marketing channels for
-targeting specific groups. Second, I used several machine learning
-models to predict customer responses to the last marketing campaign. I
-divided the entire dataset into a train and test dataset to evaluate
-each model performance and select the best-performing model based on
-several metrics such as accuracy, precision and recall.</p>
-<p><br></p>
-</div>
-<div id="methodology-summary" class="section level3">
-<h3>3. Methodology &amp; Summary</h3>
-<div id="customer-segmentation" class="section level4">
-<h4>(1) Customer Segmentation</h4>
-<ul>
-<li>CART regression and K-means clustering were used to segment
-customers.</li>
-<li>Stepwise regression identified multicollinearity and
-heteroscedasticity issues, so CART regression was preferred.</li>
-<li>Final predictors included catalog purchases, income, store
-purchases, AnyAcceptedCmp, length, and web purchases.</li>
-<li>Customers were segmented into Low Spender, Medium Spender, High
-Spender, and Very High Spender. Medium Spenders exhibited the highest
-predicted spending.</li>
-<li>Recommendation: Target Medium and High Spenders through catalog
-campaigns to boost conversions.</li>
-</ul>
-</div>
-<div id="classfication" class="section level4">
-<h4>(2) Classfication</h4>
-<ul>
-<li>Tested machine learning models: Logistic Regression, Decision Tree,
-Random Forest, and KNN.</li>
-<li>Focus: Improve responder classification accuracy.</li>
-<li>Evaluation metrics: Accuracy (overall performance), F1 Score
-(balance of precision and recall), and AUC (distinguishing responders
-vs. non-responders).</li>
-<li>Observations: Class imbalance affected responder F1-scores, which
-were lower than non-responders.</li>
-<li>Random Forest was selected as the best predictive model due to its
-superior performance in Accuracy, F1 Score, and AUC metrics.</li>
-<li>While Random Forest achieved high overall scores, the F1-score for
-responders remained relatively low due to class imbalance.</li>
-</ul>
-<p><br></p>
-</div>
 </div>
 <div id="code" class="section level3">
 <h3>4. Code</h3>
 <p>Please click <a
-href="https://nbviewer.org/github/JennyJihyunSeo/jennyjihyunseo.github.io/blob/main/Customer_Personality_Analysis.ipynb">HERE</a>
+href="files/Bootstraping%20and%20Monte%20Carlo%20Simulation.pdf">HERE</a>
 for the code.</p>
 <p><br></p>
 </div>
 <div id="report" class="section level3">
 <h3>5. Report</h3>
-<p>Please click <a href="files/report_Python.pdf">HERE</a> for the full
-analysis report.</p>
+<p>Please click <a href="files/Report_Bootstrap.pdf">HERE</a> for the
+full analysis report.</p>
 <p><br></p>
 </div>
 </div>
