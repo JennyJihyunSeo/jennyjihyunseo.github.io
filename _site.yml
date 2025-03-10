@@ -27,10 +27,10 @@ navbar:
         href: dbsql1.html
   #    - text: "Movie Explorer2" 
    #     href: dbsql2.html  # C드라이브에서 dbsql1파일을 복붙해서 dbsql2파일로 만들고 build website하면 html 파일이 생성
-    - text: "Visualization"
-      menu: 
-      - text: "Squid Game Elimination Analysis"
-        href: visualization1.html
+ #   - text: "Visualization"
+  #    menu: 
+  #    - text: "Squid Game Elimination Analysis"
+ #       href: visualization1.html
    #   - text: "Squid Game Elimination Analysis2"
    #      href: visualization2.html
     - text: "AWS"
